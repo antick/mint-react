@@ -4,6 +4,8 @@ A boilerplate for starting a tailwind css and react js project together.
 
 ## Usage
 
+Run `npm install` to install all the dependencies.
+
 Run `npm watch:css` and `npm start` to watch the files and start the server.
 
 ### `npm build:css`
