@@ -1,7 +1,13 @@
 {
-  "name": "diary",
+  "name": "react-tailwind-boilerplate",
   "version": "0.1.0",
-  "private": true,
+  "author": {
+    "name": "Pankaj Sanam",
+    "email": "pankaj.object@gmail.com",
+    "url": "https://pankajsanam.github.io"
+  },
+  "license": "MIT License",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -11,10 +17,11 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build:css": "tailwind build src/index.css -o public/style.css",
+    "watch:css": "postcss src/index.css -o public/style.css --watch",
+    "start": "npm run watch:css & react-scripts start",
+    "build": "npm run build:css && react-scripts build",
+    "test": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +37,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^1.4.6"
   }
 }
