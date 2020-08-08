@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-slash1;
+}
+
+.left-nav {
+  background-image: linear-gradient(to bottom, #4aad9f, #4aad9f, #59c3a0, #67d2a1, #73d697);
+}
+
+.weather-widget {
+  background-image: linear-gradient(to right bottom, #c857a6, #d24a92, #d83e7c, #da3465, #d82f4d);
+}
+
+.wod-widget {
+  background-image: linear-gradient(to right bottom, #1ec7af, #1ec7af, #16b7a0, #1bb59f, #17bfa7);
+}
+
+.today-event-widget {
+  background-image: linear-gradient(to right bottom, #ffffff, #ffffff, #ffffff, #fffefe, #ffffff);
+}
+
+svg.link {
+  @apply w-8 h-8 cursor-pointer;
+}
+
+svg.link:hover {
+  @apply text-teal-600;
+}
+
+svg.nav-link {
+  @apply w-10 h-10 text-white cursor-pointer;
+}
+
+svg.nav-link:hover {
+  @apply text-gray-800;
+}
+
+li > ul {
+  transform: translateX(100%) scale(0);
+}
+
+li:hover > ul {
+  transform: translateX(101%) scale(1);
+}
+
+li > button svg {
+  transform: rotate(-90deg);
+}
+
+li:hover > button svg {
+  transform: rotate(-270deg);
+}
+
+.group:hover .group-hover\:scale-100 {
+  transform: scale(1);
+}
+
+.group:hover .group-hover\:-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.scale-0 {
+  transform: scale(0);
+}
+
+.min-w-32 {
+  min-width: 8rem;
+}
+
+/* Checkbox */
+input:checked + svg {
+  display: block;
+}

@@ -383,7 +383,6 @@ pre {
 button {
   background-color: transparent;
   background-image: none;
-  padding: 0;
 }
 
 /**
@@ -638,9 +637,6 @@ video {
     padding-right: 2rem;
     padding-left: 2rem;
   }
-}
-
-body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .space-y-0 > :not(template) ~ :not(template){
@@ -1187,6 +1183,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   --divide-opacity: 1;
   border-color: #f7fafc;
   border-color: rgba(247, 250, 252, var(--divide-opacity));
+}
+
+.divide-gray-150 > :not(template) ~ :not(template){
+  --divide-opacity: 1;
+  border-color: #f5f6f8;
+  border-color: rgba(245, 246, 248, var(--divide-opacity));
 }
 
 .divide-gray-200 > :not(template) ~ :not(template){
@@ -1839,6 +1841,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   background-color: rgba(247, 250, 252, var(--bg-opacity));
 }
 
+.bg-gray-150{
+  --bg-opacity: 1;
+  background-color: #f5f6f8;
+  background-color: rgba(245, 246, 248, var(--bg-opacity));
+}
+
 .bg-gray-200{
   --bg-opacity: 1;
   background-color: #edf2f7;
@@ -2403,6 +2411,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   --bg-opacity: 1;
   background-color: #f7fafc;
   background-color: rgba(247, 250, 252, var(--bg-opacity));
+}
+
+.hover\:bg-gray-150:hover{
+  --bg-opacity: 1;
+  background-color: #f5f6f8;
+  background-color: rgba(245, 246, 248, var(--bg-opacity));
 }
 
 .hover\:bg-gray-200:hover{
@@ -2971,6 +2985,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   background-color: rgba(247, 250, 252, var(--bg-opacity));
 }
 
+.focus\:bg-gray-150:focus{
+  --bg-opacity: 1;
+  background-color: #f5f6f8;
+  background-color: rgba(245, 246, 248, var(--bg-opacity));
+}
+
 .focus\:bg-gray-200:focus{
   --bg-opacity: 1;
   background-color: #edf2f7;
@@ -3535,6 +3555,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   --bg-opacity: 1;
   background-color: #f7fafc;
   background-color: rgba(247, 250, 252, var(--bg-opacity));
+}
+
+.active\:bg-gray-150:active{
+  --bg-opacity: 1;
+  background-color: #f5f6f8;
+  background-color: rgba(245, 246, 248, var(--bg-opacity));
 }
 
 .active\:bg-gray-200:active{
@@ -4243,6 +4269,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   border-color: rgba(247, 250, 252, var(--border-opacity));
 }
 
+.border-gray-150{
+  --border-opacity: 1;
+  border-color: #f5f6f8;
+  border-color: rgba(245, 246, 248, var(--border-opacity));
+}
+
 .border-gray-200{
   --border-opacity: 1;
   border-color: #edf2f7;
@@ -4809,6 +4841,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   border-color: rgba(247, 250, 252, var(--border-opacity));
 }
 
+.hover\:border-gray-150:hover{
+  --border-opacity: 1;
+  border-color: #f5f6f8;
+  border-color: rgba(245, 246, 248, var(--border-opacity));
+}
+
 .hover\:border-gray-200:hover{
   --border-opacity: 1;
   border-color: #edf2f7;
@@ -5373,6 +5411,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   --border-opacity: 1;
   border-color: #f7fafc;
   border-color: rgba(247, 250, 252, var(--border-opacity));
+}
+
+.focus\:border-gray-150:focus{
+  --border-opacity: 1;
+  border-color: #f5f6f8;
+  border-color: rgba(245, 246, 248, var(--border-opacity));
 }
 
 .focus\:border-gray-200:focus{
@@ -8437,6 +8481,42 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   -webkit-overflow-scrolling: auto;
 }
 
+.overscroll-auto{
+  overscroll-behavior: auto;
+}
+
+.overscroll-contain{
+  overscroll-behavior: contain;
+}
+
+.overscroll-none{
+  overscroll-behavior: none;
+}
+
+.overscroll-y-auto{
+  overscroll-behavior-y: auto;
+}
+
+.overscroll-y-contain{
+  overscroll-behavior-y: contain;
+}
+
+.overscroll-y-none{
+  overscroll-behavior-y: none;
+}
+
+.overscroll-x-auto{
+  overscroll-behavior-x: auto;
+}
+
+.overscroll-x-contain{
+  overscroll-behavior-x: contain;
+}
+
+.overscroll-x-none{
+  overscroll-behavior-x: none;
+}
+
 .p-0{
   padding: 0;
 }
@@ -9033,6 +9113,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   color: rgba(247, 250, 252, var(--placeholder-opacity));
 }
 
+.placeholder-gray-150::placeholder{
+  --placeholder-opacity: 1;
+  color: #f5f6f8;
+  color: rgba(245, 246, 248, var(--placeholder-opacity));
+}
+
 .placeholder-gray-200::placeholder{
   --placeholder-opacity: 1;
   color: #edf2f7;
@@ -9597,6 +9683,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   --placeholder-opacity: 1;
   color: #f7fafc;
   color: rgba(247, 250, 252, var(--placeholder-opacity));
+}
+
+.focus\:placeholder-gray-150:focus::placeholder{
+  --placeholder-opacity: 1;
+  color: #f5f6f8;
+  color: rgba(245, 246, 248, var(--placeholder-opacity));
 }
 
 .focus\:placeholder-gray-200:focus::placeholder{
@@ -10479,6 +10571,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   color: rgba(247, 250, 252, var(--text-opacity));
 }
 
+.text-gray-150{
+  --text-opacity: 1;
+  color: #f5f6f8;
+  color: rgba(245, 246, 248, var(--text-opacity));
+}
+
 .text-gray-200{
   --text-opacity: 1;
   color: #edf2f7;
@@ -11045,6 +11143,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   color: rgba(247, 250, 252, var(--text-opacity));
 }
 
+.hover\:text-gray-150:hover{
+  --text-opacity: 1;
+  color: #f5f6f8;
+  color: rgba(245, 246, 248, var(--text-opacity));
+}
+
 .hover\:text-gray-200:hover{
   --text-opacity: 1;
   color: #edf2f7;
@@ -11609,6 +11713,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   --text-opacity: 1;
   color: #f7fafc;
   color: rgba(247, 250, 252, var(--text-opacity));
+}
+
+.focus\:text-gray-150:focus{
+  --text-opacity: 1;
+  color: #f5f6f8;
+  color: rgba(245, 246, 248, var(--text-opacity));
 }
 
 .focus\:text-gray-200:focus{
@@ -13694,6 +13804,136 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   --transform-scale-y: 1.5;
 }
 
+.group:hover .group-hover\:scale-0{
+  --transform-scale-x: 0;
+  --transform-scale-y: 0;
+}
+
+.group:hover .group-hover\:scale-50{
+  --transform-scale-x: .5;
+  --transform-scale-y: .5;
+}
+
+.group:hover .group-hover\:scale-75{
+  --transform-scale-x: .75;
+  --transform-scale-y: .75;
+}
+
+.group:hover .group-hover\:scale-90{
+  --transform-scale-x: .9;
+  --transform-scale-y: .9;
+}
+
+.group:hover .group-hover\:scale-95{
+  --transform-scale-x: .95;
+  --transform-scale-y: .95;
+}
+
+.group:hover .group-hover\:scale-100{
+  --transform-scale-x: 1;
+  --transform-scale-y: 1;
+}
+
+.group:hover .group-hover\:scale-105{
+  --transform-scale-x: 1.05;
+  --transform-scale-y: 1.05;
+}
+
+.group:hover .group-hover\:scale-110{
+  --transform-scale-x: 1.1;
+  --transform-scale-y: 1.1;
+}
+
+.group:hover .group-hover\:scale-125{
+  --transform-scale-x: 1.25;
+  --transform-scale-y: 1.25;
+}
+
+.group:hover .group-hover\:scale-150{
+  --transform-scale-x: 1.5;
+  --transform-scale-y: 1.5;
+}
+
+.group:hover .group-hover\:scale-x-0{
+  --transform-scale-x: 0;
+}
+
+.group:hover .group-hover\:scale-x-50{
+  --transform-scale-x: .5;
+}
+
+.group:hover .group-hover\:scale-x-75{
+  --transform-scale-x: .75;
+}
+
+.group:hover .group-hover\:scale-x-90{
+  --transform-scale-x: .9;
+}
+
+.group:hover .group-hover\:scale-x-95{
+  --transform-scale-x: .95;
+}
+
+.group:hover .group-hover\:scale-x-100{
+  --transform-scale-x: 1;
+}
+
+.group:hover .group-hover\:scale-x-105{
+  --transform-scale-x: 1.05;
+}
+
+.group:hover .group-hover\:scale-x-110{
+  --transform-scale-x: 1.1;
+}
+
+.group:hover .group-hover\:scale-x-125{
+  --transform-scale-x: 1.25;
+}
+
+.group:hover .group-hover\:scale-x-150{
+  --transform-scale-x: 1.5;
+}
+
+.group:hover .group-hover\:scale-y-0{
+  --transform-scale-y: 0;
+}
+
+.group:hover .group-hover\:scale-y-50{
+  --transform-scale-y: .5;
+}
+
+.group:hover .group-hover\:scale-y-75{
+  --transform-scale-y: .75;
+}
+
+.group:hover .group-hover\:scale-y-90{
+  --transform-scale-y: .9;
+}
+
+.group:hover .group-hover\:scale-y-95{
+  --transform-scale-y: .95;
+}
+
+.group:hover .group-hover\:scale-y-100{
+  --transform-scale-y: 1;
+}
+
+.group:hover .group-hover\:scale-y-105{
+  --transform-scale-y: 1.05;
+}
+
+.group:hover .group-hover\:scale-y-110{
+  --transform-scale-y: 1.1;
+}
+
+.group:hover .group-hover\:scale-y-125{
+  --transform-scale-y: 1.25;
+}
+
+.group:hover .group-hover\:scale-y-150{
+  --transform-scale-y: 1.5;
+}
+
 .rotate-0{
   --transform-rotate: 0;
 }
@@ -13775,6 +14015,34 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
 }
 
 .focus\:-rotate-45:focus{
+  --transform-rotate: -45deg;
+}
+
+.group:hover .group-hover\:rotate-0{
+  --transform-rotate: 0;
+}
+
+.group:hover .group-hover\:rotate-45{
+  --transform-rotate: 45deg;
+}
+
+.group:hover .group-hover\:rotate-90{
+  --transform-rotate: 90deg;
+}
+
+.group:hover .group-hover\:rotate-180{
+  --transform-rotate: 180deg;
+}
+
+.group:hover .group-hover\:-rotate-180{
+  --transform-rotate: -180deg;
+}
+
+.group:hover .group-hover\:-rotate-90{
+  --transform-rotate: -90deg;
+}
+
+.group:hover .group-hover\:-rotate-45{
   --transform-rotate: -45deg;
 }
 
@@ -15038,7 +15306,212 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   transition-delay: 1000ms;
 }
 
+@keyframes spin{
+  from{
+    transform: rotate(0deg);
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ping{
+  0%{
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  75%, 100%{
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse{
+  0%, 100%{
+    opacity: 1;
+  }
+
+  50%{
+    opacity: .5;
+  }
+}
+
+@keyframes bounce{
+  0%, 100%{
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
+  }
+
+  50%{
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
+  }
+}
+
+.animate-none{
+  animation: none;
+}
+
+.animate-spin{
+  animation: spin 1s linear infinite;
+}
+
+.animate-ping{
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse{
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-bounce{
+  animation: bounce 1s infinite;
+}
+
+body {
+  font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.left-nav {
+  background-image: linear-gradient(to bottom, #4aad9f, #4aad9f, #59c3a0, #67d2a1, #73d697);
+}
+
+.weather-widget {
+  background-image: linear-gradient(to right bottom, #c857a6, #d24a92, #d83e7c, #da3465, #d82f4d);
+}
+
+.wod-widget {
+  background-image: linear-gradient(to right bottom, #1ec7af, #1ec7af, #16b7a0, #1bb59f, #17bfa7);
+}
+
+.today-event-widget {
+  background-image: linear-gradient(to right bottom, #ffffff, #ffffff, #ffffff, #fffefe, #ffffff);
+}
+
+svg.link {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+svg.link:hover {
+  --text-opacity: 1;
+  color: #319795;
+  color: rgba(49, 151, 149, var(--text-opacity));
+}
+
+svg.nav-link {
+  width: 2.5rem;
+  height: 2.5rem;
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  cursor: pointer;
+}
+
+svg.nav-link:hover {
+  --text-opacity: 1;
+  color: #2d3748;
+  color: rgba(45, 55, 72, var(--text-opacity));
+}
+
+li > ul {
+  transform: translateX(100%) scale(0);
+}
+
+li:hover > ul {
+  transform: translateX(101%) scale(1);
+}
+
+li > button svg {
+  transform: rotate(-90deg);
+}
+
+li:hover > button svg {
+  transform: rotate(-270deg);
+}
+
+.group:hover .group-hover\:scale-100 {
+  transform: scale(1);
+}
+
+.group:hover .group-hover\:-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.scale-0 {
+  transform: scale(0);
+}
+
+.min-w-32 {
+  min-width: 8rem;
+}
+
+/* Checkbox */
+
+input:checked + svg {
+  display: block;
+}
+
 @media (min-width: 476px){
+  .xs\:container{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  @media (min-width: 476px){
+    .xs\:container{
+      max-width: 476px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 640px){
+    .xs\:container{
+      max-width: 640px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 768px){
+    .xs\:container{
+      max-width: 768px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px){
+    .xs\:container{
+      max-width: 1024px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1280px){
+    .xs\:container{
+      max-width: 1280px;
+      padding-right: 5rem;
+      padding-left: 5rem;
+    }
+  }
+
+  @media (min-width: 1440px){
+    .xs\:container{
+      max-width: 1440px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
   .xs\:space-y-0 > :not(template) ~ :not(template){
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -15583,6 +16056,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --divide-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--divide-opacity));
+  }
+
+  .xs\:divide-gray-150 > :not(template) ~ :not(template){
+    --divide-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--divide-opacity));
   }
 
   .xs\:divide-gray-200 > :not(template) ~ :not(template){
@@ -16235,6 +16714,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .xs\:bg-gray-150{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .xs\:bg-gray-200{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -16799,6 +17284,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .xs\:hover\:bg-gray-150:hover{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .xs\:hover\:bg-gray-200:hover{
@@ -17367,6 +17858,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .xs\:focus\:bg-gray-150:focus{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .xs\:focus\:bg-gray-200:focus{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -17931,6 +18428,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .xs\:active\:bg-gray-150:active{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .xs\:active\:bg-gray-200:active{
@@ -18639,6 +19142,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .xs\:border-gray-150{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .xs\:border-gray-200{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -19205,6 +19714,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .xs\:hover\:border-gray-150:hover{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .xs\:hover\:border-gray-200:hover{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -19769,6 +20284,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --border-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--border-opacity));
+  }
+
+  .xs\:focus\:border-gray-150:focus{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
   }
 
   .xs\:focus\:border-gray-200:focus{
@@ -22833,6 +23354,42 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     -webkit-overflow-scrolling: auto;
   }
 
+  .xs\:overscroll-auto{
+    overscroll-behavior: auto;
+  }
+
+  .xs\:overscroll-contain{
+    overscroll-behavior: contain;
+  }
+
+  .xs\:overscroll-none{
+    overscroll-behavior: none;
+  }
+
+  .xs\:overscroll-y-auto{
+    overscroll-behavior-y: auto;
+  }
+
+  .xs\:overscroll-y-contain{
+    overscroll-behavior-y: contain;
+  }
+
+  .xs\:overscroll-y-none{
+    overscroll-behavior-y: none;
+  }
+
+  .xs\:overscroll-x-auto{
+    overscroll-behavior-x: auto;
+  }
+
+  .xs\:overscroll-x-contain{
+    overscroll-behavior-x: contain;
+  }
+
+  .xs\:overscroll-x-none{
+    overscroll-behavior-x: none;
+  }
+
   .xs\:p-0{
     padding: 0;
   }
@@ -23429,6 +23986,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--placeholder-opacity));
   }
 
+  .xs\:placeholder-gray-150::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
+  }
+
   .xs\:placeholder-gray-200::placeholder{
     --placeholder-opacity: 1;
     color: #edf2f7;
@@ -23993,6 +24556,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --placeholder-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--placeholder-opacity));
+  }
+
+  .xs\:focus\:placeholder-gray-150:focus::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
   }
 
   .xs\:focus\:placeholder-gray-200:focus::placeholder{
@@ -24875,6 +25444,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .xs\:text-gray-150{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .xs\:text-gray-200{
     --text-opacity: 1;
     color: #edf2f7;
@@ -25441,6 +26016,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .xs\:hover\:text-gray-150:hover{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .xs\:hover\:text-gray-200:hover{
     --text-opacity: 1;
     color: #edf2f7;
@@ -26005,6 +26586,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --text-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--text-opacity));
+  }
+
+  .xs\:focus\:text-gray-150:focus{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
   }
 
   .xs\:focus\:text-gray-200:focus{
@@ -28090,6 +28677,136 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --transform-scale-y: 1.5;
   }
 
+  .group:hover .xs\:group-hover\:scale-0{
+    --transform-scale-x: 0;
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .xs\:group-hover\:scale-50{
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .xs\:group-hover\:scale-75{
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .xs\:group-hover\:scale-90{
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .xs\:group-hover\:scale-95{
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .xs\:group-hover\:scale-100{
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .xs\:group-hover\:scale-105{
+    --transform-scale-x: 1.05;
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .xs\:group-hover\:scale-110{
+    --transform-scale-x: 1.1;
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .xs\:group-hover\:scale-125{
+    --transform-scale-x: 1.25;
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .xs\:group-hover\:scale-150{
+    --transform-scale-x: 1.5;
+    --transform-scale-y: 1.5;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-0{
+    --transform-scale-x: 0;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-50{
+    --transform-scale-x: .5;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-75{
+    --transform-scale-x: .75;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-90{
+    --transform-scale-x: .9;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-95{
+    --transform-scale-x: .95;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-100{
+    --transform-scale-x: 1;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-105{
+    --transform-scale-x: 1.05;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-110{
+    --transform-scale-x: 1.1;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-125{
+    --transform-scale-x: 1.25;
+  }
+
+  .group:hover .xs\:group-hover\:scale-x-150{
+    --transform-scale-x: 1.5;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-0{
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-50{
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-75{
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-90{
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-95{
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-100{
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-105{
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-110{
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-125{
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .xs\:group-hover\:scale-y-150{
+    --transform-scale-y: 1.5;
+  }
+
   .xs\:rotate-0{
     --transform-rotate: 0;
   }
@@ -28171,6 +28888,34 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   }
 
   .xs\:focus\:-rotate-45:focus{
+    --transform-rotate: -45deg;
+  }
+
+  .group:hover .xs\:group-hover\:rotate-0{
+    --transform-rotate: 0;
+  }
+
+  .group:hover .xs\:group-hover\:rotate-45{
+    --transform-rotate: 45deg;
+  }
+
+  .group:hover .xs\:group-hover\:rotate-90{
+    --transform-rotate: 90deg;
+  }
+
+  .group:hover .xs\:group-hover\:rotate-180{
+    --transform-rotate: 180deg;
+  }
+
+  .group:hover .xs\:group-hover\:-rotate-180{
+    --transform-rotate: -180deg;
+  }
+
+  .group:hover .xs\:group-hover\:-rotate-90{
+    --transform-rotate: -90deg;
+  }
+
+  .group:hover .xs\:group-hover\:-rotate-45{
     --transform-rotate: -45deg;
   }
 
@@ -29433,9 +30178,85 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   .xs\:delay-1000{
     transition-delay: 1000ms;
   }
+
+  .xs\:animate-none{
+    animation: none;
+  }
+
+  .xs\:animate-spin{
+    animation: spin 1s linear infinite;
+  }
+
+  .xs\:animate-ping{
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .xs\:animate-pulse{
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .xs\:animate-bounce{
+    animation: bounce 1s infinite;
+  }
 }
 
 @media (min-width: 640px){
+  .sm\:container{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  @media (min-width: 476px){
+    .sm\:container{
+      max-width: 476px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 640px){
+    .sm\:container{
+      max-width: 640px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 768px){
+    .sm\:container{
+      max-width: 768px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px){
+    .sm\:container{
+      max-width: 1024px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1280px){
+    .sm\:container{
+      max-width: 1280px;
+      padding-right: 5rem;
+      padding-left: 5rem;
+    }
+  }
+
+  @media (min-width: 1440px){
+    .sm\:container{
+      max-width: 1440px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
   .sm\:space-y-0 > :not(template) ~ :not(template){
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -29980,6 +30801,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --divide-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--divide-opacity));
+  }
+
+  .sm\:divide-gray-150 > :not(template) ~ :not(template){
+    --divide-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--divide-opacity));
   }
 
   .sm\:divide-gray-200 > :not(template) ~ :not(template){
@@ -30632,6 +31459,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .sm\:bg-gray-150{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .sm\:bg-gray-200{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -31196,6 +32029,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .sm\:hover\:bg-gray-150:hover{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .sm\:hover\:bg-gray-200:hover{
@@ -31764,6 +32603,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .sm\:focus\:bg-gray-150:focus{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .sm\:focus\:bg-gray-200:focus{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -32328,6 +33173,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .sm\:active\:bg-gray-150:active{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .sm\:active\:bg-gray-200:active{
@@ -33036,6 +33887,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .sm\:border-gray-150{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .sm\:border-gray-200{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -33602,6 +34459,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .sm\:hover\:border-gray-150:hover{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .sm\:hover\:border-gray-200:hover{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -34166,6 +35029,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --border-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--border-opacity));
+  }
+
+  .sm\:focus\:border-gray-150:focus{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
   }
 
   .sm\:focus\:border-gray-200:focus{
@@ -37230,6 +38099,42 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     -webkit-overflow-scrolling: auto;
   }
 
+  .sm\:overscroll-auto{
+    overscroll-behavior: auto;
+  }
+
+  .sm\:overscroll-contain{
+    overscroll-behavior: contain;
+  }
+
+  .sm\:overscroll-none{
+    overscroll-behavior: none;
+  }
+
+  .sm\:overscroll-y-auto{
+    overscroll-behavior-y: auto;
+  }
+
+  .sm\:overscroll-y-contain{
+    overscroll-behavior-y: contain;
+  }
+
+  .sm\:overscroll-y-none{
+    overscroll-behavior-y: none;
+  }
+
+  .sm\:overscroll-x-auto{
+    overscroll-behavior-x: auto;
+  }
+
+  .sm\:overscroll-x-contain{
+    overscroll-behavior-x: contain;
+  }
+
+  .sm\:overscroll-x-none{
+    overscroll-behavior-x: none;
+  }
+
   .sm\:p-0{
     padding: 0;
   }
@@ -37826,6 +38731,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--placeholder-opacity));
   }
 
+  .sm\:placeholder-gray-150::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
+  }
+
   .sm\:placeholder-gray-200::placeholder{
     --placeholder-opacity: 1;
     color: #edf2f7;
@@ -38390,6 +39301,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --placeholder-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--placeholder-opacity));
+  }
+
+  .sm\:focus\:placeholder-gray-150:focus::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
   }
 
   .sm\:focus\:placeholder-gray-200:focus::placeholder{
@@ -39272,6 +40189,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .sm\:text-gray-150{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .sm\:text-gray-200{
     --text-opacity: 1;
     color: #edf2f7;
@@ -39838,6 +40761,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .sm\:hover\:text-gray-150:hover{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .sm\:hover\:text-gray-200:hover{
     --text-opacity: 1;
     color: #edf2f7;
@@ -40402,6 +41331,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --text-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--text-opacity));
+  }
+
+  .sm\:focus\:text-gray-150:focus{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
   }
 
   .sm\:focus\:text-gray-200:focus{
@@ -42487,6 +43422,136 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --transform-scale-y: 1.5;
   }
 
+  .group:hover .sm\:group-hover\:scale-0{
+    --transform-scale-x: 0;
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .sm\:group-hover\:scale-50{
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .sm\:group-hover\:scale-75{
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .sm\:group-hover\:scale-90{
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .sm\:group-hover\:scale-95{
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .sm\:group-hover\:scale-100{
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .sm\:group-hover\:scale-105{
+    --transform-scale-x: 1.05;
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .sm\:group-hover\:scale-110{
+    --transform-scale-x: 1.1;
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .sm\:group-hover\:scale-125{
+    --transform-scale-x: 1.25;
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .sm\:group-hover\:scale-150{
+    --transform-scale-x: 1.5;
+    --transform-scale-y: 1.5;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-0{
+    --transform-scale-x: 0;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-50{
+    --transform-scale-x: .5;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-75{
+    --transform-scale-x: .75;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-90{
+    --transform-scale-x: .9;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-95{
+    --transform-scale-x: .95;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-100{
+    --transform-scale-x: 1;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-105{
+    --transform-scale-x: 1.05;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-110{
+    --transform-scale-x: 1.1;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-125{
+    --transform-scale-x: 1.25;
+  }
+
+  .group:hover .sm\:group-hover\:scale-x-150{
+    --transform-scale-x: 1.5;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-0{
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-50{
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-75{
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-90{
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-95{
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-100{
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-105{
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-110{
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-125{
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .sm\:group-hover\:scale-y-150{
+    --transform-scale-y: 1.5;
+  }
+
   .sm\:rotate-0{
     --transform-rotate: 0;
   }
@@ -42568,6 +43633,34 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   }
 
   .sm\:focus\:-rotate-45:focus{
+    --transform-rotate: -45deg;
+  }
+
+  .group:hover .sm\:group-hover\:rotate-0{
+    --transform-rotate: 0;
+  }
+
+  .group:hover .sm\:group-hover\:rotate-45{
+    --transform-rotate: 45deg;
+  }
+
+  .group:hover .sm\:group-hover\:rotate-90{
+    --transform-rotate: 90deg;
+  }
+
+  .group:hover .sm\:group-hover\:rotate-180{
+    --transform-rotate: 180deg;
+  }
+
+  .group:hover .sm\:group-hover\:-rotate-180{
+    --transform-rotate: -180deg;
+  }
+
+  .group:hover .sm\:group-hover\:-rotate-90{
+    --transform-rotate: -90deg;
+  }
+
+  .group:hover .sm\:group-hover\:-rotate-45{
     --transform-rotate: -45deg;
   }
 
@@ -43830,9 +44923,85 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   .sm\:delay-1000{
     transition-delay: 1000ms;
   }
+
+  .sm\:animate-none{
+    animation: none;
+  }
+
+  .sm\:animate-spin{
+    animation: spin 1s linear infinite;
+  }
+
+  .sm\:animate-ping{
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .sm\:animate-pulse{
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .sm\:animate-bounce{
+    animation: bounce 1s infinite;
+  }
 }
 
 @media (min-width: 768px){
+  .md\:container{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  @media (min-width: 476px){
+    .md\:container{
+      max-width: 476px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 640px){
+    .md\:container{
+      max-width: 640px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 768px){
+    .md\:container{
+      max-width: 768px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px){
+    .md\:container{
+      max-width: 1024px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1280px){
+    .md\:container{
+      max-width: 1280px;
+      padding-right: 5rem;
+      padding-left: 5rem;
+    }
+  }
+
+  @media (min-width: 1440px){
+    .md\:container{
+      max-width: 1440px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
   .md\:space-y-0 > :not(template) ~ :not(template){
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -44377,6 +45546,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --divide-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--divide-opacity));
+  }
+
+  .md\:divide-gray-150 > :not(template) ~ :not(template){
+    --divide-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--divide-opacity));
   }
 
   .md\:divide-gray-200 > :not(template) ~ :not(template){
@@ -45029,6 +46204,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .md\:bg-gray-150{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .md\:bg-gray-200{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -45593,6 +46774,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .md\:hover\:bg-gray-150:hover{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .md\:hover\:bg-gray-200:hover{
@@ -46161,6 +47348,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .md\:focus\:bg-gray-150:focus{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .md\:focus\:bg-gray-200:focus{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -46725,6 +47918,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .md\:active\:bg-gray-150:active{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .md\:active\:bg-gray-200:active{
@@ -47433,6 +48632,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .md\:border-gray-150{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .md\:border-gray-200{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -47999,6 +49204,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .md\:hover\:border-gray-150:hover{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .md\:hover\:border-gray-200:hover{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -48563,6 +49774,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --border-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--border-opacity));
+  }
+
+  .md\:focus\:border-gray-150:focus{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
   }
 
   .md\:focus\:border-gray-200:focus{
@@ -51627,6 +52844,42 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     -webkit-overflow-scrolling: auto;
   }
 
+  .md\:overscroll-auto{
+    overscroll-behavior: auto;
+  }
+
+  .md\:overscroll-contain{
+    overscroll-behavior: contain;
+  }
+
+  .md\:overscroll-none{
+    overscroll-behavior: none;
+  }
+
+  .md\:overscroll-y-auto{
+    overscroll-behavior-y: auto;
+  }
+
+  .md\:overscroll-y-contain{
+    overscroll-behavior-y: contain;
+  }
+
+  .md\:overscroll-y-none{
+    overscroll-behavior-y: none;
+  }
+
+  .md\:overscroll-x-auto{
+    overscroll-behavior-x: auto;
+  }
+
+  .md\:overscroll-x-contain{
+    overscroll-behavior-x: contain;
+  }
+
+  .md\:overscroll-x-none{
+    overscroll-behavior-x: none;
+  }
+
   .md\:p-0{
     padding: 0;
   }
@@ -52223,6 +53476,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--placeholder-opacity));
   }
 
+  .md\:placeholder-gray-150::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
+  }
+
   .md\:placeholder-gray-200::placeholder{
     --placeholder-opacity: 1;
     color: #edf2f7;
@@ -52787,6 +54046,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --placeholder-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--placeholder-opacity));
+  }
+
+  .md\:focus\:placeholder-gray-150:focus::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
   }
 
   .md\:focus\:placeholder-gray-200:focus::placeholder{
@@ -53669,6 +54934,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .md\:text-gray-150{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .md\:text-gray-200{
     --text-opacity: 1;
     color: #edf2f7;
@@ -54235,6 +55506,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .md\:hover\:text-gray-150:hover{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .md\:hover\:text-gray-200:hover{
     --text-opacity: 1;
     color: #edf2f7;
@@ -54799,6 +56076,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --text-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--text-opacity));
+  }
+
+  .md\:focus\:text-gray-150:focus{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
   }
 
   .md\:focus\:text-gray-200:focus{
@@ -56884,6 +58167,136 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --transform-scale-y: 1.5;
   }
 
+  .group:hover .md\:group-hover\:scale-0{
+    --transform-scale-x: 0;
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .md\:group-hover\:scale-50{
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .md\:group-hover\:scale-75{
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .md\:group-hover\:scale-90{
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .md\:group-hover\:scale-95{
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .md\:group-hover\:scale-100{
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .md\:group-hover\:scale-105{
+    --transform-scale-x: 1.05;
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .md\:group-hover\:scale-110{
+    --transform-scale-x: 1.1;
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .md\:group-hover\:scale-125{
+    --transform-scale-x: 1.25;
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .md\:group-hover\:scale-150{
+    --transform-scale-x: 1.5;
+    --transform-scale-y: 1.5;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-0{
+    --transform-scale-x: 0;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-50{
+    --transform-scale-x: .5;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-75{
+    --transform-scale-x: .75;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-90{
+    --transform-scale-x: .9;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-95{
+    --transform-scale-x: .95;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-100{
+    --transform-scale-x: 1;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-105{
+    --transform-scale-x: 1.05;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-110{
+    --transform-scale-x: 1.1;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-125{
+    --transform-scale-x: 1.25;
+  }
+
+  .group:hover .md\:group-hover\:scale-x-150{
+    --transform-scale-x: 1.5;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-0{
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-50{
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-75{
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-90{
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-95{
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-100{
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-105{
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-110{
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-125{
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .md\:group-hover\:scale-y-150{
+    --transform-scale-y: 1.5;
+  }
+
   .md\:rotate-0{
     --transform-rotate: 0;
   }
@@ -56965,6 +58378,34 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   }
 
   .md\:focus\:-rotate-45:focus{
+    --transform-rotate: -45deg;
+  }
+
+  .group:hover .md\:group-hover\:rotate-0{
+    --transform-rotate: 0;
+  }
+
+  .group:hover .md\:group-hover\:rotate-45{
+    --transform-rotate: 45deg;
+  }
+
+  .group:hover .md\:group-hover\:rotate-90{
+    --transform-rotate: 90deg;
+  }
+
+  .group:hover .md\:group-hover\:rotate-180{
+    --transform-rotate: 180deg;
+  }
+
+  .group:hover .md\:group-hover\:-rotate-180{
+    --transform-rotate: -180deg;
+  }
+
+  .group:hover .md\:group-hover\:-rotate-90{
+    --transform-rotate: -90deg;
+  }
+
+  .group:hover .md\:group-hover\:-rotate-45{
     --transform-rotate: -45deg;
   }
 
@@ -58227,9 +59668,85 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   .md\:delay-1000{
     transition-delay: 1000ms;
   }
+
+  .md\:animate-none{
+    animation: none;
+  }
+
+  .md\:animate-spin{
+    animation: spin 1s linear infinite;
+  }
+
+  .md\:animate-ping{
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .md\:animate-pulse{
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .md\:animate-bounce{
+    animation: bounce 1s infinite;
+  }
 }
 
 @media (min-width: 1024px){
+  .lg\:container{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  @media (min-width: 476px){
+    .lg\:container{
+      max-width: 476px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 640px){
+    .lg\:container{
+      max-width: 640px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 768px){
+    .lg\:container{
+      max-width: 768px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px){
+    .lg\:container{
+      max-width: 1024px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1280px){
+    .lg\:container{
+      max-width: 1280px;
+      padding-right: 5rem;
+      padding-left: 5rem;
+    }
+  }
+
+  @media (min-width: 1440px){
+    .lg\:container{
+      max-width: 1440px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
   .lg\:space-y-0 > :not(template) ~ :not(template){
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -58774,6 +60291,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --divide-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--divide-opacity));
+  }
+
+  .lg\:divide-gray-150 > :not(template) ~ :not(template){
+    --divide-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--divide-opacity));
   }
 
   .lg\:divide-gray-200 > :not(template) ~ :not(template){
@@ -59426,6 +60949,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .lg\:bg-gray-150{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .lg\:bg-gray-200{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -59990,6 +61519,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .lg\:hover\:bg-gray-150:hover{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .lg\:hover\:bg-gray-200:hover{
@@ -60558,6 +62093,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .lg\:focus\:bg-gray-150:focus{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .lg\:focus\:bg-gray-200:focus{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -61122,6 +62663,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .lg\:active\:bg-gray-150:active{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .lg\:active\:bg-gray-200:active{
@@ -61830,6 +63377,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .lg\:border-gray-150{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .lg\:border-gray-200{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -62396,6 +63949,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .lg\:hover\:border-gray-150:hover{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .lg\:hover\:border-gray-200:hover{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -62960,6 +64519,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --border-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--border-opacity));
+  }
+
+  .lg\:focus\:border-gray-150:focus{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
   }
 
   .lg\:focus\:border-gray-200:focus{
@@ -66024,6 +67589,42 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     -webkit-overflow-scrolling: auto;
   }
 
+  .lg\:overscroll-auto{
+    overscroll-behavior: auto;
+  }
+
+  .lg\:overscroll-contain{
+    overscroll-behavior: contain;
+  }
+
+  .lg\:overscroll-none{
+    overscroll-behavior: none;
+  }
+
+  .lg\:overscroll-y-auto{
+    overscroll-behavior-y: auto;
+  }
+
+  .lg\:overscroll-y-contain{
+    overscroll-behavior-y: contain;
+  }
+
+  .lg\:overscroll-y-none{
+    overscroll-behavior-y: none;
+  }
+
+  .lg\:overscroll-x-auto{
+    overscroll-behavior-x: auto;
+  }
+
+  .lg\:overscroll-x-contain{
+    overscroll-behavior-x: contain;
+  }
+
+  .lg\:overscroll-x-none{
+    overscroll-behavior-x: none;
+  }
+
   .lg\:p-0{
     padding: 0;
   }
@@ -66620,6 +68221,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--placeholder-opacity));
   }
 
+  .lg\:placeholder-gray-150::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
+  }
+
   .lg\:placeholder-gray-200::placeholder{
     --placeholder-opacity: 1;
     color: #edf2f7;
@@ -67184,6 +68791,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --placeholder-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--placeholder-opacity));
+  }
+
+  .lg\:focus\:placeholder-gray-150:focus::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
   }
 
   .lg\:focus\:placeholder-gray-200:focus::placeholder{
@@ -68066,6 +69679,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .lg\:text-gray-150{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .lg\:text-gray-200{
     --text-opacity: 1;
     color: #edf2f7;
@@ -68632,6 +70251,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .lg\:hover\:text-gray-150:hover{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .lg\:hover\:text-gray-200:hover{
     --text-opacity: 1;
     color: #edf2f7;
@@ -69196,6 +70821,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --text-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--text-opacity));
+  }
+
+  .lg\:focus\:text-gray-150:focus{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
   }
 
   .lg\:focus\:text-gray-200:focus{
@@ -71281,6 +72912,136 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --transform-scale-y: 1.5;
   }
 
+  .group:hover .lg\:group-hover\:scale-0{
+    --transform-scale-x: 0;
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .lg\:group-hover\:scale-50{
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .lg\:group-hover\:scale-75{
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .lg\:group-hover\:scale-90{
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .lg\:group-hover\:scale-95{
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .lg\:group-hover\:scale-100{
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .lg\:group-hover\:scale-105{
+    --transform-scale-x: 1.05;
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .lg\:group-hover\:scale-110{
+    --transform-scale-x: 1.1;
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .lg\:group-hover\:scale-125{
+    --transform-scale-x: 1.25;
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .lg\:group-hover\:scale-150{
+    --transform-scale-x: 1.5;
+    --transform-scale-y: 1.5;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-0{
+    --transform-scale-x: 0;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-50{
+    --transform-scale-x: .5;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-75{
+    --transform-scale-x: .75;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-90{
+    --transform-scale-x: .9;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-95{
+    --transform-scale-x: .95;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-100{
+    --transform-scale-x: 1;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-105{
+    --transform-scale-x: 1.05;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-110{
+    --transform-scale-x: 1.1;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-125{
+    --transform-scale-x: 1.25;
+  }
+
+  .group:hover .lg\:group-hover\:scale-x-150{
+    --transform-scale-x: 1.5;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-0{
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-50{
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-75{
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-90{
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-95{
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-100{
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-105{
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-110{
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-125{
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .lg\:group-hover\:scale-y-150{
+    --transform-scale-y: 1.5;
+  }
+
   .lg\:rotate-0{
     --transform-rotate: 0;
   }
@@ -71362,6 +73123,34 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   }
 
   .lg\:focus\:-rotate-45:focus{
+    --transform-rotate: -45deg;
+  }
+
+  .group:hover .lg\:group-hover\:rotate-0{
+    --transform-rotate: 0;
+  }
+
+  .group:hover .lg\:group-hover\:rotate-45{
+    --transform-rotate: 45deg;
+  }
+
+  .group:hover .lg\:group-hover\:rotate-90{
+    --transform-rotate: 90deg;
+  }
+
+  .group:hover .lg\:group-hover\:rotate-180{
+    --transform-rotate: 180deg;
+  }
+
+  .group:hover .lg\:group-hover\:-rotate-180{
+    --transform-rotate: -180deg;
+  }
+
+  .group:hover .lg\:group-hover\:-rotate-90{
+    --transform-rotate: -90deg;
+  }
+
+  .group:hover .lg\:group-hover\:-rotate-45{
     --transform-rotate: -45deg;
   }
 
@@ -72624,9 +74413,85 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   .lg\:delay-1000{
     transition-delay: 1000ms;
   }
+
+  .lg\:animate-none{
+    animation: none;
+  }
+
+  .lg\:animate-spin{
+    animation: spin 1s linear infinite;
+  }
+
+  .lg\:animate-ping{
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .lg\:animate-pulse{
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .lg\:animate-bounce{
+    animation: bounce 1s infinite;
+  }
 }
 
 @media (min-width: 1280px){
+  .xl\:container{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  @media (min-width: 476px){
+    .xl\:container{
+      max-width: 476px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 640px){
+    .xl\:container{
+      max-width: 640px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 768px){
+    .xl\:container{
+      max-width: 768px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px){
+    .xl\:container{
+      max-width: 1024px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1280px){
+    .xl\:container{
+      max-width: 1280px;
+      padding-right: 5rem;
+      padding-left: 5rem;
+    }
+  }
+
+  @media (min-width: 1440px){
+    .xl\:container{
+      max-width: 1440px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
   .xl\:space-y-0 > :not(template) ~ :not(template){
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -73171,6 +75036,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --divide-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--divide-opacity));
+  }
+
+  .xl\:divide-gray-150 > :not(template) ~ :not(template){
+    --divide-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--divide-opacity));
   }
 
   .xl\:divide-gray-200 > :not(template) ~ :not(template){
@@ -73823,6 +75694,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .xl\:bg-gray-150{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .xl\:bg-gray-200{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -74387,6 +76264,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .xl\:hover\:bg-gray-150:hover{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .xl\:hover\:bg-gray-200:hover{
@@ -74955,6 +76838,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .xl\:focus\:bg-gray-150:focus{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .xl\:focus\:bg-gray-200:focus{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -75519,6 +77408,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .xl\:active\:bg-gray-150:active{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .xl\:active\:bg-gray-200:active{
@@ -76227,6 +78122,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .xl\:border-gray-150{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .xl\:border-gray-200{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -76793,6 +78694,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .xl\:hover\:border-gray-150:hover{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .xl\:hover\:border-gray-200:hover{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -77357,6 +79264,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --border-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--border-opacity));
+  }
+
+  .xl\:focus\:border-gray-150:focus{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
   }
 
   .xl\:focus\:border-gray-200:focus{
@@ -80421,6 +82334,42 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     -webkit-overflow-scrolling: auto;
   }
 
+  .xl\:overscroll-auto{
+    overscroll-behavior: auto;
+  }
+
+  .xl\:overscroll-contain{
+    overscroll-behavior: contain;
+  }
+
+  .xl\:overscroll-none{
+    overscroll-behavior: none;
+  }
+
+  .xl\:overscroll-y-auto{
+    overscroll-behavior-y: auto;
+  }
+
+  .xl\:overscroll-y-contain{
+    overscroll-behavior-y: contain;
+  }
+
+  .xl\:overscroll-y-none{
+    overscroll-behavior-y: none;
+  }
+
+  .xl\:overscroll-x-auto{
+    overscroll-behavior-x: auto;
+  }
+
+  .xl\:overscroll-x-contain{
+    overscroll-behavior-x: contain;
+  }
+
+  .xl\:overscroll-x-none{
+    overscroll-behavior-x: none;
+  }
+
   .xl\:p-0{
     padding: 0;
   }
@@ -81017,6 +82966,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--placeholder-opacity));
   }
 
+  .xl\:placeholder-gray-150::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
+  }
+
   .xl\:placeholder-gray-200::placeholder{
     --placeholder-opacity: 1;
     color: #edf2f7;
@@ -81581,6 +83536,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --placeholder-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--placeholder-opacity));
+  }
+
+  .xl\:focus\:placeholder-gray-150:focus::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
   }
 
   .xl\:focus\:placeholder-gray-200:focus::placeholder{
@@ -82463,6 +84424,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .xl\:text-gray-150{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .xl\:text-gray-200{
     --text-opacity: 1;
     color: #edf2f7;
@@ -83029,6 +84996,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .xl\:hover\:text-gray-150:hover{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .xl\:hover\:text-gray-200:hover{
     --text-opacity: 1;
     color: #edf2f7;
@@ -83593,6 +85566,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --text-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--text-opacity));
+  }
+
+  .xl\:focus\:text-gray-150:focus{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
   }
 
   .xl\:focus\:text-gray-200:focus{
@@ -85678,6 +87657,136 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --transform-scale-y: 1.5;
   }
 
+  .group:hover .xl\:group-hover\:scale-0{
+    --transform-scale-x: 0;
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .xl\:group-hover\:scale-50{
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .xl\:group-hover\:scale-75{
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .xl\:group-hover\:scale-90{
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .xl\:group-hover\:scale-95{
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .xl\:group-hover\:scale-100{
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .xl\:group-hover\:scale-105{
+    --transform-scale-x: 1.05;
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .xl\:group-hover\:scale-110{
+    --transform-scale-x: 1.1;
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .xl\:group-hover\:scale-125{
+    --transform-scale-x: 1.25;
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .xl\:group-hover\:scale-150{
+    --transform-scale-x: 1.5;
+    --transform-scale-y: 1.5;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-0{
+    --transform-scale-x: 0;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-50{
+    --transform-scale-x: .5;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-75{
+    --transform-scale-x: .75;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-90{
+    --transform-scale-x: .9;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-95{
+    --transform-scale-x: .95;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-100{
+    --transform-scale-x: 1;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-105{
+    --transform-scale-x: 1.05;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-110{
+    --transform-scale-x: 1.1;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-125{
+    --transform-scale-x: 1.25;
+  }
+
+  .group:hover .xl\:group-hover\:scale-x-150{
+    --transform-scale-x: 1.5;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-0{
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-50{
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-75{
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-90{
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-95{
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-100{
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-105{
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-110{
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-125{
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .xl\:group-hover\:scale-y-150{
+    --transform-scale-y: 1.5;
+  }
+
   .xl\:rotate-0{
     --transform-rotate: 0;
   }
@@ -85759,6 +87868,34 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   }
 
   .xl\:focus\:-rotate-45:focus{
+    --transform-rotate: -45deg;
+  }
+
+  .group:hover .xl\:group-hover\:rotate-0{
+    --transform-rotate: 0;
+  }
+
+  .group:hover .xl\:group-hover\:rotate-45{
+    --transform-rotate: 45deg;
+  }
+
+  .group:hover .xl\:group-hover\:rotate-90{
+    --transform-rotate: 90deg;
+  }
+
+  .group:hover .xl\:group-hover\:rotate-180{
+    --transform-rotate: 180deg;
+  }
+
+  .group:hover .xl\:group-hover\:-rotate-180{
+    --transform-rotate: -180deg;
+  }
+
+  .group:hover .xl\:group-hover\:-rotate-90{
+    --transform-rotate: -90deg;
+  }
+
+  .group:hover .xl\:group-hover\:-rotate-45{
     --transform-rotate: -45deg;
   }
 
@@ -87021,9 +89158,85 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   .xl\:delay-1000{
     transition-delay: 1000ms;
   }
+
+  .xl\:animate-none{
+    animation: none;
+  }
+
+  .xl\:animate-spin{
+    animation: spin 1s linear infinite;
+  }
+
+  .xl\:animate-ping{
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .xl\:animate-pulse{
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .xl\:animate-bounce{
+    animation: bounce 1s infinite;
+  }
 }
 
 @media (min-width: 1440px){
+  .\32xl\:container{
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  @media (min-width: 476px){
+    .\32xl\:container{
+      max-width: 476px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 640px){
+    .\32xl\:container{
+      max-width: 640px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 768px){
+    .\32xl\:container{
+      max-width: 768px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1024px){
+    .\32xl\:container{
+      max-width: 1024px;
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
+  }
+
+  @media (min-width: 1280px){
+    .\32xl\:container{
+      max-width: 1280px;
+      padding-right: 5rem;
+      padding-left: 5rem;
+    }
+  }
+
+  @media (min-width: 1440px){
+    .\32xl\:container{
+      max-width: 1440px;
+      padding-right: 2rem;
+      padding-left: 2rem;
+    }
+  }
+
   .\32xl\:space-y-0 > :not(template) ~ :not(template){
     --space-y-reverse: 0;
     margin-top: calc(0px * calc(1 - var(--space-y-reverse)));
@@ -87568,6 +89781,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --divide-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--divide-opacity));
+  }
+
+  .\32xl\:divide-gray-150 > :not(template) ~ :not(template){
+    --divide-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--divide-opacity));
   }
 
   .\32xl\:divide-gray-200 > :not(template) ~ :not(template){
@@ -88220,6 +90439,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .\32xl\:bg-gray-150{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .\32xl\:bg-gray-200{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -88784,6 +91009,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .\32xl\:hover\:bg-gray-150:hover{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .\32xl\:hover\:bg-gray-200:hover{
@@ -89352,6 +91583,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     background-color: rgba(247, 250, 252, var(--bg-opacity));
   }
 
+  .\32xl\:focus\:bg-gray-150:focus{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
+  }
+
   .\32xl\:focus\:bg-gray-200:focus{
     --bg-opacity: 1;
     background-color: #edf2f7;
@@ -89916,6 +92153,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --bg-opacity: 1;
     background-color: #f7fafc;
     background-color: rgba(247, 250, 252, var(--bg-opacity));
+  }
+
+  .\32xl\:active\:bg-gray-150:active{
+    --bg-opacity: 1;
+    background-color: #f5f6f8;
+    background-color: rgba(245, 246, 248, var(--bg-opacity));
   }
 
   .\32xl\:active\:bg-gray-200:active{
@@ -90624,6 +92867,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .\32xl\:border-gray-150{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .\32xl\:border-gray-200{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -91190,6 +93439,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     border-color: rgba(247, 250, 252, var(--border-opacity));
   }
 
+  .\32xl\:hover\:border-gray-150:hover{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
+  }
+
   .\32xl\:hover\:border-gray-200:hover{
     --border-opacity: 1;
     border-color: #edf2f7;
@@ -91754,6 +94009,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --border-opacity: 1;
     border-color: #f7fafc;
     border-color: rgba(247, 250, 252, var(--border-opacity));
+  }
+
+  .\32xl\:focus\:border-gray-150:focus{
+    --border-opacity: 1;
+    border-color: #f5f6f8;
+    border-color: rgba(245, 246, 248, var(--border-opacity));
   }
 
   .\32xl\:focus\:border-gray-200:focus{
@@ -94818,6 +97079,42 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     -webkit-overflow-scrolling: auto;
   }
 
+  .\32xl\:overscroll-auto{
+    overscroll-behavior: auto;
+  }
+
+  .\32xl\:overscroll-contain{
+    overscroll-behavior: contain;
+  }
+
+  .\32xl\:overscroll-none{
+    overscroll-behavior: none;
+  }
+
+  .\32xl\:overscroll-y-auto{
+    overscroll-behavior-y: auto;
+  }
+
+  .\32xl\:overscroll-y-contain{
+    overscroll-behavior-y: contain;
+  }
+
+  .\32xl\:overscroll-y-none{
+    overscroll-behavior-y: none;
+  }
+
+  .\32xl\:overscroll-x-auto{
+    overscroll-behavior-x: auto;
+  }
+
+  .\32xl\:overscroll-x-contain{
+    overscroll-behavior-x: contain;
+  }
+
+  .\32xl\:overscroll-x-none{
+    overscroll-behavior-x: none;
+  }
+
   .\32xl\:p-0{
     padding: 0;
   }
@@ -95414,6 +97711,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--placeholder-opacity));
   }
 
+  .\32xl\:placeholder-gray-150::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
+  }
+
   .\32xl\:placeholder-gray-200::placeholder{
     --placeholder-opacity: 1;
     color: #edf2f7;
@@ -95978,6 +98281,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --placeholder-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--placeholder-opacity));
+  }
+
+  .\32xl\:focus\:placeholder-gray-150:focus::placeholder{
+    --placeholder-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--placeholder-opacity));
   }
 
   .\32xl\:focus\:placeholder-gray-200:focus::placeholder{
@@ -96860,6 +99169,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .\32xl\:text-gray-150{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .\32xl\:text-gray-200{
     --text-opacity: 1;
     color: #edf2f7;
@@ -97426,6 +99741,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     color: rgba(247, 250, 252, var(--text-opacity));
   }
 
+  .\32xl\:hover\:text-gray-150:hover{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
+  }
+
   .\32xl\:hover\:text-gray-200:hover{
     --text-opacity: 1;
     color: #edf2f7;
@@ -97990,6 +100311,12 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --text-opacity: 1;
     color: #f7fafc;
     color: rgba(247, 250, 252, var(--text-opacity));
+  }
+
+  .\32xl\:focus\:text-gray-150:focus{
+    --text-opacity: 1;
+    color: #f5f6f8;
+    color: rgba(245, 246, 248, var(--text-opacity));
   }
 
   .\32xl\:focus\:text-gray-200:focus{
@@ -100075,6 +102402,136 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
     --transform-scale-y: 1.5;
   }
 
+  .group:hover .\32xl\:group-hover\:scale-0{
+    --transform-scale-x: 0;
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-50{
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-75{
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-90{
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-95{
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-100{
+    --transform-scale-x: 1;
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-105{
+    --transform-scale-x: 1.05;
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-110{
+    --transform-scale-x: 1.1;
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-125{
+    --transform-scale-x: 1.25;
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-150{
+    --transform-scale-x: 1.5;
+    --transform-scale-y: 1.5;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-0{
+    --transform-scale-x: 0;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-50{
+    --transform-scale-x: .5;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-75{
+    --transform-scale-x: .75;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-90{
+    --transform-scale-x: .9;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-95{
+    --transform-scale-x: .95;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-100{
+    --transform-scale-x: 1;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-105{
+    --transform-scale-x: 1.05;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-110{
+    --transform-scale-x: 1.1;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-125{
+    --transform-scale-x: 1.25;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-x-150{
+    --transform-scale-x: 1.5;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-0{
+    --transform-scale-y: 0;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-50{
+    --transform-scale-y: .5;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-75{
+    --transform-scale-y: .75;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-90{
+    --transform-scale-y: .9;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-95{
+    --transform-scale-y: .95;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-100{
+    --transform-scale-y: 1;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-105{
+    --transform-scale-y: 1.05;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-110{
+    --transform-scale-y: 1.1;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-125{
+    --transform-scale-y: 1.25;
+  }
+
+  .group:hover .\32xl\:group-hover\:scale-y-150{
+    --transform-scale-y: 1.5;
+  }
+
   .\32xl\:rotate-0{
     --transform-rotate: 0;
   }
@@ -100156,6 +102613,34 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
   }
 
   .\32xl\:focus\:-rotate-45:focus{
+    --transform-rotate: -45deg;
+  }
+
+  .group:hover .\32xl\:group-hover\:rotate-0{
+    --transform-rotate: 0;
+  }
+
+  .group:hover .\32xl\:group-hover\:rotate-45{
+    --transform-rotate: 45deg;
+  }
+
+  .group:hover .\32xl\:group-hover\:rotate-90{
+    --transform-rotate: 90deg;
+  }
+
+  .group:hover .\32xl\:group-hover\:rotate-180{
+    --transform-rotate: 180deg;
+  }
+
+  .group:hover .\32xl\:group-hover\:-rotate-180{
+    --transform-rotate: -180deg;
+  }
+
+  .group:hover .\32xl\:group-hover\:-rotate-90{
+    --transform-rotate: -90deg;
+  }
+
+  .group:hover .\32xl\:group-hover\:-rotate-45{
     --transform-rotate: -45deg;
   }
 
@@ -101417,5 +103902,25 @@ body { font-family: Merriweather, system-ui, -apple-system, BlinkMacSystemFont, 
 
   .\32xl\:delay-1000{
     transition-delay: 1000ms;
+  }
+
+  .\32xl\:animate-none{
+    animation: none;
+  }
+
+  .\32xl\:animate-spin{
+    animation: spin 1s linear infinite;
+  }
+
+  .\32xl\:animate-ping{
+    animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  .\32xl\:animate-pulse{
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .\32xl\:animate-bounce{
+    animation: bounce 1s infinite;
   }
 }

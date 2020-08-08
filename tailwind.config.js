@@ -24,6 +24,7 @@ module.exports = {
 
       gray: {
         100: '#f7fafc',
+        150: '#f5f6f8',
         200: '#edf2f7',
         300: '#e2e8f0',
         400: '#cbd5e0',
@@ -732,8 +733,8 @@ module.exports = {
     gridRowEnd: ['responsive'],
     transform: ['responsive'],
     transformOrigin: ['responsive'],
-    scale: ['responsive', 'hover', 'focus'],
-    rotate: ['responsive', 'hover', 'focus'],
+    scale: ['responsive', 'hover', 'focus', 'group-hover'],
+    rotate: ['responsive', 'hover', 'focus', 'group-hover'],
     translate: ['responsive', 'hover', 'focus'],
     skew: ['responsive', 'hover', 'focus'],
     transitionProperty: ['responsive'],

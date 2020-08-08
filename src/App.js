@@ -1,17 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
+import Dashboard from "./components/Dashboard/Dashboard";
+import TopNavigation from "./components/Navigation/TopNavigation";
+import LeftNavigation from "./components/Navigation/LeftNavigation";
+import RightNavigation from "./components/Navigation/RightNavigation";
 
 function App() {
   return (
-    <div className="text-center">
-      <header className="App-header flex flex-col items-center justify-center text-white text-4xl min-h-screen bg-gray-750">
-        <img src={logo} className="logo" alt="logo" />
-        <p className="flex flex-col w-3/4 mx-auto my-12 items-center">
-          React JS <span role="img" aria-label="Hearts">💕</span> Tailwind CSS
-        </p>
-      </header>
-    </div>
+    <Router>
+      <div className="flex">
+        <aside className="flex">
+          <LeftNavigation />
+        </aside>
+
+        <section className="flex flex-col w-full">
+          <header className="flex w-full">
+            <TopNavigation />
+          </header>
+
+          <div className="pl-8 pr-12 pt-5">
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/books" component={RightNavigation} />
+          </div>
+        </section>
+      </div>
+    </Router>
   );
 }
 
