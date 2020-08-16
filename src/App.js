@@ -1,9 +1,9 @@
 import React from 'react';
-import {Route, BrowserRouter as Router} from 'react-router-dom';
-import Dashboard from "./components/Dashboard/Dashboard";
-import TopNavigation from "./components/Navigation/TopNavigation";
-import LeftNavigation from "./components/Navigation/LeftNavigation";
-import RightNavigation from "./components/Navigation/RightNavigation";
+import { Route, BrowserRouter as Router } from 'react-router-dom';
+import Dashboard from './components/Dashboard/Dashboard';
+import TopNavigation from './components/Navigation/TopNavigation';
+import LeftNavigation from './components/Navigation/LeftNavigation';
+import RightNavigation from './components/Navigation/RightNavigation';
 
 function App() {
   return (

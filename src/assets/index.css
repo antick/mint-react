@@ -24,6 +24,7 @@ body {
 
 .today-event-widget {
   background-image: linear-gradient(to right bottom, #ffffff, #ffffff, #ffffff, #fffefe, #ffffff);
+  @apply flex flex-col rounded-lg rounded-l-full p-8 pr-6 text-gray-600 w-1/4 border-l text-right
 }
 
 svg.link {
@@ -75,6 +76,72 @@ li:hover > button svg {
 }
 
 /* Checkbox */
+.custom-check {
+  @apply bg-white border-2 rounded border-gray-400 w-4 h-4 flex flex-shrink-0 justify-center items-center mr-2;
+}
+
 input:checked + svg {
   display: block;
+}
+
+.multi-menu {
+  @apply px-2 pt-2 pb-4 bg-white rounded-md grid grid-cols-1 gap-4 bg-white border rounded-sm absolute origin-top min-w-32 ;
+}
+
+.multi-menu-item {
+  @apply flex items-start rounded-lg bg-transparent p-2;
+}
+
+.multi-menu-item:hover {
+  @apply text-gray-900 bg-gray-200;
+}
+
+.multi-menu-item:focus {
+  @apply text-gray-900 bg-gray-200 outline-none shadow-outline;
+}
+
+.menu-item {
+  @apply px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg;
+}
+
+.sub-menu {
+  @apply bg-white border rounded-sm absolute top-0 right-0 transition duration-150 ease-in-out origin-top-left min-w-32;
+}
+
+.sub-menu-button {
+  @apply block w-full px-4 py-2 font-medium text-gray-700 whitespace-no-wrap transition duration-300 ease-in-out;
+}
+
+.sub-menu-button:hover {
+  @apply bg-gray-100 text-gray-900;
+}
+
+.sub-menu-button:focus {
+  @apply outline-none text-gray-900 shadow-outline;
+}
+
+.top-search-input {
+  @apply rounded-full bg-gray-200 pl-6 p-3 pr-12 outline-none;
+}
+
+.top-search-input:focus {
+  @apply shadow-outline;
+}
+
+@screen md {
+  .menu-item {
+    @apply mt-0 ml-4;
+  }
+
+  .multi-menu {
+    @apply grid-cols-2
+  }
+}
+
+.menu-item:hover {
+  @apply text-gray-900 bg-gray-200;
+}
+
+.menu-item:focus {
+  @apply text-gray-900 bg-gray-200 outline-none shadow-outline;
 }

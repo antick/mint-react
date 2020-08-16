@@ -1,40 +1,61 @@
 {
   "name": "mint-react",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "Pankaj Sanam",
     "email": "pankaj@desk.sh",
     "url": "https://pankajsanam.github.io"
   },
+  "keywords": [
+    "mint",
+    "mint react",
+    "boilerplate",
+    "mern",
+    "react",
+    "hooks",
+    "frontend"
+  ],
   "license": "MIT License",
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.2",
-    "@testing-library/react": "^10.4.8",
-    "@testing-library/user-event": "^12.1.1",
-    "@vx/group": "0.0.196",
-    "@vx/mock-data": "0.0.196",
-    "@vx/scale": "0.0.196",
-    "@vx/shape": "0.0.196",
-    "apexcharts": "^3.19.0",
-    "react": "^16.13.1",
-    "react-apexcharts": "^1.3.7",
-    "react-charts": "^2.0.0-beta.6",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "recharts": "^1.8.5",
-    "victory": "^34.3.5",
-    "viser-react": "^2.4.8"
-  },
+  "repository": "https://github.com/pankajsanam/mint-react.git",
   "scripts": {
-    "build:css": "tailwind build src/assets/index.css -o public/style.css",
+    "coverage": "jest -i --coverage",
+    "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls",
+    "lint": "eslint ./src/ --ignore-path .gitignore",
+    "lint:fix": "npm run lint --fix",
+    "lint:watch": "npm run lint --watch",
     "watch:css": "postcss src/assets/index.css -o public/style.css --watch",
-    "start": "react-scripts start",
+    "build:css": "tailwind build src/assets/index.css -o public/style.css",
+    "start": "cross-env PORT=3000 react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test:default": "react-scripts test",
+    "test": "npm run lint && jest -i --coverage",
+    "test:watch": "jest --watchAll",
+    "pre-push": "npm run lint && npm run test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run lint && npm run test"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
   },
   "browserslist": {
     "production": [
@@ -48,15 +69,48 @@
       "last 1 safari version"
     ]
   },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.8",
+    "@testing-library/user-event": "^12.1.1",
+    "@vx/group": "0.0.198",
+    "@vx/mock-data": "0.0.198",
+    "@vx/scale": "0.0.198",
+    "@vx/shape": "0.0.198",
+    "apexcharts": "^3.20.0",
+    "axios": "^0.19.2",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "eslint-plugin-react": "^7.20.6",
+    "lodash": "^4.17.20",
+    "moment": "^2.27.0",
+    "react": "^16.13.1",
+    "react-apexcharts": "^1.3.7",
+    "react-charts": "^2.0.0-beta.7",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "recharts": "^1.8.5",
+    "victory": "^35.0.8",
+    "viser-react": "^2.4.8"
+  },
   "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
     "autoprefixer": "^9.8.6",
-    "babel-jest": "^24.9.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-cli": "^6.26.0",
     "babel-preset-react": "^6.24.1",
+    "coveralls": "^3.1.0",
     "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "husky": "^4.2.5",
     "jest": "^24.9.0",
     "postcss-cli": "^7.1.1",
     "postcss-import": "^12.0.1",
+    "prettier": "^2.0.5",
     "react-addons-test-utils": "^15.6.2",
     "react-test-renderer": "^16.13.1",
     "tailwindcss": "^1.6.2"

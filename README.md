@@ -1,11 +1,12 @@
-# Mint React 0.2
+# Mint React 0.3
 
 A boilerplate for starting a React JS and Tailwind css project together using Mint Express as backend API.
 
 ## Features
 
-1. Unit test integration with Jest.
-2. Tailwind CSS configured out of the box.
+1. Jest for test cases with coverage report.
+2. Tailwind CSS ready.
+3. Pre-configured ESLint.
 
 ## Usage
 
