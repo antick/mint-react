@@ -4,6 +4,11 @@ import SvgIcon from '../shared/SvgIcon';
 const TopNavigation = () => {
   const userName = 'Pankaj Sanam';
 
+  const logout = () => {
+    localStorage.setItem('loggedIn', '0');
+    window.location.assign('/login');
+  };
+
   return (
     <nav className="font-sans flex w-full text-gray-600 p-4 pt-8">
       <div className="flex w-full">
@@ -208,8 +213,23 @@ const TopNavigation = () => {
         <div className="flex w-full justify-end items-center pr-4">
           <div className="flex relative w-56 border border-gray-300 rounded-full items-center">
             <img className="border-4 border-gray-300 rounded-full w-16 absolute" src="/images/avatar.jpg" alt="avatar" />
-            <div className="text-gray-600 ml-20 py-2 tracking-wider font-semibold text-md">
-              {userName}
+            <div className="ml-20 py-2 tracking-wider">
+              <div className="group inline-block">
+                <button className="flex">
+                  <span className="text-gray-600 font-semibold text-md">{userName}</span>
+                  <SvgIcon
+                    name="arrow"
+                    classes="w-4 h-4 mt-1 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
+                  />
+                </button>
+                <ul className="profile-menu scale-0 group-hover:scale-100 transform transition duration-150 ease-in-out">
+                  <li className="profile-menu-item row">
+                    <div className="ml-3">
+                      <button className="logout-button text-sm cursor-pointer" onClick={logout}>Logout</button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

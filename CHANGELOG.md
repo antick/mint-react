@@ -8,3 +8,5 @@ All notable changes to this project will be documented in this file.
 
 - Login and Registration pages
 - User dashboard
+- Protected routes
+- Not Found page

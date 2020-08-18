@@ -5,14 +5,14 @@ import SvgIcon from '../shared/SvgIcon';
 const LeftNavigation = () => {
   const leftNavigationData = [
     { icon: 'book', title: 'Books', link: '/books' },
-    { icon: 'cog', title: 'Cog' },
-    { icon: 'archive', title: 'Archive' },
-    { icon: 'bookmarks', title: 'Bookmarks' },
-    { icon: 'briefcase', title: 'Briefcase' },
-    { icon: 'calculator', title: 'Calculator' },
-    { icon: 'calendar', title: 'Calendar' },
-    { icon: 'mail', title: 'Mail' },
-    { icon: 'wallet', title: 'Wallet' }
+    { icon: 'cog', title: 'Cog', link: '/books' },
+    { icon: 'archive', title: 'Archive', link: '/books' },
+    { icon: 'bookmarks', title: 'Bookmarks', link: '/books' },
+    { icon: 'briefcase', title: 'Briefcase', link: '/books' },
+    { icon: 'calculator', title: 'Calculator', link: '/books' },
+    { icon: 'calendar', title: 'Calendar', link: '/books' },
+    { icon: 'mail', title: 'Mail', link: '/books' },
+    { icon: 'wallet', title: 'Wallet', link: '/books' }
   ];
 
   const leftNavigationLinks = leftNavigationData.map((menu, index) => (

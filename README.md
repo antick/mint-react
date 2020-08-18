@@ -1,4 +1,4 @@
-# Mint React 0.3
+# Mint React 0.4.0
 
 A boilerplate for starting a React JS and Tailwind css project together using Mint Express as backend API.
 
@@ -7,6 +7,8 @@ A boilerplate for starting a React JS and Tailwind css project together using Mi
 1. Jest for test cases with coverage report.
 2. Tailwind CSS ready.
 3. Pre-configured ESLint.
+4. Login and Registration
+5. Protected routes
 
 ## Usage
 

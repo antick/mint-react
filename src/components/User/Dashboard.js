@@ -59,7 +59,7 @@ const Dashboard = () => {
             <div className="flex flex-col p-8 w-3/4">
               <h3 className="text-xl font-semibold">Good Morning!</h3>
               <p className="pt-3 text-sm text-gray-700">
-                Today is <em>{today}</em> and it is time to do something good with your life.
+                Today is <em>{today}</em> and it is time to do something good with your life!
                 Build stuff, help people, solve problems, learn new stuff, exercise, meditate. Just do it!
               </p>
               <p className="pt-3 text-sm text-gray-700 italic">
@@ -152,7 +152,7 @@ const Dashboard = () => {
 
             <div className="today-event-widget">
               <div className="font-semibold text-sm text-gray-700">
-                Today&aps;s Events
+                Today&rsquo;s Events
               </div>
               <div className="flex flex-row pt-3 text-xs justify-end">
                 <ul className="leading-7">
@@ -198,7 +198,7 @@ const Dashboard = () => {
                   <label className="flex justify-start items-start">
                     <CheckBox />
                     <div className="select-none">
-                      Finish all the pending design work.
+                      Make the design responsive.
                     </div>
                   </label>
                 </li>
@@ -206,7 +206,7 @@ const Dashboard = () => {
                   <label className="flex justify-start items-start">
                     <CheckBox />
                     <div className="select-none">
-                      Prepare a dish tonight and eat it like there is no tomorrow.
+                      Do your dishes before you are thrown out of your house.
                     </div>
                   </label>
                 </li>
@@ -214,7 +214,7 @@ const Dashboard = () => {
                   <label className="flex justify-start items-start">
                     <CheckBox />
                     <div className="select-none">
-                      Learn Next.js and build something out if it.
+                      Learn Next.js and build something.
                     </div>
                   </label>
                 </li>
@@ -222,7 +222,7 @@ const Dashboard = () => {
                   <label className="flex justify-start items-start">
                     <CheckBox />
                     <div className="select-none">
-                      Call your friend and tell him that he is an idiot.
+                      Call your best friend and tell him that he is an idiot.
                     </div>
                   </label>
                 </li>

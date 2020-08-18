@@ -1,31 +1,27 @@
 import React from 'react';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Dashboard from './components/Dashboard/Dashboard';
-import TopNavigation from './components/Navigation/TopNavigation';
-import LeftNavigation from './components/Navigation/LeftNavigation';
-import RightNavigation from './components/Navigation/RightNavigation';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import Login from './components/Guest/Login';
+import Register from './components/Guest/Register';
+import NotFound from './components/Guest/NotFound';
+import Main from './components/Layout/Main';
+import AuthRoute from './components/shared/AuthRoute';
+import ProtectedRoute from './components/shared/ProtectedRoute';
 
-function App() {
+const App = () => {
+  const isAuthenticated = localStorage.getItem('loggedIn') === '1';
+
   return (
     <Router>
-      <div className="flex">
-        <aside className="flex">
-          <LeftNavigation />
-        </aside>
+      <Switch>
+        <ProtectedRoute exact path='/' component={Main} auth={isAuthenticated} />
 
-        <section className="flex flex-col w-full">
-          <header className="flex w-full">
-            <TopNavigation />
-          </header>
+        <AuthRoute path='/login' component={Login} auth={isAuthenticated} />
+        <AuthRoute path='/register' component={Register} auth={isAuthenticated} />
 
-          <div className="pl-8 pr-12 pt-5">
-            <Route exact path="/" component={Dashboard} />
-            <Route path="/books" component={RightNavigation} />
-          </div>
-        </section>
-      </div>
+        <Route component={NotFound} />
+      </Switch>
     </Router>
   );
-}
+};
 
 export default App;
