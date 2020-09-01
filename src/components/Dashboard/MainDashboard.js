@@ -9,7 +9,7 @@ import {
 import CheckBox from '../shared/CheckBox';
 import SvgIcon from '../shared/SvgIcon';
 
-const Dashboard = () => {
+const MainDashboard = () => {
   const data = [
     {
       name: 'Jan', uv: 4000, pv: 2400, amt: 2400
@@ -161,7 +161,7 @@ const Dashboard = () => {
                 </ul>
               </div>
               <div className="text-xs text-gray-500 pt-2">
-                <a href="./">More...</a>
+                <a href="../User">More...</a>
               </div>
             </div>
           </div>
@@ -283,4 +283,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default MainDashboard;

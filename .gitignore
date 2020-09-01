@@ -1,6 +1,7 @@
 # editors
 /.idea
 /.vscode
+/.history
 
 # dependencies
 /node_modules

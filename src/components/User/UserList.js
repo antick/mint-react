@@ -1,7 +1,7 @@
 import React from 'react';
 
-const RightNavigation = () => {
-  const content = 'Put more content here';
+const UserList = () => {
+  const content = 'User list';
 
   return (
     <div className="flex flex-col w-24 text-gray-700 min-h-screen justify-center">
@@ -10,4 +10,4 @@ const RightNavigation = () => {
   );
 };
 
-export default RightNavigation;
+export default UserList;

@@ -6,12 +6,14 @@ import TopNavigation from '../TopNavigation';
 describe('test TopNavigation component', () => {
   beforeEach(() => {
     jest.spyOn(Storage.prototype, 'setItem');
-    jest.spyOn(window.location, 'assign').mockImplementation();
+    Object.defineProperty(window, 'location', {
+      writable: true,
+      value: { assign: jest.fn() }
+    });
   });
 
   afterEach(() => {
     localStorage.setItem.mockRestore();
-    window.location.assign.mockRestore();
     cleanup();
   });
 

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import Dashboard from '../User/Dashboard';
 import TopNavigation from './TopNavigation';
 import LeftNavigation from './LeftNavigation';
-import RightNavigation from './RightNavigation';
+import routes from '../routes';
 
 const Main = () => {
   const Header = (
@@ -24,8 +23,14 @@ const Main = () => {
 
           <div className="pl-8 pr-12 pt-5">
             <Switch>
-              <Route exact path="/" component={Dashboard} />
-              <Route path="/books" component={RightNavigation} />
+              {routes.map((prop, key) => (
+                <Route
+                  exact={prop.exact}
+                  path={prop.path}
+                  component={prop.component}
+                  key={key}
+                />
+              ))}
             </Switch>
           </div>
         </section>

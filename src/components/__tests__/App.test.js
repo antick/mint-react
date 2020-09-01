@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from '../App';
-import Dashboard from '../components/User/Dashboard';
-import LeftNavigation from '../components/Layout/LeftNavigation';
-import RightNavigation from '../components/Layout/RightNavigation';
+import MainDashboard from '../Dashboard/MainDashboard';
+import LeftNavigation from '../Layout/LeftNavigation';
+import UserList from '../User/UserList';
 
 describe('test App component', () => {
   it('should render without crashing', () => {
@@ -11,9 +11,9 @@ describe('test App component', () => {
   });
 });
 
-describe('test User Dashboard component', () => {
+describe('test User MainDashboard component', () => {
   it('should render without crashing', () => {
-    shallow(<Dashboard />);
+    shallow(<MainDashboard />);
   });
 });
 
@@ -23,8 +23,8 @@ describe('test LeftNavigation component', () => {
   });
 });
 
-describe('test RightNavigation component', () => {
+describe('test UserList component', () => {
   it('should render without crashing', () => {
-    shallow(<RightNavigation />);
+    shallow(<UserList />);
   });
 });
