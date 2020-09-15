@@ -1,5 +1,9 @@
-import React from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { Router } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import alertActions from '../actions/alert.action';
+import history from '../utils/history';
 import Login from './Guest/Login';
 import Register from './Guest/Register';
 import NotFound from './Guest/NotFound';
@@ -8,10 +12,20 @@ import AuthRoute from './shared/AuthRoute';
 import ProtectedRoute from './shared/ProtectedRoute';
 
 const App = () => {
-  const isAuthenticated = localStorage.getItem('loggedIn') === '1';
+  const isAuthenticated = useSelector(state => state.authentication.loggingIn) || false;
+  console.log('authenticated');
+  console.log(isAuthenticated);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    history.listen(() => {
+      dispatch(alertActions.clear());
+    });
+  }, [dispatch]);
 
   return (
-    <Router>
+    <Router history={history}>
       <Switch>
         <AuthRoute path='/login' component={Login} auth={isAuthenticated} />
         <AuthRoute path='/register' component={Register} auth={isAuthenticated} />

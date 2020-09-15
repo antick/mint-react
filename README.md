@@ -1,4 +1,4 @@
-# Mint React 0.5.0
+# Mint React 0.6.0
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
