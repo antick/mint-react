@@ -1,8 +1,9 @@
 import React from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, Router, Switch } from 'react-router-dom';
 import TopNavigation from './TopNavigation';
 import LeftNavigation from './LeftNavigation';
 import routes from '../routes';
+import history from '../../utils/history';
 
 const Main = () => {
   const Header = (
@@ -12,7 +13,7 @@ const Main = () => {
   );
 
   return (
-    <Router>
+    <Router history={history}>
       <div className="flex">
         <aside className="flex">
           <LeftNavigation />
