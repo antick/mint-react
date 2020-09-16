@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -14,7 +14,6 @@ import userActions from '../../actions/user.action';
 
 const MainDashboard = () => {
   const users = useSelector(state => state.users);
-  const user = useSelector(state => state.authentication.user);
 
   const dispatch = useDispatch();
 
@@ -297,7 +296,7 @@ const MainDashboard = () => {
       </div>
 
       <div className="col-lg-8 offset-lg-2">
-        <h1>Hi {user.email}!</h1>
+        <h1>Hi user!</h1>
         <h3>All registered users:</h3>
         {users.loading && <em>Loading users...</em>}
         {users.error && <span className="text-danger">ERROR: {users.error}</span>}

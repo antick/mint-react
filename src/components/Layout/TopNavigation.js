@@ -1,12 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import SvgIcon from '../shared/SvgIcon';
+import userActions from '../../actions/user.action';
 
 const TopNavigation = () => {
   const userName = 'Pankaj Sanam';
+  const dispatch = useDispatch();
 
   const logout = () => {
-    localStorage.setItem('loggedIn', '0');
-    window.location.assign('/login');
+    dispatch(userActions.logout());
   };
 
   return (

@@ -2,11 +2,11 @@ import config from '../config';
 
 // Get authorization header with jwt token
 const authHeader = () => {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const token = localStorage.getItem('token');
 
-  if (user && user.token) {
+  if (token) {
     return {
-      Authorization: `Bearer ${user.token}`
+      Authorization: `Bearer ${token}`
     };
   }
 
@@ -14,11 +14,10 @@ const authHeader = () => {
 };
 
 const logout = () => {
-  // remove user from local storage to log user out
-  localStorage.removeItem('user');
+  localStorage.removeItem('token');
 };
 
-const handleResponse = response => response.text()
+const handleResponse = response => response.json()
   .then(data => {
     if (!response.ok) {
       // if (response.status === 401) {
@@ -47,7 +46,7 @@ const login = (email, password) => {
     .then(handleResponse)
     .then(user => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem('user', JSON.stringify(user));
+      localStorage.setItem('token', user.tokens.access.token);
 
       return user;
     });
