@@ -4,20 +4,17 @@ import history from '../utils/history';
 import { userConstants } from '../constants';
 
 const login = (email, password, from) => dispatch => {
-  const request = user => ({ type: userConstants.LOGIN_REQUEST, user });
-  const success = user => ({ type: userConstants.LOGIN_SUCCESS, user });
-  const failure = error => ({ type: userConstants.LOGIN_FAILURE, error });
-
-  dispatch(request({ email }));
-
   userService.login(email, password)
     .then(
       user => {
-        dispatch(success(user));
+        dispatch({ type: userConstants.LOGIN_SUCCESS, user });
         history.push(from);
+
+        // TODO: Hard redirection because the App component is not re-rendering after dispatching the LOGIN SUCCESS
+        window.location.assign('/');
       },
       error => {
-        dispatch(failure(error.toString()));
+        dispatch({ type: userConstants.LOGIN_FAILURE, error: error.toString() });
         dispatch(alertActions.error(error.toString()));
       }
     );
@@ -25,6 +22,9 @@ const login = (email, password, from) => dispatch => {
 
 const logout = () => {
   userService.logout();
+
+  // TODO: Hard redirection due to issues in component re-rendering. Need to find a solution for this.
+  window.location.assign('/login');
 
   return {
     type: userConstants.LOGOUT

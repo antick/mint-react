@@ -12,17 +12,20 @@ import AuthRoute from './shared/AuthRoute';
 import ProtectedRoute from './shared/ProtectedRoute';
 
 const App = () => {
-  const isAuthenticated = useSelector(state => state.authentication.loggingIn) || false;
-  console.log('authenticated');
-  console.log(isAuthenticated);
+  const checkLoginStatus = () => {
+    // Validate the token here
+    console.log('checking login status......');
+  };
 
-  const dispatch = useDispatch();
+  const isAuthenticated = !!localStorage.getItem('token');
 
+  // const dispatch = useDispatch();
   useEffect(() => {
-    history.listen(() => {
-      dispatch(alertActions.clear());
-    });
-  }, [dispatch]);
+    checkLoginStatus();
+    // history.listen(() => {
+    //   dispatch(alertActions.clear());
+    // });
+  });
 
   return (
     <Router history={history}>
