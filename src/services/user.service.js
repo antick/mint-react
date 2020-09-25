@@ -1,4 +1,35 @@
 import config from '../config';
+import axios from '../utils/axios';
+
+const isLoggedIn = async () => {
+  let loggedIn = false;
+
+  await axios.get('user/logged-in')
+    .then(response => {
+      if (response.data.status) {
+        loggedIn = true;
+      }
+    })
+    .catch(() => {
+      loggedIn = false;
+    });
+
+  if (!loggedIn) {
+    await axios.post('auth/refresh-tokens', { refreshToken: localStorage.getItem('refreshToken') })
+      .then(response => {
+        if (response.data.access) {
+          localStorage.setItem('token', response.data.access.token);
+          localStorage.setItem('refreshToken', response.data.refresh.token);
+          loggedIn = true;
+        }
+      })
+      .catch(() => {
+        loggedIn = false;
+      });
+  }
+
+  return loggedIn;
+};
 
 // Get authorization header with jwt token
 const authHeader = () => {
@@ -15,6 +46,7 @@ const authHeader = () => {
 
 const logout = () => {
   localStorage.removeItem('token');
+  localStorage.removeItem('refreshToken');
 };
 
 const handleResponse = response => response.json()
@@ -47,6 +79,7 @@ const login = (email, password) => {
     .then(user => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
       localStorage.setItem('token', user.tokens.access.token);
+      localStorage.setItem('refreshToken', user.tokens.refresh.token);
 
       return user;
     });
@@ -102,6 +135,7 @@ const deleteUser = id => {
 
 export default {
   delete: deleteUser,
+  isLoggedIn,
   register,
   getById,
   getAll,
