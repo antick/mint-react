@@ -40,6 +40,7 @@ const Register = () => {
 
     if (user.name && user.email && user.password) {
       dispatch(userActions.register(user));
+      // TODO: Login user after the successful registration
     }
   }
 
