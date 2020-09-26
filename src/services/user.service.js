@@ -1,10 +1,9 @@
-import config from '../config';
-import axios from '../utils/axios';
+import { auth, api } from '../utils';
 
 const isLoggedIn = async () => {
   let loggedIn = false;
 
-  await axios.get('user/logged-in')
+  await api.get('user/logged-in')
     .then(response => {
       if (response.data.status) {
         loggedIn = true;
@@ -15,132 +14,61 @@ const isLoggedIn = async () => {
     });
 
   if (!loggedIn) {
-    await axios.post('auth/refresh-tokens', { refreshToken: localStorage.getItem('refreshToken') })
-      .then(response => {
-        if (response.data.access) {
-          localStorage.setItem('token', response.data.access.token);
-          localStorage.setItem('refreshToken', response.data.refresh.token);
-          loggedIn = true;
-        }
-      })
-      .catch(() => {
-        loggedIn = false;
-      });
+    const refreshToken = auth.getRefreshToken();
+
+    if (refreshToken) {
+      await api.post('auth/refresh-tokens', { refreshToken })
+        .then(response => {
+          if (response.data.access) {
+            auth.setAccessToken(response.data.access.token);
+            auth.setRefreshToken(response.data.refresh.token);
+
+            loggedIn = true;
+          }
+        })
+        .catch(() => {
+          loggedIn = false;
+        });
+    }
   }
 
   return loggedIn;
 };
 
-// Get authorization header with jwt token
-const authHeader = () => {
-  const token = localStorage.getItem('token');
+const logout = () => {
+  const refreshToken = auth.getRefreshToken();
 
-  if (token) {
-    return {
-      Authorization: `Bearer ${token}`
-    };
+  if (refreshToken) {
+    api.delete(`user/logout/${auth.getRefreshToken()}`)
+      .finally(() => auth.removeAllTokens());
   }
 
-  return {};
+  auth.removeAllTokens();
 };
 
-const logout = () => {
-  const refreshToken = localStorage.getItem('refreshToken');
-
-  return axios.delete(`user/logout/${refreshToken}`)
-    .then(() => {
-      localStorage.removeItem('token');
-      localStorage.removeItem('refreshToken');
-    })
-    .catch(() => {
-      localStorage.removeItem('token');
-      localStorage.removeItem('refreshToken');
-    });
-};
-
-const handleResponse = response => response.json()
-  .then(data => {
-    if (!response.ok) {
-      // if (response.status === 401) {
-      //   logout();
-      //   window.location.reload(true);
-      // }
-
-      const error = (data && data.message) || response.statusText;
-
-      return Promise.reject(error);
-    }
-
-    return data;
+const login = (email, password) => api.post('auth/login', { email, password })
+  .then(response => {
+    auth.setAccessToken(response.data.tokens.access.token);
+    auth.setRefreshToken(response.data.tokens.refresh.token);
   });
 
-const login = (email, password) => {
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ email, password })
-  };
+const getAll = () => api.get('users')
+  .then(() => {})
+  .catch(() => {});
 
-  return fetch(`${config.apiUrl}/auth/login`, requestOptions)
-    .then(handleResponse)
-    .then(user => {
-      // store user details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem('token', user.tokens.access.token);
-      localStorage.setItem('refreshToken', user.tokens.refresh.token);
+const getById = id => api.get(`users/${id}`)
+  .then(() => {})
+  .catch(() => {});
 
-      return user;
-    });
-};
+const register = user => api.post('auth/register', user);
 
-const getAll = () => {
-  const requestOptions = {
-    method: 'GET',
-    headers: authHeader()
-  };
+const update = user => api.put(`users/${user.id}`, { body: JSON.stringify(user) })
+  .then(() => {})
+  .catch(() => {});
 
-  return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse);
-};
-
-const getById = id => {
-  const requestOptions = {
-    method: 'GET',
-    headers: authHeader()
-  };
-
-  return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
-};
-
-const register = user => {
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(user)
-  };
-
-  return fetch(`${config.apiUrl}/auth/register`, requestOptions)
-    .then(handleResponse);
-};
-
-const update = user => {
-  const requestOptions = {
-    method: 'PUT',
-    headers: { ...authHeader(), 'Content-Type': 'application/json' },
-    body: JSON.stringify(user)
-  };
-
-  return fetch(`${config.apiUrl}/users/${user.id}`, requestOptions).then(handleResponse);
-};
-
-const deleteUser = id => {
-  const requestOptions = {
-    method: 'DELETE',
-    headers: authHeader()
-  };
-
-  return fetch(`${config.apiUrl}/users/${id}`, requestOptions).then(handleResponse);
-};
+const deleteUser = id => api.delete(`users/${id}`)
+  .then(() => {})
+  .catch(() => {});
 
 export default {
   delete: deleteUser,
