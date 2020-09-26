@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Router } from 'react-router';
-import history from '../utils/history';
+import { history, auth } from '../utils';
 import Login from './Guest/Login';
 import Register from './Guest/Register';
 import NotFound from './Guest/NotFound';
@@ -10,7 +10,7 @@ import AuthRoute from './shared/AuthRoute';
 import ProtectedRoute from './shared/ProtectedRoute';
 
 const App = () => {
-  const isAuthenticated = !!localStorage.getItem('token');
+  const isAuthenticated = !!auth.getAccessToken();
 
   return (
     <Router history={history}>

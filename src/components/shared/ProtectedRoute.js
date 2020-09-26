@@ -10,10 +10,13 @@ const ProtectedRoute = ({ component: Component, auth, ...rest }) => {
 
   useEffect(() => {
     (async () => {
-      const loggedIn = await userService.isLoggedIn();
+      // No need to dispatch anything if the token is not available
+      if (auth) {
+        const loggedIn = await userService.isLoggedIn();
 
-      if (!loggedIn) {
-        dispatch(userActions.logout());
+        if (!loggedIn) {
+          dispatch(userActions.logout());
+        }
       }
     })();
   });
