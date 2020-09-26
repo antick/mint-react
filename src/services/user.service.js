@@ -45,8 +45,17 @@ const authHeader = () => {
 };
 
 const logout = () => {
-  localStorage.removeItem('token');
-  localStorage.removeItem('refreshToken');
+  const refreshToken = localStorage.getItem('refreshToken');
+
+  return axios.delete(`user/logout/${refreshToken}`)
+    .then(() => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('refreshToken');
+    })
+    .catch(() => {
+      localStorage.removeItem('token');
+      localStorage.removeItem('refreshToken');
+    });
 };
 
 const handleResponse = response => response.json()

@@ -17,10 +17,6 @@ const MainDashboard = () => {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(userActions.getAll());
-  // }, [dispatch]);
-
   function handleDeleteUser(id) {
     dispatch(userActions.delete(id));
   }
@@ -301,13 +297,13 @@ const MainDashboard = () => {
         {users.loading && <em>Loading users...</em>}
         {users.error && <span className="text-danger">ERROR: {users.error}</span>}
         {users.items && <ul>
-          {users.items.map((user, index) => <li key={user.id}>
-            {user.firstName + ' ' + user.lastName}
+          {users.items.map(userData => <li key={userData.id}>
+            {`${userData.firstName} ${userData.lastName}`}
             {
-              user.deleting ? <em> - Deleting...</em>
-                : user.deleteError
-                  ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                  : <span> - <button onClick={() => handleDeleteUser(user.id)} className="text-primary">Delete</button></span>
+              userData.deleting ? <em> - Deleting...</em>
+                : userData.deleteError
+                  ? <span className="text-danger"> - ERROR: {userData.deleteError}</span>
+                  : <span> - <button onClick={() => handleDeleteUser(userData.id)} className="text-primary">Delete</button></span>
             }
           </li>)}
         </ul>
