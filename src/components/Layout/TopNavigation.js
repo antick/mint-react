@@ -7,8 +7,8 @@ const TopNavigation = () => {
   const userName = 'Pankaj Sanam';
   const dispatch = useDispatch();
 
-  const logout = () => {
-    dispatch(userActions.logout());
+  const logout = async () => {
+    dispatch(await userActions.logout());
   };
 
   return (

@@ -20,8 +20,8 @@ const login = (email, password, from) => dispatch => {
     );
 };
 
-const logout = () => {
-  userService.logout();
+const logout = async () => {
+  await userService.logout();
 
   // TODO: Hard redirection due to issues in component re-rendering. Need to find a solution for this.
   window.location.assign('/login');
@@ -32,56 +32,40 @@ const logout = () => {
 };
 
 const register = user => dispatch => {
-  const request = userData => ({ type: userConstants.REGISTER_REQUEST, user: userData });
-  const success = userData => ({ type: userConstants.REGISTER_SUCCESS, user: userData });
-  const failure = error => ({ type: userConstants.REGISTER_FAILURE, error });
-
-  dispatch(request(user));
+  dispatch({ type: userConstants.REGISTER_REQUEST, user });
 
   userService.register(user)
     .then(
       userData => {
-        dispatch(success(userData));
+        dispatch({ type: userConstants.REGISTER_SUCCESS, user: userData });
         history.push('/login');
         dispatch(alertActions.success('Registration successful'));
       },
       error => {
-        dispatch(failure(error.toString()));
+        dispatch({ type: userConstants.REGISTER_FAILURE, error: error.toString() });
         dispatch(alertActions.error(error.toString()));
       }
     );
 };
 
-const getAll = () => {
-  const request = () => ({ type: userConstants.GETALL_REQUEST });
-  const success = users => ({ type: userConstants.GETALL_SUCCESS, users });
-  const failure = error => ({ type: userConstants.GETALL_FAILURE, error });
+const getAll = () => dispatch => {
+  dispatch({ type: userConstants.GETALL_REQUEST });
 
-  return dispatch => {
-    dispatch(request());
-
-    userService.getAll()
-      .then(
-        users => dispatch(success(users)),
-        error => dispatch(failure(error.toString()))
-      );
-  };
+  userService.getAll()
+    .then(
+      users => dispatch({ type: userConstants.GETALL_SUCCESS, users }),
+      error => dispatch({ type: userConstants.GETALL_FAILURE, error: error.toString() })
+    );
 };
 
-const deleteUser = id => {
-  const request = idData => ({ type: userConstants.DELETE_REQUEST, id: idData });
-  const success = idData => ({ type: userConstants.DELETE_SUCCESS, id: idData });
-  const failure = (idData, error) => ({ type: userConstants.DELETE_FAILURE, id: idData, error });
+const deleteUser = id => dispatch => {
+  dispatch({ type: userConstants.DELETE_REQUEST, id });
 
-  return dispatch => {
-    dispatch(request(id));
-
-    userService.delete(id)
-      .then(
-        () => dispatch(success(id)),
-        error => dispatch(failure(id, error.toString()))
-      );
-  };
+  userService.delete(id)
+    .then(
+      () => dispatch({ type: userConstants.DELETE_SUCCESS, id }),
+      error => dispatch({ type: userConstants.DELETE_FAILURE, id, error: error.toString() })
+    );
 };
 
 export default {
