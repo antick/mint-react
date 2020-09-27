@@ -48,8 +48,8 @@ const logout = () => {
 
 const login = (email, password) => api.post('auth/login', { email, password })
   .then(response => {
-    auth.setAccessToken(response.data.tokens.access.token);
-    auth.setRefreshToken(response.data.tokens.refresh.token);
+    auth.setAccessToken(response.data.tokens.access);
+    auth.setRefreshToken(response.data.tokens.refresh);
   });
 
 const getAll = () => api.get('users')

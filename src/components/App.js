@@ -10,7 +10,7 @@ import AuthRoute from './shared/AuthRoute';
 import ProtectedRoute from './shared/ProtectedRoute';
 
 const App = () => {
-  const isAuthenticated = !!auth.getAccessToken();
+  const isAuthenticated = auth.isAuthenticated();
 
   return (
     <Router history={history}>
