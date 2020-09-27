@@ -1,33 +1,51 @@
+import Cookies from 'js-cookie';
 import { isEmpty } from 'lodash';
 
 const getAccessToken = () => {
-  const token = localStorage.getItem('token');
+  const token = Cookies.get('accessToken');
 
   return isEmpty(token) ? false : token;
 };
-
-const setAccessToken = token => localStorage.setItem('token', token);
-
-const removeAccessToken = () => localStorage.removeItem('token');
 
 const getRefreshToken = () => {
-  const token = localStorage.getItem('refreshToken');
+  const token = Cookies.get('refreshToken');
 
   return isEmpty(token) ? false : token;
 };
 
-const setRefreshToken = token => localStorage.setItem('refreshToken', token);
+const setAccessToken = access => {
+  const { token, expires } = access;
+  const expiresAt = new Date(new Date(expires).getTime());
 
-const removeRefreshToken = () => localStorage.removeItem('refreshToken');
+  Cookies.set('accessToken', token, { expires: expiresAt });
+};
+
+const setRefreshToken = refresh => {
+  const { token, expires } = refresh;
+  const expiresAt = new Date(new Date(expires).getTime());
+
+  Cookies.set('refreshToken', token, { expires: expiresAt });
+};
+
+const removeAccessToken = () => {
+  Cookies.remove('accessToken');
+};
+
+const removeRefreshToken = () => {
+  Cookies.remove('refreshToken');
+};
 
 const removeAllTokens = () => {
   removeAccessToken();
   removeRefreshToken();
 };
 
+const isAuthenticated = () => !!getAccessToken();
+
 export default {
   removeRefreshToken,
   removeAccessToken,
+  isAuthenticated,
   removeAllTokens,
   getRefreshToken,
   setRefreshToken,
