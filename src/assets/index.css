@@ -83,7 +83,7 @@ input:checked + svg {
 }
 
 .multi-menu {
-  @apply px-2 pt-2 pb-4 bg-white rounded-md grid grid-cols-1 gap-4 bg-white border rounded-sm absolute origin-top min-w-32 ;
+  @apply px-2 pt-2 pb-4 bg-white rounded-md grid grid-cols-1 gap-4 bg-white border rounded-sm absolute origin-top min-w-32;
 }
 
 .multi-menu-item {
@@ -95,7 +95,7 @@ input:checked + svg {
 }
 
 .multi-menu-item:focus {
-  @apply text-gray-900 bg-gray-200 outline-none shadow-outline;
+  @apply text-gray-900 bg-gray-200 outline-none ring;
 }
 
 .menu-item {
@@ -107,7 +107,7 @@ input:checked + svg {
 }
 
 .sub-menu-button {
-  @apply block w-full px-4 py-2 font-medium text-gray-700 whitespace-no-wrap transition duration-300 ease-in-out;
+  @apply block w-full px-4 py-2 font-medium text-gray-700 whitespace-nowrap transition duration-300 ease-in-out;
 }
 
 .sub-menu-button:hover {
@@ -115,7 +115,7 @@ input:checked + svg {
 }
 
 .sub-menu-button:focus {
-  @apply outline-none text-gray-900 shadow-outline;
+  @apply outline-none text-gray-900 ring;
 }
 
 .top-search-input {
@@ -123,7 +123,7 @@ input:checked + svg {
 }
 
 .top-search-input:focus {
-  @apply shadow-outline;
+  @apply ring;
 }
 
 @screen md {
@@ -141,11 +141,11 @@ input:checked + svg {
 }
 
 .menu-item:focus {
-  @apply text-gray-900 bg-gray-200 outline-none shadow-outline;
+  @apply text-gray-900 bg-gray-200 outline-none ring;
 }
 
 .profile-menu {
-  @apply px-2 pt-2 pb-4 bg-white rounded-md grid grid-cols-1 gap-4 bg-white border rounded-sm absolute origin-top min-w-32 ;
+  @apply px-2 pt-2 pb-4 bg-white rounded-md grid grid-cols-1 gap-4 bg-white border rounded-sm absolute origin-top min-w-32;
 }
 
 .profile-menu-item {
@@ -157,7 +157,7 @@ input:checked + svg {
 }
 
 .profile-menu-item:focus {
-  @apply text-gray-900 bg-gray-200 outline-none shadow-outline;
+  @apply text-gray-900 bg-gray-200 outline-none ring;
 }
 
 .login-block {
@@ -173,7 +173,7 @@ input:checked + svg {
 }
 
 .login-input:focus {
-  @apply outline-none shadow-outline;
+  @apply outline-none ring;
 }
 
 .login-button {
@@ -185,5 +185,5 @@ input:checked + svg {
 }
 
 .login-button:focus {
-  @apply outline-none shadow-outline;
+  @apply outline-none ring;
 }
