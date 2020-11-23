@@ -300,6 +300,7 @@ const MainDashboard = () => {
           {users.items.map(userData => <li key={userData.id}>
             {`${userData.firstName} ${userData.lastName}`}
             {
+              // eslint-disable-next-line no-nested-ternary
               userData.deleting ? <em> - Deleting...</em>
                 : userData.deleteError
                   ? <span className="text-danger"> - ERROR: {userData.deleteError}</span>

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Cookies from 'js-cookie';
 import { isEmpty } from 'lodash';
 
@@ -16,6 +17,10 @@ const getRefreshToken = () => {
 const setAccessToken = access => {
   const { token, expires } = access;
   const expiresAt = new Date(new Date(expires).getTime());
+
+  if (token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  }
 
   Cookies.set('accessToken', token, { expires: expiresAt });
 };

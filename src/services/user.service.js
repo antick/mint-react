@@ -1,9 +1,10 @@
-import { auth, api } from '../utils';
+import axios from 'axios';
+import { auth } from '../utils';
 
 const isLoggedIn = async () => {
   let loggedIn = false;
 
-  await api.get('user/logged-in')
+  await axios.get('user/logged-in')
     .then(response => {
       if (response.data.status) {
         loggedIn = true;
@@ -17,17 +18,18 @@ const isLoggedIn = async () => {
     const refreshToken = auth.getRefreshToken();
 
     if (refreshToken) {
-      await api.post('auth/refresh-tokens', { refreshToken })
+      await axios.post('auth/refresh-tokens', { refreshToken })
         .then(response => {
           if (response.data.access) {
-            auth.setAccessToken(response.data.access.token);
-            auth.setRefreshToken(response.data.refresh.token);
+            auth.setAccessToken(response.data.access);
+            auth.setRefreshToken(response.data.refresh);
 
             loggedIn = true;
           }
         })
         .catch(() => {
           loggedIn = false;
+          auth.removeAllTokens();
         });
     }
   }
@@ -35,38 +37,37 @@ const isLoggedIn = async () => {
   return loggedIn;
 };
 
-const logout = () => {
+const logout = async () => {
   const refreshToken = auth.getRefreshToken();
 
   if (refreshToken) {
-    api.delete(`user/logout/${auth.getRefreshToken()}`)
-      .finally(() => auth.removeAllTokens());
+    await axios.delete(`user/logout/${refreshToken}`);
   }
 
   auth.removeAllTokens();
 };
 
-const login = (email, password) => api.post('auth/login', { email, password })
+const login = (email, password) => axios.post('auth/login', { email, password })
   .then(response => {
     auth.setAccessToken(response.data.tokens.access);
     auth.setRefreshToken(response.data.tokens.refresh);
   });
 
-const getAll = () => api.get('users')
+const getAll = () => axios.get('users')
   .then(() => {})
   .catch(() => {});
 
-const getById = id => api.get(`users/${id}`)
+const getById = id => axios.get(`users/${id}`)
   .then(() => {})
   .catch(() => {});
 
-const register = user => api.post('auth/register', user);
+const register = user => axios.post('auth/register', user);
 
-const update = user => api.put(`users/${user.id}`, { body: JSON.stringify(user) })
+const update = user => axios.put(`users/${user.id}`, { body: JSON.stringify(user) })
   .then(() => {})
   .catch(() => {});
 
-const deleteUser = id => api.delete(`users/${id}`)
+const deleteUser = id => axios.delete(`users/${id}`)
   .then(() => {})
   .catch(() => {});
 
