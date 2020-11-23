@@ -21,7 +21,11 @@ const login = (email, password, from) => dispatch => {
 };
 
 const logout = async () => {
-  await userService.logout();
+  try {
+    await userService.logout();
+  } catch (e) {
+    // Log the error here
+  }
 
   // TODO: Hard redirection due to issues in component re-rendering. Need to find a solution for this.
   window.location.assign('/login');
