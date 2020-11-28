@@ -3,28 +3,16 @@ import { shallow, mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from '../App';
-import MainDashboard from '../Dashboard/MainDashboard';
 import LeftNavigation from '../Layout/LeftNavigation';
 import UserList from '../User/UserList';
 import store from '../../utils/store';
+import Main from '../Layout/Main';
 
 const configuredStore = store();
 
 describe('test App component', () => {
   it('should render without crashing', () => {
     shallow(<App />);
-  });
-});
-
-describe('test User MainDashboard component', () => {
-  it('should render without crashing', () => {
-    mount(
-      <Provider store={configuredStore}>
-        <Router>
-          <MainDashboard />
-        </Router>
-      </Provider>
-    );
   });
 });
 
@@ -43,5 +31,11 @@ describe('test UserList component', () => {
         </Router>
       </Provider>
     );
+  });
+});
+
+describe('test Main component', () => {
+  it('should render without crashing', () => {
+    shallow(<Main />);
   });
 });
