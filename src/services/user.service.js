@@ -53,8 +53,8 @@ const login = (email, password) => axios.post('auth/login', { email, password })
     auth.setRefreshToken(response.data.tokens.refresh);
   });
 
-const getAll = () => axios.get('users')
-  .then(() => {})
+const getAll = () => axios.get('user')
+  .then(response => response.data)
   .catch(() => {});
 
 const getById = id => axios.get(`users/${id}`)

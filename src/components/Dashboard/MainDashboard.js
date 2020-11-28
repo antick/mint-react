@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -13,13 +13,17 @@ import SvgIcon from '../shared/SvgIcon';
 import userActions from '../../actions/user.action';
 
 const MainDashboard = () => {
-  const users = useSelector(state => state.users);
-
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.getAll());
+  }, []);
 
   function handleDeleteUser(id) {
     dispatch(userActions.delete(id));
   }
+
+  const users = useSelector(state => state.users);
 
   const data = [
     {
@@ -296,9 +300,9 @@ const MainDashboard = () => {
         <h3>All registered users:</h3>
         {users.loading && <em>Loading users...</em>}
         {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-        {users.items && <ul>
-          {users.items.map(userData => <li key={userData.id}>
-            {`${userData.firstName} ${userData.lastName}`}
+        {users.users && <ul>
+          {users.users.results.map(userData => <li key={userData.id}>
+            {`${userData.name}`}
             {
               // eslint-disable-next-line no-nested-ternary
               userData.deleting ? <em> - Deleting...</em>

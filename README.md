@@ -63,6 +63,10 @@ Builds the app for production to the `build` folder.
         |-- User
 ```
 
+## TODO
+- [ ] Add a demo
+- [ ] Increase code coverage
+
 ## License
 
 MIT License

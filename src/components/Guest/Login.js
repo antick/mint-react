@@ -48,7 +48,7 @@ const Login = () => {
       <div className="login-block w-full bg-gray-400 hidden lg:block lg:w-11/12 bg-cover rounded-l-lg" />
       <div className="m-auto w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
         <h3 className="pt-4 text-4xl font-bold text-center">Login</h3>
-        {alert.message && <div className={`alert ${alert.type}`}>{alert.message}</div>}
+        {alert.message && <div id="error-placeholder" className={`alert ${alert.type}`}>{alert.message}</div>}
 
         <form className="px-32 mt-8 mb-4">
           <div className="mb-8">
@@ -102,6 +102,7 @@ const Login = () => {
           </div>
           <div className="mb-8 text-center">
             <button
+              id="login-button"
               className="login-button"
               type="button"
               onClick={handleSubmit}

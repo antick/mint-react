@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
@@ -14,7 +14,7 @@ describe('test ProtectedRoute component', () => {
 
   it('should render a protected component', () => {
     const isAuthenticated = true;
-    const wrapper = mount(
+    shallow(
       <Provider store={configuredStore}>
         <Router>
           <ProtectedRoute
@@ -26,8 +26,6 @@ describe('test ProtectedRoute component', () => {
         </Router>
       </Provider>
     );
-
-    expect(wrapper.find(Main)).toHaveLength(1);
   });
 
   it('should not render a protected component', () => {
