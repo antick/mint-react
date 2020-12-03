@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Validator from 'validator';
+import PropTypes from 'prop-types';
 import userActions from '../../actions/user.action';
 
-const Register = () => {
+const Register = ({ history }) => {
   const [user, setUser] = useState({
     name: '',
     email: '',
@@ -15,6 +16,7 @@ const Register = () => {
 
   const registering = useSelector(state => state.registration.registering);
   const dispatch = useDispatch();
+  const alert = useSelector(state => state.alert);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -39,15 +41,18 @@ const Register = () => {
     setSubmitted(true);
 
     if (user.name && user.email && user.password) {
-      dispatch(userActions.register(user));
+      dispatch(userActions.register(history, user));
     }
   }
 
   return (
-    <div className="flex h-screen">
-      <div className="register-block w-full bg-gray-400 hidden lg:block lg:w-11/12 bg-cover rounded-l-lg" />
+    <div className="guest-container">
+      <div className="register-bg-img w-full bg-gray-400 hidden lg:block lg:w-11/12 bg-cover rounded-l-lg" />
       <div className="m-auto w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
         <h3 className="pt-4 text-4xl font-bold text-center">Register</h3>
+
+        {alert.message && <div id="error-placeholder" className={`alert ${alert.type}`}>{alert.message}</div>}
+
         <form className="px-32 mt-8 mb-4">
           <div className="mb-8">
             <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="name">
@@ -116,6 +121,10 @@ const Register = () => {
       </div>
     </div>
   );
+};
+
+Register.propTypes = {
+  history: PropTypes.object
 };
 
 export default Register;

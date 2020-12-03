@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
 import axios from 'axios';
 import * as serviceWorker from './serviceWorker';
 import store, { history } from './utils/store';
@@ -22,9 +21,7 @@ const configuredStore = store();
 
 ReactDOM.render(
   <Provider store={configuredStore}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
+    <App history={history} />
   </Provider>,
   document.getElementById('root')
 );

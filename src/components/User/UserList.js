@@ -3,13 +3,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchPosts } from '../../actions/postsActions';
 
-const propTypes = {
-  dispatch: PropTypes.any,
-  loading: PropTypes.bool,
-  posts: PropTypes.array,
-  hasErrors: PropTypes.bool
-};
-
 const UserList = ({
   dispatch, loading, posts, hasErrors
 }) => {
@@ -41,7 +34,12 @@ const UserList = ({
   );
 };
 
-UserList.propTypes = propTypes;
+UserList.propTypes = {
+  dispatch: PropTypes.any,
+  loading: PropTypes.bool,
+  posts: PropTypes.array,
+  hasErrors: PropTypes.bool
+};
 
 const mapStateToProps = state => ({
   loading: state.posts.loading,

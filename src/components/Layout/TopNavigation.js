@@ -1,15 +1,14 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import SvgIcon from '../shared/SvgIcon';
 import userActions from '../../actions/user.action';
 
-const TopNavigation = () => {
+const TopNavigation = ({ history }) => {
   const userName = 'Pankaj Sanam';
   const dispatch = useDispatch();
 
-  const logout = async () => {
-    dispatch(await userActions.logout());
-  };
+  const logout = () => dispatch(userActions.logout(history));
 
   return (
     <nav className="font-sans flex w-full text-gray-600 p-4 pt-8">
@@ -238,6 +237,10 @@ const TopNavigation = () => {
       </div>
     </nav>
   );
+};
+
+TopNavigation.propTypes = {
+  history: PropTypes.object
 };
 
 export default TopNavigation;

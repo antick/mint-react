@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Validator from 'validator';
+import PropTypes from 'prop-types';
 import userActions from '../../actions/user.action';
 
-const Login = () => {
+const Login = ({ history }) => {
   const [inputs, setInputs] = useState({
     email: '',
     password: ''
   });
   const { email, password } = inputs;
+
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -38,16 +40,24 @@ const Login = () => {
 
     if (email && password) {
       const { from } = location.state || { from: { pathname: '/' } };
+      const actionData = {
+        history,
+        email,
+        password,
+        from
+      };
 
-      dispatch(userActions.login(email, password, from));
+      dispatch(userActions.login(actionData));
     }
   };
 
   return (
-    <div className="flex h-screen">
-      <div className="login-block w-full bg-gray-400 hidden lg:block lg:w-11/12 bg-cover rounded-l-lg" />
-      <div className="m-auto w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-        <h3 className="pt-4 text-4xl font-bold text-center">Login</h3>
+    <div className="guest-container">
+      <div className="login-bg-img w-full bg-gray-400 hidden lg:block lg:w-11/12 bg-cover rounded-l-lg" />
+      <div className="m-auto w-full lg:w-1/2 rounded-lg lg:rounded-l-none border-b-2 border-gray-200">
+        <div className="border border-gray-200">
+          <h3 className="py-14 text-4xl font-bold text-center">Login</h3>
+        </div>
         {alert.message && <div id="error-placeholder" className={`alert ${alert.type}`}>{alert.message}</div>}
 
         <form className="px-32 mt-8 mb-4">
@@ -120,6 +130,10 @@ const Login = () => {
       </div>
     </div>
   );
+};
+
+Login.propTypes = {
+  history: PropTypes.object
 };
 
 export default Login;
