@@ -4,14 +4,16 @@ import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 import userActions from '../../actions/user.action';
 import { userService } from '../../services';
+import { auth } from '../../utils';
 
-const ProtectedRoute = ({ component: Component, auth, ...rest }) => {
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const isAuthenticated = auth.isAuthenticated();
   const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
-      // No need to dispatch anything if the token is not available
-      if (auth) {
+      // Dispatch actions only if the token is available and auth is set
+      if (isAuthenticated) {
         const loggedIn = await userService.isLoggedIn();
 
         if (!loggedIn) {
@@ -23,8 +25,8 @@ const ProtectedRoute = ({ component: Component, auth, ...rest }) => {
 
   return (
     <Route {...rest} render={props => (
-      auth === true
-        ? <Component auth={auth} {...props} {...rest} />
+      isAuthenticated === true
+        ? <Component auth={isAuthenticated} {...props} {...rest} />
         : <Redirect to='/login' />
     )} />
   );

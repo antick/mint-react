@@ -1,17 +1,15 @@
-import { userService } from '../services';
 import alertActions from './alert.action';
-import history from '../utils/history';
+import { userService } from '../services';
 import { userConstants } from '../constants';
 
-const login = (email, password, from) => dispatch => {
+const login = ({
+  history, email, password, from
+}) => dispatch => {
   userService.login(email, password)
     .then(
       user => {
         dispatch({ type: userConstants.LOGIN_SUCCESS, user });
         history.push(from);
-
-        // TODO: Hard redirection because the App component is not re-rendering after dispatching the LOGIN SUCCESS
-        window.location.assign('/');
       },
       error => {
         dispatch({ type: userConstants.LOGIN_FAILURE, error: error.toString() });
@@ -20,36 +18,28 @@ const login = (email, password, from) => dispatch => {
     );
 };
 
-const logout = async () => {
-  try {
-    await userService.logout();
-  } catch (e) {
-    // Log the error here
-  }
-
-  // TODO: Hard redirection due to issues in component re-rendering. Need to find a solution for this.
-  window.location.assign('/login');
-
-  return {
-    type: userConstants.LOGOUT
-  };
+const logout = history => dispatch => {
+  userService.logout()
+    .then(() => {
+      dispatch({ type: userConstants.LOGOUT });
+      history.push('/login');
+    })
+    .catch();
 };
 
-const register = user => dispatch => {
+const register = (history, user) => dispatch => {
   dispatch({ type: userConstants.REGISTER_REQUEST, user });
 
   userService.register(user)
-    .then(
-      userData => {
-        dispatch({ type: userConstants.REGISTER_SUCCESS, user: userData });
-        history.push('/login');
-        dispatch(alertActions.success('Registration successful'));
-      },
-      error => {
-        dispatch({ type: userConstants.REGISTER_FAILURE, error: error.toString() });
-        dispatch(alertActions.error(error.toString()));
-      }
-    );
+    .then(userData => {
+      dispatch({ type: userConstants.REGISTER_SUCCESS, user: userData });
+      dispatch(alertActions.success('Registration successful! Please log in now.'));
+      history.push('/login');
+    })
+    .catch(error => {
+      dispatch({ type: userConstants.REGISTER_FAILURE, error: error.response.data.message });
+      dispatch(alertActions.error(error.response.data.message));
+    });
 };
 
 const getAll = () => dispatch => {

@@ -22,6 +22,7 @@ describe('test LeftNavigation component', () => {
   });
 });
 
+// TODO: https://github.com/enzymejs/enzyme/issues/2429
 describe('test UserList component', () => {
   it('should render without crashing', () => {
     mount(

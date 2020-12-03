@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Router } from 'react-router';
-import { history, auth } from '../utils';
+import { ConnectedRouter } from 'connected-react-router';
+import PropTypes from 'prop-types';
 import Login from './Guest/Login';
 import Register from './Guest/Register';
 import NotFound from './Guest/NotFound';
@@ -9,21 +9,21 @@ import Main from './Layout/Main';
 import AuthRoute from './shared/AuthRoute';
 import ProtectedRoute from './shared/ProtectedRoute';
 
-const App = () => {
-  const isAuthenticated = auth.isAuthenticated();
+const App = ({ history }) => (
+  <ConnectedRouter history={history}>
+    <Switch>
+      <AuthRoute path='/login' component={Login} />
+      <AuthRoute path='/register' component={Register} />
 
-  return (
-    <Router history={history}>
-      <Switch>
-        <AuthRoute path='/login' component={Login} auth={isAuthenticated} />
-        <AuthRoute path='/register' component={Register} auth={isAuthenticated} />
+      <ProtectedRoute path='/' component={Main} history={history} />
 
-        <ProtectedRoute path='/' component={Main} auth={isAuthenticated} />
+      <Route component={NotFound} />
+    </Switch>
+  </ConnectedRouter>
+);
 
-        <Route component={NotFound} />
-      </Switch>
-    </Router>
-  );
+App.propTypes = {
+  history: PropTypes.object
 };
 
 export default App;
