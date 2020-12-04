@@ -150,7 +150,7 @@ input:checked + svg {
 }
 
 .guest-link {
-  @apply inline-block text-sm text-gray-100 align-baseline hover:text-gray-200;
+  @apply inline-block text-sm text-white align-baseline hover:text-gray-100;
 }
 
 .login-input {
@@ -168,6 +168,10 @@ input:checked + svg {
 .login-button {
   @apply w-full px-4 py-2 text-white rounded-full focus:outline-none focus:ring;
   @apply transition duration-500 ease-in-out bg-teal-600 hover:bg-teal-700;
+}
+
+.btn-disabled {
+  @apply cursor-not-allowed;
 }
 
 /* Forms */
