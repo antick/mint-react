@@ -26,7 +26,7 @@ const Register = ({ history }) => {
   function handleSubmit() {
     const errorBag = {};
     if (!Validator.isEmail(user.email)) {
-      errorBag.email = 'Invalid email';
+      errorBag.email = 'Please enter a valid email';
     }
 
     if (!user.name) {
@@ -47,75 +47,62 @@ const Register = ({ history }) => {
 
   return (
     <div className="guest-container">
-      <div className="register-bg-img w-full bg-gray-400 hidden lg:block lg:w-11/12 bg-cover rounded-l-lg" />
-      <div className="m-auto w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-        <h3 className="pt-4 text-4xl font-bold text-center">Register</h3>
+      <div className="guest-block">
+        <h3 className="guest-title">Sign Up</h3>
 
-        {alert.message && <div id="error-placeholder" className={`alert ${alert.type}`}>{alert.message}</div>}
+        {alert.message && <div className={alert.type}>{alert.message}</div>}
 
-        <form className="px-32 mt-8 mb-4">
+        <form className="guest-form">
           <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="name">
-              Full Name
-            </label>
+            <label className="input-label-top" htmlFor="name">Full Name</label>
             <input
-              className={`login-input form-control${submitted && !user.name ? ' is-invalid' : ''}`}
               type="text"
-              id="name"
               name="name"
               value={user.name}
               placeholder="Your full name"
               onChange={handleChange}
+              className={`login-input ${submitted && !user.name ? ' is-invalid' : ''}`}
             />
-            {submitted && !user.name && <div className="invalid-feedback">{errors.name}</div>}
+            {submitted && !user.name && <p className="input-error">{errors.name}</p>}
           </div>
+
           <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
-              Email Address
-            </label>
+            <label className="input-label-top" htmlFor="email">Email</label>
             <input
-              className={`login-input form-control${submitted && !user.email ? ' is-invalid' : ''}`}
               type="text"
-              id="email"
               name="email"
               value={user.email}
               placeholder="Email"
               onChange={handleChange}
+              className={`login-input ${submitted && !user.email ? ' is-invalid' : ''}`}
             />
-            {submitted && !user.email && <div className="invalid-feedback">{errors.email}</div>}
+            {submitted && !user.email && <p className="input-error">{errors.email}</p>}
           </div>
+
           <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="password">
-              Password
-            </label>
+            <label className="input-label-top" htmlFor="password">Password</label>
             <input
-              className={`login-input form-control${submitted && !user.password ? ' is-invalid' : ''}`}
               type="password"
-              id="password"
               name="password"
               value={user.password}
-              placeholder="******************"
+              placeholder="**********"
               onChange={handleChange}
+              className={`login-input ${submitted && !user.password ? ' is-invalid' : ''}`}
             />
-            {submitted && !user.password && <p className="text-xs text-red-500">{errors.password}</p>}
+            {submitted && !user.password && <p className="input-error">{errors.password}</p>}
           </div>
-          <div className="mb-8 text-center">
-            <button
-              onClick={handleSubmit}
-              className="login-button"
-              type="button"
-            >
+
+          <div className="mb-4 text-center">
+            <button className="login-button" type="button" onClick={handleSubmit}>
               {registering && <span className="spinner-border spinner-border-sm mr-1" />}
               Register
             </button>
           </div>
 
-          <hr className="mb-6 border-t"/>
+          <hr className="my-4 border-t" />
 
-          <div className="text-center">
-            <Link to="/login" className="inline-block text-sm text-gray-800 align-baseline hover:text-blue-800">
-              Already have an account? Login now!
-            </Link>
+          <div className="text-center mb-8">
+            <Link to="/login" className="guest-link">Already have an account? Login now!</Link>
           </div>
         </form>
       </div>

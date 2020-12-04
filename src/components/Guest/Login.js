@@ -28,7 +28,7 @@ const Login = ({ history }) => {
     const errorBag = {};
 
     if (!Validator.isEmail(email)) {
-      errorBag.email = 'Invalid email';
+      errorBag.email = 'Please enter a valid email';
     }
 
     if (!password) {
@@ -53,78 +53,50 @@ const Login = ({ history }) => {
 
   return (
     <div className="guest-container">
-      <div className="login-bg-img w-full bg-gray-400 hidden lg:block lg:w-11/12 bg-cover rounded-l-lg" />
-      <div className="m-auto w-full lg:w-1/2 rounded-lg lg:rounded-l-none border-b-2 border-gray-200">
-        <div className="border border-gray-200">
-          <h3 className="py-14 text-4xl font-bold text-center">Login</h3>
-        </div>
-        {alert.message && <div id="error-placeholder" className={`alert ${alert.type}`}>{alert.message}</div>}
+      <div className="guest-block">
+        <h3 className="guest-title">Login</h3>
 
-        <form className="px-32 mt-8 mb-4">
+        {alert.message && <div className={alert.type}>{alert.message}</div>}
+
+        <form className="guest-form">
           <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
-              Email Address
-            </label>
+            <label className="input-label-top" htmlFor="email">Email</label>
             <input
               type="text"
-              id="email"
               name="email"
-              placeholder="Email"
+              placeholder="name@domain.com"
               value={email}
               onChange={handleChange}
-              className={`login-input form-control${submitted && !email ? ' is-invalid' : ''}`}
+              className={`login-input ${submitted && !email ? ' is-invalid' : ''}`}
             />
-            {submitted && !email && <div className="invalid-feedback">{errors.email}</div>}
+            {submitted && !email && <p className="input-error">{errors.email}</p>}
           </div>
+
           <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="password">
-              Password
-            </label>
+            <label className="input-label-top" htmlFor="password">Password</label>
             <input
               type="password"
-              id="password"
               name="password"
               placeholder="************"
               value={password}
               onChange={handleChange}
-              className={`login-input form-control${submitted && !password ? ' is-invalid' : ''}`}
+              className={`login-input ${submitted && !password ? ' is-invalid' : ''}`}
             />
-            {submitted && !password && <div className="invalid-feedback">{errors.password}</div>}
-            <p className="text-xs text-red-500 hidden">Please choose a password.</p>
+            {submitted && !password && <p className="input-error">{errors.password}</p>}
           </div>
-          <div className="mb-8">
-            <div className="flex justify-between">
-              <div>
-                <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id"/>
-                <label className="text-sm" htmlFor="checkbox_id">
-                  Remember Me
-                </label>
-              </div>
-              <div>
-                <a
-                  className="inline-block text-sm text-gray-800 align-baseline hover:text-blue-800"
-                  href="/forgot-password"
-                >
-                  Forgot Password?
-                </a>
-              </div>
-            </div>
+
+          <div className="mb-4 text-center">
+            <button id="login-button" className="login-button" type="button" onClick={handleSubmit}>Login</button>
           </div>
-          <div className="mb-8 text-center">
-            <button
-              id="login-button"
-              className="login-button"
-              type="button"
-              onClick={handleSubmit}
-            >
-              Login
-            </button>
-          </div>
-          <hr className="mb-6 border-t"/>
+
           <div className="text-center">
-            <Link to="/register" className="inline-block text-sm text-gray-800 align-baseline hover:text-blue-800">
-              Create an Account!
-            </Link>
+            <a className="guest-link" href="/forgot-password">Forgot Password?</a>
+          </div>
+
+          <hr className="my-4 border-t" />
+
+          <div className="text-center">
+            <Link to="/register" className="guest-link">Create an Account!</Link>
           </div>
         </form>
       </div>

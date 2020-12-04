@@ -134,26 +134,43 @@ input:checked + svg {
 
 /* Login & Registration */
 .guest-container {
-  @apply flex h-screen bg-gray-50;
+  @apply flex justify-end content-end items-end h-screen bg-gradient-to-r from-teal-400 via-teal-500 to-pink-400;
 }
 
-
-
-.login-bg-img {
-  background-image: url('https://images.unsplash.com/photo-1453167710320-151adc31f6d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80');
+.guest-block {
+  @apply m-auto w-full lg:w-1/3 rounded-3xl shadow bg-indigo-50 bg-opacity-10;
 }
 
-.register-bg-img {
-  background-image: url('https://images.unsplash.com/photo-1597596519859-2675debd2f3d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80');
+.guest-title {
+  @apply uppercase pt-10 pb-6 text-5xl font-black text-center font-mono text-white tracking-widest;
+}
+
+.guest-form {
+  @apply px-28 mt-4 mb-4;
+}
+
+.guest-link {
+  @apply inline-block text-sm text-gray-100 align-baseline hover:text-gray-200;
 }
 
 .login-input {
-  @apply w-full px-3 py-3 text-sm leading-tight text-gray-700 border rounded appearance-none;
-  @apply focus:outline-none focus:ring;
+  @apply w-full px-3 py-3 text-sm leading-tight text-gray-700 border rounded appearance-none focus:outline-none focus:ring-teal-400 focus:border-teal-700;
+}
+
+.input-label-top {
+  @apply block mb-2 text-sm font-bold text-gray-100;
+}
+
+.input-error {
+  @apply mt-2 text-sm tracking-wide font-bold text-red-800;
 }
 
 .login-button {
-  @apply w-full px-4 py-2 text-white bg-teal-500 rounded-full;
-  @apply hover:bg-teal-700;
-  @apply focus:outline-none focus:ring;
+  @apply w-full px-4 py-2 text-white rounded-full focus:outline-none focus:ring;
+  @apply transition duration-500 ease-in-out bg-teal-600 hover:bg-teal-700;
+}
+
+/* Forms */
+.alert-danger {
+  @apply bg-red-100 relative text-red-500 py-2 px-4 text-center;
 }
