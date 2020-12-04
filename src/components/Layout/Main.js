@@ -21,7 +21,7 @@ const Main = ({ history }) => {
       <section className="flex flex-col w-full">
         {Header}
 
-        <div className="pl-8 pr-12 pt-5">
+        <div className="pl-8 pr-12 pt-1">
           <Switch>
             {routes.map((prop, key) => (
               <Route

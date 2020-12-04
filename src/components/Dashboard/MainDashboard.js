@@ -176,7 +176,7 @@ const MainDashboard = () => {
                 </ul>
               </div>
               <div className="text-xs text-gray-500 pt-2">
-                <a href="../User">More...</a>
+                <a href="/users">More...</a>
               </div>
             </div>
           </div>

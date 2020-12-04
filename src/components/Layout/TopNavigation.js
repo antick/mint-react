@@ -5,13 +5,12 @@ import SvgIcon from '../shared/SvgIcon';
 import userActions from '../../actions/user.action';
 
 const TopNavigation = ({ history }) => {
-  const userName = 'Pankaj Sanam';
   const dispatch = useDispatch();
 
   const logout = () => dispatch(userActions.logout(history));
 
   return (
-    <nav className="font-sans flex w-full text-gray-600 p-4 pt-8">
+    <nav className="font-sans flex w-full text-gray-600 p-4 pt-6">
       <div className="flex w-full">
         <nav className="flex-col pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
           <div>
@@ -207,30 +206,19 @@ const TopNavigation = ({ history }) => {
       </div>
 
       <div className="flex w-full">
-        <div className="flex relative pr-4 font-normal text-sm">
-          <input className="top-search-input" type="text" name="search" placeholder="Search" />
-          <SvgIcon name="search" classes="absolute right-0 mr-8 mt-2 w-6 h-6 text-green-300" />
-        </div>
         <div className="flex w-full justify-end items-center pr-4">
-          <div className="flex relative w-56 border border-gray-300 rounded-full items-center">
-            <img className="border-4 border-gray-300 rounded-full w-16 absolute" src="/images/avatar.jpg" alt="avatar" />
-            <div className="ml-20 py-2 tracking-wider">
-              <div className="group inline-block">
-                <button className="flex">
-                  <span className="text-gray-600 font-semibold text-md">{userName}</span>
-                  <SvgIcon
-                    name="arrow"
-                    classes="w-4 h-4 mt-1 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
-                  />
-                </button>
-                <ul className="profile-menu scale-0 group-hover:scale-100 transform transition duration-150 ease-in-out">
-                  <li className="profile-menu-item row">
-                    <div className="ml-3">
-                      <button className="logout-button text-sm cursor-pointer" onClick={logout}>Logout</button>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+          <div className="flex relative rounded-full items-center">
+            <div className="group inline-block">
+              <button
+                className="flex bg-teal-600 rounded-full p-2 hover:bg-teal-700 focus:outline-none"
+                onClick={logout}
+                title="Logout">
+                <SvgIcon
+                  name="logout"
+                  viewBox="0 0 24 24"
+                  classes="w-6 h-6 fill-current text-gray-50 transition duration-150 ease-in-out"
+                />
+              </button>
             </div>
           </div>
         </div>

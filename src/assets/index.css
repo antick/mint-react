@@ -42,32 +42,24 @@ li:hover > button svg {
 
 /* Dashboard Widgets */
 .weather-widget {
-  background-image: linear-gradient(to right bottom, #c857a6, #d24a92, #d83e7c, #da3465, #d82f4d);
+  @apply bg-gradient-to-bl from-pink-400 via-pink-500 to-pink-600;
 }
 
 .wod-widget {
-  background-image: linear-gradient(to right bottom, #1ec7af, #1ec7af, #16b7a0, #1bb59f, #17bfa7);
+  @apply bg-gradient-to-br from-teal-400 via-teal-500 to-teal-600;
 }
 
 .today-event-widget {
-  background-image: linear-gradient(to right bottom, #ffffff, #ffffff, #ffffff, #fffefe, #ffffff);
+  @apply bg-gradient-to-bl from-white via-white to-gray-100;
   @apply flex flex-col rounded-lg rounded-l-full p-8 pr-6 text-gray-600 w-1/4 border-l text-right
 }
 
 svg.link {
-  @apply w-8 h-8 cursor-pointer;
-}
-
-svg.link:hover {
-  @apply text-teal-600;
+  @apply w-8 h-8 cursor-pointer hover:text-teal-600;
 }
 
 svg.nav-link {
-  @apply w-10 h-10 text-white cursor-pointer;
-}
-
-svg.nav-link:hover {
-  @apply text-gray-800;
+  @apply w-10 h-10 text-white cursor-pointer transform hover:translate-x-1.5 transition ease-in-out duration-150;
 }
 
 /* Checkbox */
@@ -81,7 +73,7 @@ input:checked + svg {
 
 /* Menu & Navigation */
 .left-nav {
-  background-image: linear-gradient(to bottom, #4aad9f, #4aad9f, #59c3a0, #67d2a1, #73d697);
+  @apply bg-gradient-to-b from-teal-500 via-teal-600 to-teal-700;
 }
 
 .multi-menu {
