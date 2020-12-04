@@ -6,16 +6,14 @@ const login = ({
   history, email, password, from
 }) => dispatch => {
   userService.login(email, password)
-    .then(
-      user => {
-        dispatch({ type: userConstants.LOGIN_SUCCESS, user });
-        history.push(from);
-      },
-      error => {
-        dispatch({ type: userConstants.LOGIN_FAILURE, error: error.toString() });
-        dispatch(alertActions.error(error.toString()));
-      }
-    );
+    .then(user => {
+      dispatch({ type: userConstants.LOGIN_SUCCESS, user });
+      history.push(from);
+    })
+    .catch(error => {
+      dispatch({ type: userConstants.LOGIN_FAILURE, error: error.response.data.message });
+      dispatch(alertActions.error(error.response.data.message));
+    });
 };
 
 const logout = history => dispatch => {
