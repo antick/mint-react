@@ -101,7 +101,7 @@ const MainDashboard = () => {
             </div>
           </div>
         </div>
-        <div className="wod-widget w-1/3 font-sans border border-gray-200 rounded-lg text-gray-100 h-64 ml-6 -mr-6">
+        <div className="wod-widget">
           <div className="p-8">
             <div className="font-semibold text-left text-gray-100">
               Word of the Day
@@ -169,14 +169,14 @@ const MainDashboard = () => {
               <div className="font-semibold text-sm text-gray-700">
                 Today&rsquo;s Events
               </div>
-              <div className="flex flex-row pt-3 text-xs justify-end">
-                <ul className="leading-7">
+              <div className="flex flex-row pt-3">
+                <ul className="leading-7 text-xs">
                   <li>Meeting with Brad.</li>
                   <li>Birthday party in evening.</li>
                 </ul>
               </div>
               <div className="text-xs text-gray-500 pt-2">
-                <a href="/users">More...</a>
+                <a href={'/users'}>More...</a>
               </div>
             </div>
           </div>
@@ -205,7 +205,7 @@ const MainDashboard = () => {
         <div className="w-1/3 font-sans bg-white border border-gray-200 rounded-lg text-gray-700 ml-6 -mr-6">
           <div className="p-8">
             <div className="font-semibold text-left">
-              Today&apos;s Todo List
+              Due Today
             </div>
             <div className="text-sm ml-4 mt-5 text-gray-600">
               <ul>
@@ -269,7 +269,7 @@ const MainDashboard = () => {
                   <label className="flex justify-start items-start">
                     <CheckBox />
                     <div className="select-none">
-                      Break up with your girlfriend.
+                      Invent a time machine.
                     </div>
                   </label>
                 </li>

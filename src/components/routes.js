@@ -53,24 +53,10 @@ const routes = [
   },
   {
     component: UserList,
-    path: '/users',
+    path: '/posts',
     menu: {
-      title: 'Users',
+      title: 'Posts',
       icon: <SvgIcon name="bookmarks" classes="nav-link" />,
-      visible: {
-        top: false,
-        right: false,
-        bottom: false,
-        left: true
-      }
-    }
-  },
-  {
-    component: NotFound,
-    path: '/oops',
-    menu: {
-      title: 'Users',
-      icon: <SvgIcon name="briefcase" classes="nav-link" />,
       visible: {
         top: false,
         right: false,

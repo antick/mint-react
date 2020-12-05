@@ -86,7 +86,7 @@ const Register = ({ history }) => {
                     <Field
                       type="text"
                       name="name"
-                      className={`login-input ${errors.name && touched.name ? 'is-invalid' : null}`}
+                      className={`form-input ${errors.name && touched.name ? 'is-invalid' : null}`}
                     />
                     <ErrorMessage name="name" component="span" className="input-error" />
                   </div>
@@ -96,7 +96,7 @@ const Register = ({ history }) => {
                     <Field
                       type="email"
                       name="email"
-                      className={`login-input ${errors.email && touched.email ? 'is-invalid' : null}`}
+                      className={`form-input ${errors.email && touched.email ? 'is-invalid' : null}`}
                     />
                     <ErrorMessage name="email" component="span" className="input-error" />
                   </div>
@@ -106,7 +106,7 @@ const Register = ({ history }) => {
                     <Field
                       type="password"
                       name="password"
-                      className={`login-input ${errors.password && touched.password ? 'is-invalid' : null}`}
+                      className={`form-input ${errors.password && touched.password ? 'is-invalid' : null}`}
                     />
                     <ErrorMessage name="password" component="span" className="input-error" />
                   </div>
@@ -114,7 +114,7 @@ const Register = ({ history }) => {
                   <div className="mb-4 text-center">
                     <button
                       type="submit"
-                      className={`login-button ${!(dirty && isValid) ? 'btn-disabled' : ''}`}
+                      className={`guest-btn ${!(dirty && isValid) ? 'btn-disabled' : ''}`}
                       disabled={!(dirty && isValid)}>
                       Sign Up
                     </button>

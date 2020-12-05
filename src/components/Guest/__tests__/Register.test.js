@@ -17,7 +17,7 @@ describe('test Register component', () => {
         </Router>
       </Provider>
     );
-    const button = wrapper.find('.login-button');
+    const button = wrapper.find('.guest-btn');
 
     button.simulate('click');
 

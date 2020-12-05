@@ -39,6 +39,10 @@ const SvgIcon = ({ name, classes, viewBox }) => {
       return <svg className={svgClasses} xmlns={xmlns} viewBox={viewBox || defaultViewBox} fill="none" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
       </svg>;
+    case 'power-off':
+      return <svg className={svgClasses} xmlns={xmlns} viewBox={viewBox || defaultViewBox}>
+        <path d="M436.862 75.238a254.882 254.882 0 00-361.624 0 254.882 254.882 0 000 361.624 254.882 254.882 0 00361.624 0 254.882 254.882 0 000-361.624zM241.05 136.05c0-8.284 6.716-15 15-15s15 6.716 15 15v80c0 8.284-6.716 15-15 15s-15-6.716-15-15zm15 231c-61.206 0-111-49.794-111-111a111.032 111.032 0 0137.965-83.589c6.237-5.453 15.713-4.818 21.166 1.418s4.818 15.713-1.418 21.166a81.04 81.04 0 00-27.712 61.005c0 44.664 36.336 81 81 81s81-36.336 81-81c0-23.142-9.936-45.232-27.26-60.607-6.196-5.499-6.761-14.979-1.263-21.176 5.499-6.197 14.979-6.761 21.176-1.263 23.735 21.064 37.347 51.333 37.347 83.045-.001 61.207-49.795 111.001-111.001 111.001z" />
+      </svg>;
     default:
       return '';
   }

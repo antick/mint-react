@@ -15,6 +15,11 @@ module.exports = {
       ...defaultTheme.colors,
       teal: colors.teal
     },
+    rotate: {
+      ...defaultTheme.rotate,
+      '-360': '-360deg',
+      360: '360deg'
+    },
     container: {
       center: true,
       padding: {

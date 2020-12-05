@@ -45,7 +45,7 @@ describe('test Login component', () => {
 
     const emailInput = wrapper.find('#email');
     const passwordInput = wrapper.find('#password');
-    const loginButton = wrapper.find('#login-button');
+    const loginButton = wrapper.find('#guest-btn');
 
     act(() => {
       emailInput.props().onChange({
@@ -88,7 +88,7 @@ describe('test Login component', () => {
 
     const emailInput = wrapper.find('#email');
     const passwordInput = wrapper.find('#password');
-    const loginButton = wrapper.find('#login-button');
+    const loginButton = wrapper.find('#guest-btn');
 
     act(() => {
       emailInput.props().onChange({

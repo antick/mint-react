@@ -10,7 +10,7 @@ const TopNavigation = ({ history }) => {
   const logout = () => dispatch(userActions.logout(history));
 
   return (
-    <nav className="font-sans flex w-full text-gray-600 p-4 pt-6">
+    <nav className="font-sans flex items-center w-full text-gray-600 p-4 pt-4">
       <div className="flex w-full">
         <nav className="flex-col pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
           <div>
@@ -210,13 +210,13 @@ const TopNavigation = ({ history }) => {
           <div className="flex relative rounded-full items-center">
             <div className="group inline-block">
               <button
-                className="flex bg-teal-600 rounded-full p-2 hover:bg-teal-700 focus:outline-none"
+                className="flex bg-gray-50 hover:bg-gray-100 rounded-full p-2 focus:outline-none"
                 onClick={logout}
                 title="Logout">
                 <SvgIcon
-                  name="logout"
-                  viewBox="0 0 24 24"
-                  classes="w-6 h-6 fill-current text-gray-50 transition duration-150 ease-in-out"
+                  name="power-off"
+                  viewBox="0 0 512.101 512.101"
+                  classes="w-8 h-8 fill-current text-red-600 transition duration-500 ease-in-out transform hover:rotate-360"
                 />
               </button>
             </div>

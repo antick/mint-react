@@ -7,7 +7,7 @@ const LeftNavigation = () => {
   const leftNavigationLinks = routes.filter(route => get(route, 'menu.visible.left', false))
     .map((route, index) => (
       <Link to={route.path} key={index}>
-        <div className="flex justify-center pt-8" title={route.menu.title}>
+        <div className="left-nav-icons" title={route.menu.title}>
           {route.menu.icon}
         </div>
       </Link>
@@ -21,7 +21,7 @@ const LeftNavigation = () => {
           <img className="w-full h-auto absolute" src={'./images/avatar.jpg'} alt="avatar" />
         </div>
       </div>
-      <div className="flex flex-col pt-10">
+      <div className="flex flex-col pt-10 justify-center items-center">
         {leftNavigationLinks}
       </div>
     </nav>
