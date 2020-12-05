@@ -66,8 +66,8 @@ const routes = [
     }
   },
   {
-    component: UserList,
-    path: '/users',
+    component: NotFound,
+    path: '/oops',
     menu: {
       title: 'Users',
       icon: <SvgIcon name="calculator" classes="nav-link" />,
@@ -80,8 +80,8 @@ const routes = [
     }
   },
   {
-    component: NotFound,
-    path: '/oops',
+    component: UserList,
+    path: '/posts',
     menu: {
       title: 'Users',
       icon: <SvgIcon name="calendar" classes="nav-link" />,
@@ -94,8 +94,8 @@ const routes = [
     }
   },
   {
-    component: UserList,
-    path: '/users',
+    component: NotFound,
+    path: '/test',
     menu: {
       title: 'Users',
       icon: <SvgIcon name="mail" classes="nav-link" />,
@@ -108,8 +108,8 @@ const routes = [
     }
   },
   {
-    component: NotFound,
-    path: '/oops',
+    component: UserList,
+    path: '/users',
     menu: {
       title: 'Users',
       icon: <SvgIcon name="wallet" classes="nav-link" />,
