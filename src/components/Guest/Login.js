@@ -1,42 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Validator from 'validator';
+import { motion } from 'framer-motion';
+import {
+  Formik, Form, Field, ErrorMessage
+} from 'formik';
+import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 import userActions from '../../actions/user.action';
 
+/**
+ * Initial form values
+ *
+ * @type {{password: string, email: string}}
+ */
+const initialValues = {
+  email: '',
+  password: ''
+};
+
+/**
+ * Login form validation schema
+ */
+const loginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Enter a valid email')
+    .required('Email is required'),
+
+  password: Yup.string()
+    .required('Password is required')
+    .min(6, 'Password is too short - should be at least 6 characters long.')
+});
+
+/**
+ * Login component
+ *
+ * @param history
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const Login = ({ history }) => {
-  const [inputs, setInputs] = useState({
-    email: '',
-    password: ''
-  });
-  const { email, password } = inputs;
-
-  const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
-
   const dispatch = useDispatch();
   const location = useLocation();
   const alert = useSelector(state => state.alert);
 
-  const handleChange = event => {
-    const { name, value } = event.target;
-    setInputs(inputData => ({ ...inputData, [name]: value }));
-  };
-
-  const handleSubmit = () => {
-    const errorBag = {};
-
-    if (!Validator.isEmail(email)) {
-      errorBag.email = 'Invalid email';
-    }
-
-    if (!password) {
-      errorBag.password = 'Password is required';
-    }
-
-    setErrors(errorBag);
-    setSubmitted(true);
+  const handleLogin = inputs => {
+    const { email, password } = inputs;
 
     if (email && password) {
       const { from } = location.state || { from: { pathname: '/' } };
@@ -52,83 +61,73 @@ const Login = ({ history }) => {
   };
 
   return (
-    <div className="guest-container">
-      <div className="login-bg-img w-full bg-gray-400 hidden lg:block lg:w-11/12 bg-cover rounded-l-lg" />
-      <div className="m-auto w-full lg:w-1/2 rounded-lg lg:rounded-l-none border-b-2 border-gray-200">
-        <div className="border border-gray-200">
-          <h3 className="py-14 text-4xl font-bold text-center">Login</h3>
-        </div>
-        {alert.message && <div id="error-placeholder" className={`alert ${alert.type}`}>{alert.message}</div>}
+    <Formik
+      initialValues={initialValues}
+      validationSchema={loginSchema}
+      onSubmit={inputs => handleLogin(inputs)}
+    >
+      {formik => {
+        const {
+          errors, touched, isValid, dirty
+        } = formik;
 
-        <form className="px-32 mt-8 mb-4">
-          <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
-              Email Address
-            </label>
-            <input
-              type="text"
-              id="email"
-              name="email"
-              placeholder="Email"
-              value={email}
-              onChange={handleChange}
-              className={`login-input form-control${submitted && !email ? ' is-invalid' : ''}`}
-            />
-            {submitted && !email && <div className="invalid-feedback">{errors.email}</div>}
-          </div>
-          <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="password">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="************"
-              value={password}
-              onChange={handleChange}
-              className={`login-input form-control${submitted && !password ? ' is-invalid' : ''}`}
-            />
-            {submitted && !password && <div className="invalid-feedback">{errors.password}</div>}
-            <p className="text-xs text-red-500 hidden">Please choose a password.</p>
-          </div>
-          <div className="mb-8">
-            <div className="flex justify-between">
-              <div>
-                <input className="mr-2 leading-tight" type="checkbox" id="checkbox_id"/>
-                <label className="text-sm" htmlFor="checkbox_id">
-                  Remember Me
-                </label>
-              </div>
-              <div>
-                <a
-                  className="inline-block text-sm text-gray-800 align-baseline hover:text-blue-800"
-                  href="/forgot-password"
-                >
-                  Forgot Password?
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="mb-8 text-center">
-            <button
-              id="login-button"
-              className="login-button"
-              type="button"
-              onClick={handleSubmit}
+        return (
+          <div className="guest-container">
+            <motion.div
+              initial={{ x: 50 }}
+              animate={{ x: 0 }}
+              exit={{ x: 0 }}
+              className="guest-block"
             >
-              Login
-            </button>
+              <h3 className="guest-title">Login</h3>
+
+              {alert.message && <div className={alert.type}>{alert.message}</div>}
+
+              <Form className="guest-form">
+                <div className="mb-8">
+                  <label className="input-label-top" htmlFor="email">Email</label>
+                  <Field
+                    type="email"
+                    name="email"
+                    className={`form-input ${errors.email && touched.email ? 'is-invalid' : null}`}
+                  />
+                  <ErrorMessage name="email" component="span" className="input-error" />
+                </div>
+
+                <div className="mb-8">
+                  <label className="input-label-top" htmlFor="password">Password</label>
+                  <Field
+                    type="password"
+                    name="password"
+                    className={`form-input ${errors.password && touched.password ? 'is-invalid' : null}`}
+                  />
+                  <ErrorMessage name="password" component="span" className="input-error" />
+                </div>
+
+                <div className="mb-4 text-center">
+                  <button
+                    type="submit"
+                    className={`guest-btn ${!(dirty && isValid) ? 'btn-disabled' : ''}`}
+                    disabled={!(dirty && isValid)}>
+                    Login
+                  </button>
+                </div>
+
+                <div className="text-center">
+                  <a className="guest-link" href={'/forgot-password'}>Forgot Password?</a>
+                </div>
+
+                <hr className="my-4 border-t" />
+
+                <div className="text-center">
+                  <Link to="/register" className="guest-link">Create an Account!</Link>
+                </div>
+              </Form>
+            </motion.div>
           </div>
-          <hr className="mb-6 border-t"/>
-          <div className="text-center">
-            <Link to="/register" className="inline-block text-sm text-gray-800 align-baseline hover:text-blue-800">
-              Create an Account!
-            </Link>
-          </div>
-        </form>
-      </div>
-    </div>
+        );
+      }}
+    </Formik>
   );
 };
 

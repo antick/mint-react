@@ -53,9 +53,9 @@ const routes = [
   },
   {
     component: UserList,
-    path: '/users',
+    path: '/posts',
     menu: {
-      title: 'Users',
+      title: 'Posts',
       icon: <SvgIcon name="bookmarks" classes="nav-link" />,
       visible: {
         top: false,
@@ -70,20 +70,6 @@ const routes = [
     path: '/oops',
     menu: {
       title: 'Users',
-      icon: <SvgIcon name="briefcase" classes="nav-link" />,
-      visible: {
-        top: false,
-        right: false,
-        bottom: false,
-        left: true
-      }
-    }
-  },
-  {
-    component: UserList,
-    path: '/users',
-    menu: {
-      title: 'Users',
       icon: <SvgIcon name="calculator" classes="nav-link" />,
       visible: {
         top: false,
@@ -94,8 +80,8 @@ const routes = [
     }
   },
   {
-    component: NotFound,
-    path: '/oops',
+    component: UserList,
+    path: '/posts',
     menu: {
       title: 'Users',
       icon: <SvgIcon name="calendar" classes="nav-link" />,
@@ -108,8 +94,8 @@ const routes = [
     }
   },
   {
-    component: UserList,
-    path: '/users',
+    component: NotFound,
+    path: '/test',
     menu: {
       title: 'Users',
       icon: <SvgIcon name="mail" classes="nav-link" />,
@@ -122,8 +108,8 @@ const routes = [
     }
   },
   {
-    component: NotFound,
-    path: '/oops',
+    component: UserList,
+    path: '/users',
     menu: {
       title: 'Users',
       icon: <SvgIcon name="wallet" classes="nav-link" />,

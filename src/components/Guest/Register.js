@@ -1,125 +1,137 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Validator from 'validator';
+import { motion, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
+import {
+  Formik, Form, Field, ErrorMessage
+} from 'formik';
+import * as Yup from 'yup';
 import userActions from '../../actions/user.action';
 
-const Register = ({ history }) => {
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    password: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
-  const [errors, setErrors] = useState({});
+/**
+ * Initial form values
+ *
+ * @type {{password: string, name: string, email: string}}
+ */
+const initialValues = {
+  name: '',
+  email: '',
+  password: ''
+};
 
-  const registering = useSelector(state => state.registration.registering);
+/**
+ * Sign up form validation schema
+ */
+const signUpSchema = Yup.object().shape({
+  name: Yup.string()
+    .required('Name is required')
+    .min(2, 'Name is too short'),
+
+  email: Yup.string()
+    .email('Enter a valid email')
+    .required('Email is required'),
+
+  password: Yup.string()
+    .required('Password is required')
+    .min(6, 'Password is too short - should be at least 6 characters long.')
+});
+
+/**
+ * Sign up component
+ *
+ * @param history
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const Register = ({ history }) => {
   const dispatch = useDispatch();
   const alert = useSelector(state => state.alert);
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setUser(userData => ({ ...userData, [name]: value }));
-  }
+  function handleSignUp(inputs) {
+    const { name, email, password } = inputs;
 
-  function handleSubmit() {
-    const errorBag = {};
-    if (!Validator.isEmail(user.email)) {
-      errorBag.email = 'Invalid email';
-    }
-
-    if (!user.name) {
-      errorBag.name = 'Name is required';
-    }
-
-    if (!user.password) {
-      errorBag.password = 'Password is required';
-    }
-
-    setErrors(errorBag);
-    setSubmitted(true);
-
-    if (user.name && user.email && user.password) {
-      dispatch(userActions.register(history, user));
+    if (name && email && password) {
+      dispatch(userActions.register(history, inputs));
     }
   }
 
   return (
-    <div className="guest-container">
-      <div className="register-bg-img w-full bg-gray-400 hidden lg:block lg:w-11/12 bg-cover rounded-l-lg" />
-      <div className="m-auto w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-        <h3 className="pt-4 text-4xl font-bold text-center">Register</h3>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={signUpSchema}
+      onSubmit={inputs => handleSignUp(inputs)}
+    >
+      {formik => {
+        const {
+          errors, touched, isValid, dirty
+        } = formik;
 
-        {alert.message && <div id="error-placeholder" className={`alert ${alert.type}`}>{alert.message}</div>}
+        return (
+          <div className="guest-container">
+            <AnimatePresence>
+              <motion.div
+                initial={{ x: 50 }}
+                animate={{ x: 0 }}
+                exit={{ x: 0 }}
+                className="guest-block"
+              >
+                <h3 className="guest-title">Sign Up</h3>
 
-        <form className="px-32 mt-8 mb-4">
-          <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="name">
-              Full Name
-            </label>
-            <input
-              className={`login-input form-control${submitted && !user.name ? ' is-invalid' : ''}`}
-              type="text"
-              id="name"
-              name="name"
-              value={user.name}
-              placeholder="Your full name"
-              onChange={handleChange}
-            />
-            {submitted && !user.name && <div className="invalid-feedback">{errors.name}</div>}
-          </div>
-          <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="email">
-              Email Address
-            </label>
-            <input
-              className={`login-input form-control${submitted && !user.email ? ' is-invalid' : ''}`}
-              type="text"
-              id="email"
-              name="email"
-              value={user.email}
-              placeholder="Email"
-              onChange={handleChange}
-            />
-            {submitted && !user.email && <div className="invalid-feedback">{errors.email}</div>}
-          </div>
-          <div className="mb-8">
-            <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="password">
-              Password
-            </label>
-            <input
-              className={`login-input form-control${submitted && !user.password ? ' is-invalid' : ''}`}
-              type="password"
-              id="password"
-              name="password"
-              value={user.password}
-              placeholder="******************"
-              onChange={handleChange}
-            />
-            {submitted && !user.password && <p className="text-xs text-red-500">{errors.password}</p>}
-          </div>
-          <div className="mb-8 text-center">
-            <button
-              onClick={handleSubmit}
-              className="login-button"
-              type="button"
-            >
-              {registering && <span className="spinner-border spinner-border-sm mr-1" />}
-              Register
-            </button>
-          </div>
+                {alert.message && <div className={alert.type}>{alert.message}</div>}
 
-          <hr className="mb-6 border-t"/>
+                <Form className="guest-form">
+                  <div className="mb-8">
+                    <label className="input-label-top" htmlFor="name">Full Name</label>
+                    <Field
+                      type="text"
+                      name="name"
+                      className={`form-input ${errors.name && touched.name ? 'is-invalid' : null}`}
+                    />
+                    <ErrorMessage name="name" component="span" className="input-error" />
+                  </div>
 
-          <div className="text-center">
-            <Link to="/login" className="inline-block text-sm text-gray-800 align-baseline hover:text-blue-800">
-              Already have an account? Login now!
-            </Link>
+                  <div className="mb-8">
+                    <label className="input-label-top" htmlFor="email">Email</label>
+                    <Field
+                      type="email"
+                      name="email"
+                      className={`form-input ${errors.email && touched.email ? 'is-invalid' : null}`}
+                    />
+                    <ErrorMessage name="email" component="span" className="input-error" />
+                  </div>
+
+                  <div className="mb-8">
+                    <label className="input-label-top" htmlFor="password">Password</label>
+                    <Field
+                      type="password"
+                      name="password"
+                      className={`form-input ${errors.password && touched.password ? 'is-invalid' : null}`}
+                    />
+                    <ErrorMessage name="password" component="span" className="input-error" />
+                  </div>
+
+                  <div className="mb-4 text-center">
+                    <button
+                      type="submit"
+                      className={`guest-btn ${!(dirty && isValid) ? 'btn-disabled' : ''}`}
+                      disabled={!(dirty && isValid)}>
+                      Sign Up
+                    </button>
+                  </div>
+
+                  <hr className="my-4 border-t" />
+
+                  <div className="text-center mb-8">
+                    <Link to="/login" className="guest-link">Already have an account? Login now!</Link>
+                  </div>
+                </Form>
+              </motion.div>
+            </AnimatePresence>
           </div>
-        </form>
-      </div>
-    </div>
+        );
+      }}
+    </Formik>
   );
 };
 

@@ -47,7 +47,10 @@ const removeAllTokens = () => {
 
 const isAuthenticated = () => !!getAccessToken();
 
+const isRefreshTokenAvailable = () => !!getRefreshToken();
+
 export default {
+  isRefreshTokenAvailable,
   removeRefreshToken,
   removeAccessToken,
   isAuthenticated,
