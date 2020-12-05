@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { motion } from 'framer-motion';
 import {
   Formik, Form, Field, ErrorMessage
 } from 'formik';
@@ -72,7 +73,12 @@ const Login = ({ history }) => {
 
         return (
           <div className="guest-container">
-            <div className="guest-block">
+            <motion.div
+              initial={{ x: 50 }}
+              animate={{ x: 0 }}
+              exit={{ x: 0 }}
+              className="guest-block"
+            >
               <h3 className="guest-title">Login</h3>
 
               {alert.message && <div className={alert.type}>{alert.message}</div>}
@@ -117,7 +123,7 @@ const Login = ({ history }) => {
                   <Link to="/register" className="guest-link">Create an Account!</Link>
                 </div>
               </Form>
-            </div>
+            </motion.div>
           </div>
         );
       }}

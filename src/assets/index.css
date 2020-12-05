@@ -126,7 +126,7 @@ input:checked + svg {
 
 /* Login & Registration */
 .guest-container {
-  @apply flex justify-end content-end items-end h-screen bg-gradient-to-r from-teal-400 via-teal-500 to-pink-400;
+  @apply flex justify-center items-center h-screen bg-gradient-to-r from-teal-400 via-teal-500 to-pink-400;
 }
 
 .guest-block {

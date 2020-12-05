@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { motion, AnimatePresence } from 'framer-motion';
 import PropTypes from 'prop-types';
 import {
   Formik, Form, Field, ErrorMessage
@@ -68,58 +69,65 @@ const Register = ({ history }) => {
 
         return (
           <div className="guest-container">
-            <div className="guest-block">
-              <h3 className="guest-title">Sign Up</h3>
+            <AnimatePresence>
+              <motion.div
+                initial={{ x: 50 }}
+                animate={{ x: 0 }}
+                exit={{ x: 0 }}
+                className="guest-block"
+              >
+                <h3 className="guest-title">Sign Up</h3>
 
-              {alert.message && <div className={alert.type}>{alert.message}</div>}
+                {alert.message && <div className={alert.type}>{alert.message}</div>}
 
-              <Form className="guest-form">
-                <div className="mb-8">
-                  <label className="input-label-top" htmlFor="name">Full Name</label>
-                  <Field
-                    type="text"
-                    name="name"
-                    className={`login-input ${errors.name && touched.name ? 'is-invalid' : null}`}
-                  />
-                  <ErrorMessage name="name" component="span" className="input-error" />
-                </div>
+                <Form className="guest-form">
+                  <div className="mb-8">
+                    <label className="input-label-top" htmlFor="name">Full Name</label>
+                    <Field
+                      type="text"
+                      name="name"
+                      className={`login-input ${errors.name && touched.name ? 'is-invalid' : null}`}
+                    />
+                    <ErrorMessage name="name" component="span" className="input-error" />
+                  </div>
 
-                <div className="mb-8">
-                  <label className="input-label-top" htmlFor="email">Email</label>
-                  <Field
-                    type="email"
-                    name="email"
-                    className={`login-input ${errors.email && touched.email ? 'is-invalid' : null}`}
-                  />
-                  <ErrorMessage name="email" component="span" className="input-error" />
-                </div>
+                  <div className="mb-8">
+                    <label className="input-label-top" htmlFor="email">Email</label>
+                    <Field
+                      type="email"
+                      name="email"
+                      className={`login-input ${errors.email && touched.email ? 'is-invalid' : null}`}
+                    />
+                    <ErrorMessage name="email" component="span" className="input-error" />
+                  </div>
 
-                <div className="mb-8">
-                  <label className="input-label-top" htmlFor="password">Password</label>
-                  <Field
-                    type="password"
-                    name="password"
-                    className={`login-input ${errors.password && touched.password ? 'is-invalid' : null}`}
-                  />
-                  <ErrorMessage name="password" component="span" className="input-error" />
-                </div>
+                  <div className="mb-8">
+                    <label className="input-label-top" htmlFor="password">Password</label>
+                    <Field
+                      type="password"
+                      name="password"
+                      className={`login-input ${errors.password && touched.password ? 'is-invalid' : null}`}
+                    />
+                    <ErrorMessage name="password" component="span" className="input-error" />
+                  </div>
 
-                <div className="mb-4 text-center">
-                  <button
-                    type="submit"
-                    className={`login-button ${!(dirty && isValid) ? 'btn-disabled' : ''}`}
-                    disabled={!(dirty && isValid)}>
-                    Sign Up
-                  </button>
-                </div>
+                  <div className="mb-4 text-center">
+                    <button
+                      type="submit"
+                      className={`login-button ${!(dirty && isValid) ? 'btn-disabled' : ''}`}
+                      disabled={!(dirty && isValid)}>
+                      Sign Up
+                    </button>
+                  </div>
 
-                <hr className="my-4 border-t" />
+                  <hr className="my-4 border-t" />
 
-                <div className="text-center mb-8">
-                  <Link to="/login" className="guest-link">Already have an account? Login now!</Link>
-                </div>
-              </Form>
-            </div>
+                  <div className="text-center mb-8">
+                    <Link to="/login" className="guest-link">Already have an account? Login now!</Link>
+                  </div>
+                </Form>
+              </motion.div>
+            </AnimatePresence>
           </div>
         );
       }}
