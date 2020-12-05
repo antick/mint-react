@@ -20,7 +20,10 @@ const logout = history => dispatch => {
   userService.logout()
     .then(() => {
       dispatch({ type: userConstants.LOGOUT });
-      history.push('/login');
+
+      if (history) {
+        history.push('/login');
+      }
     })
     .catch();
 };

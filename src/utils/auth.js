@@ -8,6 +8,12 @@ const getAccessToken = () => {
   return isEmpty(token) ? false : token;
 };
 
+const getTokenExpiry = () => {
+  const expiresIn = Cookies.get('expiresIn');
+
+  return isEmpty(expiresIn) ? false : expiresIn;
+};
+
 const getRefreshToken = () => {
   const token = Cookies.get('refreshToken');
 
@@ -15,7 +21,7 @@ const getRefreshToken = () => {
 };
 
 const setAccessToken = access => {
-  const { token, expires } = access;
+  const { token, expires, expiresIn } = access;
   const expiresAt = new Date(new Date(expires).getTime());
 
   if (token) {
@@ -23,6 +29,7 @@ const setAccessToken = access => {
   }
 
   Cookies.set('accessToken', token, { expires: expiresAt });
+  Cookies.set('expiresIn', expiresIn, { expires: expiresAt });
 };
 
 const setRefreshToken = refresh => {
@@ -58,5 +65,6 @@ export default {
   getRefreshToken,
   setRefreshToken,
   getAccessToken,
+  getTokenExpiry,
   setAccessToken
 };

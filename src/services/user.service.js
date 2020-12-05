@@ -1,6 +1,40 @@
 import axios from 'axios';
 import { auth } from '../utils';
 
+/**
+ * Refresh Access and Refresh Tokens
+ *
+ * @returns {Promise<{loggedIn: boolean, expiresAt: boolean}>}
+ */
+const refreshTokens = async () => {
+  let loggedIn = false;
+
+  const refreshToken = auth.getRefreshToken();
+
+  if (refreshToken) {
+    await axios.post('auth/refresh-tokens', { refreshToken })
+      .then(response => {
+        if (response.data.access) {
+          auth.setAccessToken(response.data.access);
+          auth.setRefreshToken(response.data.refresh);
+
+          loggedIn = true;
+        }
+      })
+      .catch(() => {
+        loggedIn = false;
+        auth.removeAllTokens();
+      });
+  }
+
+  return loggedIn;
+};
+
+/**
+ * Check logged in status by checking the validity of the access token
+ *
+ * @returns {Promise<boolean>}
+ */
 const isLoggedIn = async () => {
   let loggedIn = false;
 
@@ -15,23 +49,7 @@ const isLoggedIn = async () => {
     });
 
   if (!loggedIn) {
-    const refreshToken = auth.getRefreshToken();
-
-    if (refreshToken) {
-      await axios.post('auth/refresh-tokens', { refreshToken })
-        .then(response => {
-          if (response.data.access) {
-            auth.setAccessToken(response.data.access);
-            auth.setRefreshToken(response.data.refresh);
-
-            loggedIn = true;
-          }
-        })
-        .catch(() => {
-          loggedIn = false;
-          auth.removeAllTokens();
-        });
-    }
+    loggedIn = await refreshTokens();
   }
 
   return loggedIn;
@@ -73,6 +91,7 @@ const deleteUser = id => axios.delete(`users/${id}`)
 
 export default {
   delete: deleteUser,
+  refreshTokens,
   isLoggedIn,
   register,
   getById,
