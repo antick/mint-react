@@ -1,6 +1,7 @@
 import React from 'react';
 import { get } from 'lodash';
 import { Link } from 'react-router-dom';
+import Motion from '../shared/Motion';
 import routes from '../routes';
 
 const LeftNavigation = () => {
@@ -21,9 +22,9 @@ const LeftNavigation = () => {
           <img className="w-full h-auto absolute" src={'./images/avatar.jpg'} alt="avatar" />
         </div>
       </div>
-      <div className="flex flex-col pt-10 justify-center items-center">
+      <Motion type="4" className="flex flex-col pt-10 justify-center items-center">
         {leftNavigationLinks}
-      </div>
+      </Motion>
     </nav>
   );
 };

@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import {
   XAxis, YAxis,
   Area, AreaChart,
@@ -8,68 +6,19 @@ import {
   CartesianGrid,
   ResponsiveContainer
 } from 'recharts';
+import dashboardService from '../../services/dashboard.service';
+import Motion from '../shared/Motion';
 import CheckBox from '../shared/CheckBox';
 import SvgIcon from '../shared/SvgIcon';
-import userActions from '../../actions/user.action';
 
 const MainDashboard = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(userActions.getAll());
-  }, []);
-
-  function handleDeleteUser(id) {
-    dispatch(userActions.delete(id));
-  }
-
-  const users = useSelector(state => state.users);
-
-  const data = [
-    {
-      name: 'Jan', uv: 4000, pv: 2400, amt: 2400
-    },
-    {
-      name: 'Feb', uv: 3000, pv: 1398, amt: 2210
-    },
-    {
-      name: 'Mar', uv: 2000, pv: 9800, amt: 2290
-    },
-    {
-      name: 'Apr', uv: 2780, pv: 3908, amt: 2000
-    },
-    {
-      name: 'May', uv: 1890, pv: 4800, amt: 2181
-    },
-    {
-      name: 'Jun', uv: 2390, pv: 3800, amt: 2500
-    },
-    {
-      name: 'Jul', uv: 3490, pv: 4300, amt: 2100
-    },
-    {
-      name: 'Aug', uv: 2200, pv: 4120, amt: 1800
-    },
-    {
-      name: 'Sep', uv: 1100, pv: 2260, amt: 1800
-    },
-    {
-      name: 'Oct', uv: 2100, pv: 1780, amt: 1800
-    },
-    {
-      name: 'Nov', uv: 2800, pv: 3200, amt: 1800
-    },
-    {
-      name: 'Dec', uv: 1600, pv: 4800, amt: 1800
-    }
-  ];
-
+  const data = dashboardService.chartData();
   const today = new Date().toDateString();
 
   return (
     <div className="mb-10">
       <div className="flex">
-        <div className="w-2/3 font-sans bg-gray-100 border border-gray-200 rounded-lg text-gray-700 h-64">
+        <Motion type="1" className="w-2/3 font-sans bg-gray-100 border border-gray-200 rounded-lg text-gray-700 h-64">
           <div className="flex">
             <div className="flex flex-col p-8 w-3/4">
               <h3 className="text-xl font-semibold">Good Morning!</h3>
@@ -100,8 +49,9 @@ const MainDashboard = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="wod-widget">
+        </Motion>
+
+        <Motion type="2" className="wod-widget">
           <div className="p-8">
             <div className="font-semibold text-left text-gray-100">
               Word of the Day
@@ -121,12 +71,12 @@ const MainDashboard = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Motion>
       </div>
 
       <div className="flex mt-6">
         <div className="w-2/3 font-sans text-gray-700">
-          <div className="flex border bg-white border-gray-200 rounded-lg h-48">
+          <Motion type="3" className="flex border bg-white border-gray-200 rounded-lg h-48">
             <div className="flex flex-col p-8 pt-6 w-3/4">
               <h3 className="text-xl font-semibold">
                 This week <span className="text-sm items-center flex text-gray-600 font-normal">18 May - 24 May</span>
@@ -164,7 +114,6 @@ const MainDashboard = () => {
                 </div>
               </div>
             </div>
-
             <div className="today-event-widget">
               <div className="font-semibold text-sm text-gray-700">
                 Today&rsquo;s Events
@@ -173,14 +122,16 @@ const MainDashboard = () => {
                 <ul className="leading-7 text-xs">
                   <li>Meeting with Brad.</li>
                   <li>Birthday party in evening.</li>
+                  <li>Phone interview.</li>
                 </ul>
               </div>
-              <div className="text-xs text-gray-500 pt-2">
+              <div className="text-xs text-teal-600 hover:text-teal-500 pt-2">
                 <a href={'/users'}>More...</a>
               </div>
             </div>
-          </div>
-          <div className="flex border mt-6 bg-white border-gray-200 rounded-lg">
+          </Motion>
+
+          <Motion type="3" className="flex border mt-6 bg-white border-gray-200 rounded-lg">
             <div className="flex flex-col p-8 w-full">
               <div className="font-semibold">Monthly Growth</div>
               <div className="pt-3 text-sm w-full h-64">
@@ -200,13 +151,12 @@ const MainDashboard = () => {
                 </ResponsiveContainer>
               </div>
             </div>
-          </div>
+          </Motion>
         </div>
-        <div className="w-1/3 font-sans bg-white border border-gray-200 rounded-lg text-gray-700 ml-6 -mr-6">
+
+        <Motion type="3" className="w-1/3 font-sans bg-white border border-gray-200 rounded-lg text-gray-700 ml-6 -mr-6">
           <div className="p-8">
-            <div className="font-semibold text-left">
-              Due Today
-            </div>
+            <div className="font-semibold text-left">Due Today</div>
             <div className="text-sm ml-4 mt-5 text-gray-600">
               <ul>
                 <li className="py-2">
@@ -245,13 +195,12 @@ const MainDashboard = () => {
                   <label className="flex justify-start items-start">
                     <CheckBox />
                     <div className="select-none">
-                      Prepare the presentation slides for tomorrow.
+                      Take a deep breath.
                     </div>
                   </label>
                 </li>
               </ul>
             </div>
-
             <div className="font-semibold text-left mt-5 text-red-500">
               Overdue
             </div>
@@ -285,37 +234,14 @@ const MainDashboard = () => {
                   <label className="flex justify-start items-start">
                     <CheckBox />
                     <div className="select-none">
-                      Build more stuff
+                      Prepare for the presentation.
                     </div>
                   </label>
                 </li>
               </ul>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="col-lg-8 offset-lg-2">
-        <h1>Hi user!</h1>
-        <h3>All registered users:</h3>
-        {users.loading && <em>Loading users...</em>}
-        {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-        {users.users && <ul>
-          {users.users.results.map(userData => <li key={userData.id}>
-            {`${userData.name}`}
-            {
-              // eslint-disable-next-line no-nested-ternary
-              userData.deleting ? <em> - Deleting...</em>
-                : userData.deleteError
-                  ? <span className="text-danger"> - ERROR: {userData.deleteError}</span>
-                  : <span> - <button onClick={() => handleDeleteUser(userData.id)} className="text-primary">Delete</button></span>
-            }
-          </li>)}
-        </ul>
-        }
-        <p>
-          <Link to="/login">Logout</Link>
-        </p>
+        </Motion>
       </div>
     </div>
   );

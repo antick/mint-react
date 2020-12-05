@@ -3,6 +3,7 @@ import UserList from './User/UserList';
 import MainDashboard from './Dashboard/MainDashboard';
 import NotFound from './Guest/NotFound';
 import SvgIcon from './shared/SvgIcon';
+import PostList from './User/PostList';
 
 /**
  * All protected routes should be placed here
@@ -38,10 +39,10 @@ const routes = [
     }
   },
   {
-    component: NotFound,
-    path: '/oops',
+    component: PostList,
+    path: '/posts',
     menu: {
-      title: 'Users',
+      title: 'Posts',
       icon: <SvgIcon name="archive" classes="nav-link" />,
       visible: {
         top: false,
