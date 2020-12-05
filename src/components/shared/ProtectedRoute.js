@@ -1,45 +1,18 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import userActions from '../../actions/user.action';
-import { userService } from '../../services';
+import useSilentToken from '../../hooks/useSilentToken';
 import { auth } from '../../utils';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   const isAuthenticated = auth.isAuthenticated();
-  const isRefreshTokenAvailable = auth.isRefreshTokenAvailable();
-  const dispatch = useDispatch();
-  const [isAuth, setIsAuth] = useState(isAuthenticated);
-  let isMounted = useRef(false);
 
-  useEffect(() => {
-    isMounted = true;
-
-    (async () => {
-      // Request for a token if refresh token is available but access token is expired
-      if (isRefreshTokenAvailable && !isAuthenticated) {
-        const loggedIn = await userService.isLoggedIn();
-
-        if (isMounted) {
-          setIsAuth(loggedIn);
-        }
-
-        if (!loggedIn) {
-          dispatch(userActions.logout());
-        }
-      }
-    })();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [isRefreshTokenAvailable, isAuthenticated]);
+  useSilentToken();
 
   return (
     <Route {...rest} render={props => (
-      isAuth === true
-        ? <Component auth={isAuth} {...props} {...rest} />
+      isAuthenticated === true
+        ? <Component auth={isAuthenticated} {...props} {...rest} />
         : <Redirect to='/login' />
     )} />
   );
