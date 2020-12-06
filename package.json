@@ -19,7 +19,7 @@
   "license": "MIT License",
   "repository": "https://github.com/pankajsanam/mint-react.git",
   "scripts": {
-    "watch:css": "postcss src/assets/index.css -o public/style.css --watch",
+    "watch:css": "postcss src/assets/index.css -o public/style.css --watch --max_old_space_size=4096",
     "start": "cross-env PORT=3001 react-scripts start",
     "lint": "eslint ./src/ --ignore-path .gitignore",
     "test": "npm run lint && jest -i --coverage",

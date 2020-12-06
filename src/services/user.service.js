@@ -71,6 +71,10 @@ const login = (email, password) => axios.post('auth/login', { email, password })
     auth.setRefreshToken(response.data.tokens.refresh);
   });
 
+const forgotPassword = email => axios.post('auth/forgot-password', { email });
+
+const resetPasswordByToken = (token, password) => axios.post(`auth/reset-password?token=${token}`, { password });
+
 const getAll = () => axios.get('user')
   .then(response => response.data)
   .catch(() => {});
@@ -90,7 +94,9 @@ const deleteUser = id => axios.delete(`users/${id}`)
   .catch(() => {});
 
 export default {
+  resetPasswordByToken,
   delete: deleteUser,
+  forgotPassword,
   refreshTokens,
   isLoggedIn,
   register,

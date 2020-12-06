@@ -12,11 +12,13 @@ A beautifully crafted boilerplate for starting a React JS and Tailwind css proje
 
 ## Features
 
-1. Jest for test cases with coverage report.
-2. Tailwind CSS ready.
-3. Pre-configured ESLint.
+1. Jest for tests with coverage report
+2. Preconfigured Tailwind CSS
+3. Pre-configured ESLint
 4. Login and Registration
-5. Protected routes
+5. Forgot Password
+6. Public and private routes
+7. Robust token authentication
 
 ## Quick start
 
@@ -53,7 +55,11 @@ Builds the app for production to the `build` folder.
 ```
 |-- public
 |-- src
+    |-- actions
     |-- assets
+        |-- icons
+        |-- images
+        |-- styles
     |-- components
         |-- __tests__
         |-- Dashboard
@@ -61,11 +67,12 @@ Builds the app for production to the `build` folder.
         |-- Layout
         |-- shared
         |-- User
+    |-- constants
+    |-- hooks
+    |-- reducers
+    |-- services
+    |-- utils
 ```
-
-## TODO
-- [ ] Add a demo
-- [ ] Increase code coverage
 
 ## License
 

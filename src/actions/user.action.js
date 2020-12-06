@@ -1,6 +1,6 @@
 import alertActions from './alert.action';
 import { userService } from '../services';
-import { userConstants } from '../constants';
+import { alertConstants, userConstants } from '../constants';
 
 const login = ({
   history, email, password, from
@@ -17,6 +17,8 @@ const login = ({
 };
 
 const logout = history => dispatch => {
+  dispatch({ type: alertConstants.CLEAR });
+
   userService.logout()
     .then(() => {
       dispatch({ type: userConstants.LOGOUT });
@@ -43,6 +45,33 @@ const register = (history, user) => dispatch => {
     });
 };
 
+const forgotPassword = email => dispatch => {
+  dispatch({ type: userConstants.FORGOT_PASSWORD_SUBMITTING });
+  dispatch({ type: alertConstants.CLEAR });
+
+  userService.forgotPassword(email)
+    .then(() => {
+      dispatch({ type: userConstants.FORGOT_PASSWORD_REQUEST });
+      dispatch(alertActions.success('You will receive an email to reset your password shortly!'));
+    });
+};
+
+const resetPasswordByToken = (history, token, password) => dispatch => {
+  dispatch({ type: userConstants.FORGOT_PASSWORD_SUBMITTING });
+  dispatch({ type: alertConstants.CLEAR });
+
+  userService.resetPasswordByToken(token, password)
+    .then(() => {
+      dispatch({ type: userConstants.RESET_PASSWORD });
+      dispatch(alertActions.success('Your password has been changed successfully. Login now with your new password!'));
+      history.push('/login');
+    })
+    .catch(() => {
+      dispatch({ type: userConstants.RESET_PASSWORD_FAILURE });
+      dispatch(alertActions.error('Your token is invalid!'));
+    });
+};
+
 const getAll = () => dispatch => {
   dispatch({ type: userConstants.GETALL_REQUEST });
 
@@ -64,7 +93,9 @@ const deleteUser = id => dispatch => {
 };
 
 export default {
+  resetPasswordByToken,
   delete: deleteUser,
+  forgotPassword,
   register,
   logout,
   getAll,

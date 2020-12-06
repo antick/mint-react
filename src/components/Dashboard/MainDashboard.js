@@ -8,7 +8,7 @@ import {
 } from 'recharts';
 import dashboardService from '../../services/dashboard.service';
 import Motion from '../shared/Motion';
-import CheckBox from '../shared/CheckBox';
+import CheckBox from '../shared/Form/CheckBox';
 import SvgIcon from '../shared/SvgIcon';
 
 const MainDashboard = () => {
@@ -43,7 +43,7 @@ const MainDashboard = () => {
                   <SvgIcon name="air" classes="w-20 h-20 text-white" />
                   <span className="p-4">Windy</span>
                 </div>
-                <div className="pt-3 pl-10 text-4xl font-semibold">
+                <div className="pt-3 pl-8 text-4xl font-semibold">
                   40 / 28 °C
                 </div>
               </div>
@@ -78,10 +78,13 @@ const MainDashboard = () => {
         <div className="w-2/3 font-sans text-gray-700">
           <Motion type="3" className="flex border bg-white border-gray-200 rounded-lg h-48">
             <div className="flex flex-col p-8 pt-6 w-3/4">
-              <h3 className="text-xl font-semibold">
-                This week <span className="text-sm items-center flex text-gray-600 font-normal">18 May - 24 May</span>
-              </h3>
-              <div className="flex flex-row pt-2 text-md">
+              <div className="text-xl font-semibold">
+                <h3 className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-600 bg-clip-text text-transparent">
+                  This week
+                </h3>
+                <span className="text-sm items-center flex text-gray-500 font-normal">18 May - 24 May</span>
+              </div>
+              <div className="flex flex-row pt-6 text-md">
                 <div className="text-sm border-r border-gray-300 py-4 px-8 pl-1 text-gray-600">
                   Mon
                   <p className="text-center">18</p>
@@ -92,7 +95,7 @@ const MainDashboard = () => {
                     19
                   </p>
                 </div>
-                <div className="text-sm border-r font-semibold border-gray-300 py-4 px-8 text-green-500">
+                <div className="text-sm border-r border-gray-300 py-4 px-8 text-teal-500 font-semibold">
                   Wed
                   <p className="text-center">20</p>
                 </div>

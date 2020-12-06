@@ -15,8 +15,7 @@ const LeftNavigation = () => {
     ));
 
   return (
-    // left-nav flex flex-col my-4 ml-4 pt-10 pb-10 w-32 min-h-screen rounded-3xl
-    <nav className="left-nav flex pt-10 pb-20 flex-col w-36 min-h-screen">
+    <nav className="left-nav">
       <div className="flex justify-center">
         <div className="relative overflow-hidden w-20 h-20 rounded-full border-4 border-gray-300">
           <img className="w-full h-auto absolute" src={'./images/avatar.jpg'} alt="avatar" />

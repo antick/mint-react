@@ -1,2 +1,2 @@
-// eslint-disable-next-line import/prefer-default-export
 export { default as userService } from './user.service';
+export { default as dashboardService } from './dashboard.service';

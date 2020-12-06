@@ -3,6 +3,10 @@
   @apply cursor-not-allowed;
 }
 
+.alert-success {
+  @apply bg-green-100 relative text-gray-500 py-2 px-4 text-center;
+}
+
 .alert-danger {
   @apply bg-red-100 relative text-red-500 py-2 px-4 text-center;
 }
@@ -19,9 +23,9 @@
   @apply mt-2 text-sm tracking-wide font-bold text-red-800;
 }
 
-.guest-btn {
-  @apply w-full px-4 py-2 text-white rounded-full focus:outline-none focus:ring;
-  @apply transition duration-500 ease-in-out bg-teal-600 hover:bg-teal-700;
+.btn-submit {
+  @apply inline-flex items-center px-4 py-2 text-base leading-6 font-medium text-white border border-transparent rounded-md;
+  @apply transition ease-in-out duration-150 bg-teal-600 hover:bg-teal-700 focus:border-teal-700 active:bg-teal-700;
 }
 
 .guest-form {

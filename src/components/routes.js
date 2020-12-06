@@ -1,7 +1,7 @@
 import React from 'react';
 import UserList from './User/UserList';
 import MainDashboard from './Dashboard/MainDashboard';
-import NotFound from './Guest/NotFound';
+import NotFound from './Public/NotFound';
 import SvgIcon from './shared/SvgIcon';
 import PostList from './User/PostList';
 

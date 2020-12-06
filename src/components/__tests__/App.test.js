@@ -6,7 +6,7 @@ import App from '../App';
 import LeftNavigation from '../Layout/LeftNavigation';
 import UserList from '../User/UserList';
 import store from '../../utils/store';
-import Main from '../Layout/Main';
+import MainContainer from '../Layout/MainContainer';
 
 const configuredStore = store();
 
@@ -35,8 +35,8 @@ describe('test UserList component', () => {
   });
 });
 
-describe('test Main component', () => {
+describe('test MainContainer component', () => {
   it('should render without crashing', () => {
-    shallow(<Main />);
+    shallow(<MainContainer />);
   });
 });

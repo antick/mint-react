@@ -32,7 +32,11 @@ li:hover > button svg {
 }
 
 .left-nav {
-  @apply bg-gradient-to-b from-teal-500 via-teal-600 to-teal-700;
+  @apply flex pt-10 pb-20 flex-col w-36 min-h-screen bg-gradient-to-b from-teal-500 via-teal-600 to-teal-700;
+}
+
+.left-nav-detached {
+  @apply flex flex-col my-4 ml-4 pt-10 pb-10 w-32 min-h-screen rounded-3xl bg-gradient-to-b from-teal-500 via-teal-600 to-teal-700;
 }
 
 .left-nav-icons {

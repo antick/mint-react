@@ -42,6 +42,15 @@ const Motion = ({ children, className, type }) => {
       };
       break;
 
+    case 5:
+      motionConfig = {
+        initial: { x: 50 },
+        animate: { x: 0 },
+        exit: { x: 0 },
+        transition: {}
+      };
+      break;
+
     default:
       motionConfig = {
         initial: { x: 100, opacity: 0 },
@@ -68,7 +77,7 @@ const Motion = ({ children, className, type }) => {
 Motion.propTypes = {
   children: PropTypes.any,
   className: PropTypes.any,
-  type: PropTypes.number.isRequired
+  type: PropTypes.string.isRequired
 };
 
 export default Motion;
