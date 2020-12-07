@@ -7,7 +7,7 @@ import {
 } from 'formik';
 import * as Yup from 'yup';
 import Motion from '../shared/Motion';
-import userActions from '../../../actions/user.action';
+import userActions from '../../../store/actions/user.action';
 
 const initialValues = {
   name: '',

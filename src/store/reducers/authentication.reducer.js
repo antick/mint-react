@@ -1,5 +1,5 @@
 import { userConstants } from '../constants';
-import { auth } from '../utils';
+import { auth } from '../../utils';
 
 const user = auth.getAccessToken();
 const initialState = user ? { loggedIn: true, user } : {};

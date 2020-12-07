@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { userService } from '../services';
+import { userService } from '../store/services';
 import { auth } from '../utils';
 
 /**

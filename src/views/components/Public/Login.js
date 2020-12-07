@@ -7,7 +7,7 @@ import {
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 import Motion from '../shared/Motion';
-import userActions from '../../../actions/user.action';
+import userActions from '../../../store/actions/user.action';
 
 const initialValues = {
   email: '',

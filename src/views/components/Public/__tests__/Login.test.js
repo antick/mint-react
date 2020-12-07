@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { act } from '@testing-library/react';
 import * as redux from 'react-redux';
 import Login from '../Login';
-import store from '../../../../utils/store';
+import store from '../../../../store';
 
 describe('test Login component', () => {
   const configuredStore = store();

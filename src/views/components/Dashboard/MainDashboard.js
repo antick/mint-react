@@ -6,7 +6,7 @@ import {
   CartesianGrid,
   ResponsiveContainer
 } from 'recharts';
-import dashboardService from '../../../services/dashboard.service';
+import dashboardService from '../../../store/services/dashboard.service';
 import Motion from '../shared/Motion';
 import CheckBox from '../shared/Form/CheckBox';
 import SvgIcon from '../shared/SvgIcon';

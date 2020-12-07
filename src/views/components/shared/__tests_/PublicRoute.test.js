@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { cleanup } from '@testing-library/react';
-import store from '../../../../utils/store';
+import store from '../../../../store';
 import PublicRoute from '../PublicRoute';
 import Login from '../../Public/Login';
 

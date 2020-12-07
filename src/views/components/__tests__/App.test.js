@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import App from '../App';
 import LeftNavigation from '../Layout/LeftNavigation';
 import UserList from '../User/UserList';
-import store from '../../../utils/store';
+import store from '../../../store';
 import MainContainer from '../Layout/MainContainer';
 
 const configuredStore = store();

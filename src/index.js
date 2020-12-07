@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import axios from 'axios';
 import * as serviceWorker from './serviceWorker';
-import store, { history } from './utils/store';
+import store, { history } from './store';
 import App from './views/components/App';
 import config from './config';
 import { auth } from './utils';

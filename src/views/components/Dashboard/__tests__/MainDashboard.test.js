@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import * as redux from 'react-redux';
 import MainDashboard from '../MainDashboard';
-import store from '../../../../utils/store';
+import store from '../../../../store';
 
 const configuredStore = store();
 

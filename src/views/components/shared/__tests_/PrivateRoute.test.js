@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import store from '../../../../utils/store';
+import store from '../../../../store';
 import PrivateRoute from '../PrivateRoute';
 import MainContainer from '../../Layout/MainContainer';
 

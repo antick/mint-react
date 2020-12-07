@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import postsAction from '../../../actions/posts.action';
+import postsAction from '../../../store/actions/posts.action';
 
 const PostList = () => {
   const title = 'Posts';

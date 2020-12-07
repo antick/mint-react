@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import TopNavigation from '../TopNavigation';
-import store from '../../../../utils/store';
+import store from '../../../../store';
 
 describe('test TopNavigation component', () => {
   const configuredStore = store();

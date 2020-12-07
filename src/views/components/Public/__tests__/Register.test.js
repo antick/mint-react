@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Cookies from 'js-cookie';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../../../../utils/store';
+import store from '../../../../store';
 import Register from '../Register';
 
 describe('test Register component', () => {
