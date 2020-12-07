@@ -46,7 +46,7 @@ const register = (history, user) => dispatch => {
 };
 
 const forgotPassword = email => dispatch => {
-  dispatch({ type: userConstants.FORGOT_PASSWORD_SUBMITTING });
+  dispatch({ type: userConstants.SUBMITTING });
   dispatch({ type: alertConstants.CLEAR });
 
   userService.forgotPassword(email)
@@ -57,7 +57,7 @@ const forgotPassword = email => dispatch => {
 };
 
 const resetPasswordByToken = (history, token, password) => dispatch => {
-  dispatch({ type: userConstants.FORGOT_PASSWORD_SUBMITTING });
+  dispatch({ type: userConstants.SUBMITTING });
   dispatch({ type: alertConstants.CLEAR });
 
   userService.resetPasswordByToken(token, password)

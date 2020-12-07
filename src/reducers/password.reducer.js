@@ -6,7 +6,7 @@ const initialState = {
 
 export default function password(state = initialState, action) {
   switch (action.type) {
-    case userConstants.FORGOT_PASSWORD_SUBMITTING:
+    case userConstants.SUBMITTING:
       return {
         ...state,
         submitting: true

@@ -69,6 +69,7 @@ const Login = ({ history }) => {
                   <Field
                     type="email"
                     name="email"
+                    placeholder="email@domain.com"
                     className={`form-input ${errors.email && touched.email ? 'is-invalid' : null}`}
                   />
                   <ErrorMessage name="email" component="span" className="input-error" />
@@ -79,6 +80,7 @@ const Login = ({ history }) => {
                   <Field
                     type="password"
                     name="password"
+                    placeholder="********"
                     className={`form-input ${errors.password && touched.password ? 'is-invalid' : null}`}
                   />
                   <ErrorMessage name="password" component="span" className="input-error" />
