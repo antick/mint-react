@@ -6,13 +6,13 @@ import {
   CartesianGrid,
   ResponsiveContainer
 } from 'recharts';
-import dashboardService from '../../../store/services/dashboard.service';
+import faker from '../../../utils/faker';
 import Motion from '../shared/Motion';
 import CheckBox from '../shared/Form/CheckBox';
 import SvgIcon from '../shared/SvgIcon';
 
 const MainDashboard = () => {
-  const data = dashboardService.chartData();
+  const data = faker.chartData();
   const today = new Date().toDateString();
 
   return (

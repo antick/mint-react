@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { userService } from '../store/services';
+import { useDispatch } from 'react-redux';
+import userAction from '../store/actions/user.action';
 import { auth } from '../utils';
 
 /**
@@ -8,6 +9,8 @@ import { auth } from '../utils';
  * @returns {boolean}
  */
 const useSilentToken = () => {
+  const dispatch = useDispatch();
+
   const tokenExpiresIn = auth.getTokenExpiry();
   const [loggedIn, setLoggedIn] = useState(false);
 
@@ -15,8 +18,8 @@ const useSilentToken = () => {
     // Refresh the token before 1 minute (60000 ms) of it's expiry
     const timeout = (tokenExpiresIn * 60000) - 60000;
 
-    const loggedInStatus = setTimeout(async () => {
-      await userService.refreshTokens();
+    const loggedInStatus = setTimeout(() => {
+      dispatch(userAction.refreshTokens());
       setLoggedIn(true);
     }, timeout);
 

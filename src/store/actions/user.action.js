@@ -1,13 +1,39 @@
-import alertActions from './alert.action';
-import { userService } from '../services';
+import axios from 'axios';
 import { alertConstants, userConstants } from '../constants';
+import alertActions from './alert.action';
+import { auth } from '../../utils';
+
+const refreshTokens = () => dispatch => {
+  const refreshToken = auth.getRefreshToken();
+
+  if (refreshToken) {
+    axios.post('auth/refresh-tokens', { refreshToken })
+      .then(response => {
+        if (response.data.access) {
+          auth.setAccessToken(response.data.access);
+          auth.setRefreshToken(response.data.refresh);
+
+          dispatch({ type: userConstants.TOKEN_REFRESHED });
+        }
+      })
+      .catch(error => {
+        auth.removeAllTokens();
+
+        dispatch({ type: userConstants.TOKEN_REMOVED, error: error.response.data.message });
+      });
+  }
+};
 
 const login = ({
   history, email, password, from
 }) => dispatch => {
-  userService.login(email, password)
-    .then(user => {
-      dispatch({ type: userConstants.LOGIN_SUCCESS, user });
+  axios.post('auth/login', { email, password })
+    .then(response => {
+      auth.setAccessToken(response.data.tokens.access);
+      auth.setRefreshToken(response.data.tokens.refresh);
+
+      dispatch({ type: userConstants.LOGIN_SUCCESS, user: response });
+
       history.push(from);
     })
     .catch(error => {
@@ -19,24 +45,29 @@ const login = ({
 const logout = history => dispatch => {
   dispatch({ type: alertConstants.CLEAR });
 
-  userService.logout()
-    .then(() => {
-      dispatch({ type: userConstants.LOGOUT });
+  const refreshToken = auth.getRefreshToken();
 
-      if (history) {
-        history.push('/login');
-      }
-    })
-    .catch();
+  if (refreshToken) {
+    axios.delete(`user/logout/${refreshToken}`)
+      .then(() => {
+        dispatch({ type: userConstants.LOGOUT });
+
+        auth.removeAllTokens();
+
+        if (history) {
+          history.push('/login');
+        }
+      });
+  }
 };
 
 const register = (history, user) => dispatch => {
   dispatch({ type: userConstants.REGISTER_REQUEST, user });
 
-  userService.register(user)
+  axios.post('auth/register', user)
     .then(userData => {
       dispatch({ type: userConstants.REGISTER_SUCCESS, user: userData });
-      dispatch(alertActions.success('Registration successful! Please log in now.'));
+      dispatch(alertActions.success('Registration successful! Please login now.'));
       history.push('/login');
     })
     .catch(error => {
@@ -49,10 +80,10 @@ const forgotPassword = email => dispatch => {
   dispatch({ type: userConstants.SUBMITTING });
   dispatch({ type: alertConstants.CLEAR });
 
-  userService.forgotPassword(email)
+  axios.post('auth/forgot-password', { email })
     .then(() => {
       dispatch({ type: userConstants.FORGOT_PASSWORD_REQUEST });
-      dispatch(alertActions.success('You will receive an email to reset your password shortly!'));
+      dispatch(alertActions.success('You will receive an email shortly to reset your password!'));
     });
 };
 
@@ -60,7 +91,7 @@ const resetPasswordByToken = (history, token, password) => dispatch => {
   dispatch({ type: userConstants.SUBMITTING });
   dispatch({ type: alertConstants.CLEAR });
 
-  userService.resetPasswordByToken(token, password)
+  axios.post(`auth/reset-password?token=${token}`, { password })
     .then(() => {
       dispatch({ type: userConstants.RESET_PASSWORD });
       dispatch(alertActions.success('Your password has been changed successfully. Login now with your new password!'));
@@ -72,32 +103,47 @@ const resetPasswordByToken = (history, token, password) => dispatch => {
     });
 };
 
+const getById = id => dispatch => {
+  dispatch({ type: userConstants.GET_REQUEST });
+
+  axios.get(`users/${id}`)
+    .then(users => dispatch({ type: userConstants.GET_SUCCESS, users: users.data }))
+    .catch(error => dispatch({ type: userConstants.GET_FAILURE, error: error.response.data.message }));
+};
+
 const getAll = () => dispatch => {
   dispatch({ type: userConstants.GETALL_REQUEST });
 
-  userService.getAll()
-    .then(
-      users => dispatch({ type: userConstants.GETALL_SUCCESS, users }),
-      error => dispatch({ type: userConstants.GETALL_FAILURE, error: error.toString() })
-    );
+  axios.get('user')
+    .then(users => dispatch({ type: userConstants.GETALL_SUCCESS, users: users.data }))
+    .catch(error => dispatch({ type: userConstants.GETALL_FAILURE, error: error.response.data.message }));
+};
+
+const update = user => dispatch => {
+  dispatch({ type: userConstants.UPDATE_REQUEST });
+
+  axios.put(`users/${user.id}`, { body: JSON.stringify(user) })
+    .then(users => dispatch({ type: userConstants.UPDATE_SUCCESS, users: users.data }))
+    .catch(error => dispatch({ type: userConstants.UPDATE_FAILURE, error: error.response.data.message }));
 };
 
 const deleteUser = id => dispatch => {
   dispatch({ type: userConstants.DELETE_REQUEST, id });
 
-  userService.delete(id)
-    .then(
-      () => dispatch({ type: userConstants.DELETE_SUCCESS, id }),
-      error => dispatch({ type: userConstants.DELETE_FAILURE, id, error: error.toString() })
-    );
+  axios.delete(`users/${id}`)
+    .then(() => dispatch({ type: userConstants.DELETE_SUCCESS, id }))
+    .catch(error => dispatch({ type: userConstants.DELETE_FAILURE, id, error: error.response.data.message }));
 };
 
 export default {
   resetPasswordByToken,
   delete: deleteUser,
   forgotPassword,
+  refreshTokens,
   register,
+  getById,
   logout,
+  update,
   getAll,
   login
 };

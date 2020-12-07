@@ -28,28 +28,21 @@ const setAccessToken = access => {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   }
 
-  Cookies.set('accessToken', token, { expires: expiresAt });
-  Cookies.set('expiresIn', expiresIn, { expires: expiresAt });
+  Cookies.set('accessToken', token, { expires: expiresAt, sameSite: 'strict' });
+  Cookies.set('expiresIn', expiresIn, { expires: expiresAt, sameSite: 'strict' });
 };
 
 const setRefreshToken = refresh => {
   const { token, expires } = refresh;
   const expiresAt = new Date(new Date(expires).getTime());
 
-  Cookies.set('refreshToken', token, { expires: expiresAt });
-};
-
-const removeAccessToken = () => {
-  Cookies.remove('accessToken');
-};
-
-const removeRefreshToken = () => {
-  Cookies.remove('refreshToken');
+  Cookies.set('refreshToken', token, { expires: expiresAt, sameSite: 'strict' });
 };
 
 const removeAllTokens = () => {
-  removeAccessToken();
-  removeRefreshToken();
+  Cookies.remove('accessToken');
+  Cookies.remove('refreshToken');
+  Cookies.remove('expiresIn');
 };
 
 const isAuthenticated = () => !!getAccessToken();
@@ -58,8 +51,6 @@ const isRefreshTokenAvailable = () => !!getRefreshToken();
 
 export default {
   isRefreshTokenAvailable,
-  removeRefreshToken,
-  removeAccessToken,
   isAuthenticated,
   removeAllTokens,
   getRefreshToken,
