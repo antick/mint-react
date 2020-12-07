@@ -40,9 +40,6 @@
       "pre-push": "npm run lint && npm run test"
     }
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "jest": {
     "collectCoverageFrom": [
       "*.js"
