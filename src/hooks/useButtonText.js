@@ -1,5 +1,5 @@
 import React from 'react';
-import SvgIcon from '../components/shared/SvgIcon';
+import SvgIcon from '../views/components/shared/SvgIcon';
 
 /**
  * Change button text and add spinner when submitting state is set

@@ -6,8 +6,8 @@ A beautifully crafted boilerplate for starting a React JS and Tailwind css proje
 
 **Demo:** Coming Soon
 
-<p align="center">
-    <img src="src/assets/images/preview.png" alt="React Mint Preview"/>
+<p style="text-align: center;">
+    <img src="src/views/assets/images/preview.png" alt="React Mint Preview"/>
 </p>
 
 ## Features
@@ -57,7 +57,6 @@ Builds the app for production to the `build` folder.
 |-- src
     |-- actions
     |-- assets
-        |-- icons
         |-- images
         |-- styles
     |-- components

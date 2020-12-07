@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 import * as serviceWorker from './serviceWorker';
 import store, { history } from './utils/store';
-import App from './components/App';
+import App from './views/components/App';
 import config from './config';
 import { auth } from './utils';
 
