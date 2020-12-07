@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import authentication from './authentication.reducer';
-import password from './password.reducer';
+import authentication from './authenticationReducer';
+import password from './passwordReducer';
 import registration from './registration.reducer';
-import posts from './posts.reducer';
-import users from './users.reducer';
-import alert from './alert.reducer';
+import posts from './postReducer';
+import users from './userReducer';
+import alert from './alertReducer';
 
 const rootReducer = history => combineReducers({
   router: connectRouter(history),

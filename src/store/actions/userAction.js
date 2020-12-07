@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { alertConstants, userConstants } from '../constants';
-import alertActions from './alert.action';
-import { auth } from '../../utils';
+import alertAction from './alertAction';
+import { auth, action } from '../../utilities';
 
 const refreshTokens = () => dispatch => {
   const refreshToken = auth.getRefreshToken();
@@ -13,13 +13,13 @@ const refreshTokens = () => dispatch => {
           auth.setAccessToken(response.data.access);
           auth.setRefreshToken(response.data.refresh);
 
-          dispatch({ type: userConstants.TOKEN_REFRESHED });
+          dispatch(action(userConstants.TOKEN_REFRESHED));
         }
       })
       .catch(error => {
         auth.removeAllTokens();
 
-        dispatch({ type: userConstants.TOKEN_REMOVED, error: error.response.data.message });
+        dispatch(action(userConstants.TOKEN_REMOVED, null, error.response.data.message));
       });
   }
 };
@@ -32,13 +32,13 @@ const login = ({
       auth.setAccessToken(response.data.tokens.access);
       auth.setRefreshToken(response.data.tokens.refresh);
 
-      dispatch({ type: userConstants.LOGIN_SUCCESS, user: response });
+      dispatch(action(userConstants.LOGIN_SUCCESS, response));
 
       history.push(from);
     })
     .catch(error => {
-      dispatch({ type: userConstants.LOGIN_FAILURE, error: error.response.data.message });
-      dispatch(alertActions.error(error.response.data.message));
+      dispatch(action(userConstants.LOGIN_FAILURE, null, error.response.data.message));
+      dispatch(alertAction.error(error.response.data.message));
     });
 };
 
@@ -57,6 +57,11 @@ const logout = history => dispatch => {
         if (history) {
           history.push('/login');
         }
+      })
+      .catch(() => {
+        dispatch({ type: userConstants.LOGOUT });
+
+        auth.removeAllTokens();
       });
   }
 };
@@ -67,12 +72,12 @@ const register = (history, user) => dispatch => {
   axios.post('auth/register', user)
     .then(userData => {
       dispatch({ type: userConstants.REGISTER_SUCCESS, user: userData });
-      dispatch(alertActions.success('Registration successful! Please login now.'));
+      dispatch(alertAction.success('Registration successful! Please login now.'));
       history.push('/login');
     })
     .catch(error => {
       dispatch({ type: userConstants.REGISTER_FAILURE, error: error.response.data.message });
-      dispatch(alertActions.error(error.response.data.message));
+      dispatch(alertAction.error(error.response.data.message));
     });
 };
 
@@ -83,7 +88,7 @@ const forgotPassword = email => dispatch => {
   axios.post('auth/forgot-password', { email })
     .then(() => {
       dispatch({ type: userConstants.FORGOT_PASSWORD_REQUEST });
-      dispatch(alertActions.success('You will receive an email shortly to reset your password!'));
+      dispatch(alertAction.success('You will receive an email shortly to reset your password!'));
     });
 };
 
@@ -94,12 +99,12 @@ const resetPasswordByToken = (history, token, password) => dispatch => {
   axios.post(`auth/reset-password?token=${token}`, { password })
     .then(() => {
       dispatch({ type: userConstants.RESET_PASSWORD });
-      dispatch(alertActions.success('Your password has been changed successfully. Login now with your new password!'));
+      dispatch(alertAction.success('Your password has been changed successfully. Login now with your new password!'));
       history.push('/login');
     })
     .catch(() => {
       dispatch({ type: userConstants.RESET_PASSWORD_FAILURE });
-      dispatch(alertActions.error('Your token is invalid!'));
+      dispatch(alertAction.error('Your token is invalid!'));
     });
 };
 
@@ -112,11 +117,11 @@ const getById = id => dispatch => {
 };
 
 const getAll = () => dispatch => {
-  dispatch({ type: userConstants.GETALL_REQUEST });
+  dispatch({ type: userConstants.GET_ALL_REQUEST });
 
   axios.get('user')
-    .then(users => dispatch({ type: userConstants.GETALL_SUCCESS, users: users.data }))
-    .catch(error => dispatch({ type: userConstants.GETALL_FAILURE, error: error.response.data.message }));
+    .then(users => dispatch({ type: userConstants.GET_ALL_SUCCESS, users: users.data }))
+    .catch(error => dispatch({ type: userConstants.GET_ALL_FAILURE, error: error.response.data.message }));
 };
 
 const update = user => dispatch => {

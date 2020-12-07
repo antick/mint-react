@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import SvgIcon from '../shared/SvgIcon';
-import userActions from '../../../store/actions/user.action';
+import userActions from '../../../store/actions/userAction';
 
 const TopNavigation = ({ history }) => {
   const dispatch = useDispatch();

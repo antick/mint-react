@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import store, { history } from './store';
 import App from './views/components/App';
 import config from './config';
-import { auth } from './utils';
+import { auth } from './utilities';
 
 axios.defaults.baseURL = config.apiUrl;
 axios.defaults.headers.common['Content-Type'] = 'application/json';

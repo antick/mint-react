@@ -6,7 +6,7 @@ import {
   CartesianGrid,
   ResponsiveContainer
 } from 'recharts';
-import faker from '../../../utils/faker';
+import faker from '../../../utilities/fakerUtility';
 import Motion from '../shared/Motion';
 import CheckBox from '../shared/Form/CheckBox';
 import SvgIcon from '../shared/SvgIcon';

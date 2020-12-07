@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
-import { auth } from '../../../utils';
+import { auth } from '../../../utilities';
 
 const PublicRoute = ({ component: Component, ...rest }) => {
   const isAuthenticated = auth.isAuthenticated();

@@ -1,5 +1,5 @@
 import { userConstants } from '../constants';
-import { auth } from '../../utils';
+import { auth } from '../../utilities';
 
 const user = auth.getAccessToken();
 const initialState = user ? { loggedIn: true, user } : {};
@@ -9,7 +9,7 @@ export default function authentication(state = initialState, action) {
     case userConstants.LOGIN_SUCCESS:
       return {
         loggedIn: true,
-        user: action.user
+        user: action.payload
       };
 
     case userConstants.LOGIN_FAILURE:

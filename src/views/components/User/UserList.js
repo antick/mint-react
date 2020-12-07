@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import userActions from '../../../store/actions/user.action';
+import userActions from '../../../store/actions/userAction';
 
 const UserList = () => {
   const title = 'Users';
@@ -10,7 +10,7 @@ const UserList = () => {
 
   useEffect(() => {
     dispatch(userActions.getAll());
-  }, []);
+  }, [dispatch]);
 
   function handleDeleteUser(id) {
     dispatch(userActions.delete(id));

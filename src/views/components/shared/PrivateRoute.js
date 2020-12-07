@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import useSilentToken from '../../../hooks/useSilentToken';
-import { auth } from '../../../utils';
+import { auth } from '../../../utilities';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const isAuthenticated = auth.isAuthenticated();

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import userAction from '../store/actions/user.action';
-import { auth } from '../utils';
+import userAction from '../store/actions/userAction';
+import { auth } from '../utilities';
 
 /**
  * Refresh access token silently
@@ -27,7 +27,7 @@ const useSilentToken = () => {
       setLoggedIn(false);
       clearTimeout(loggedInStatus);
     };
-  }, [loggedIn]);
+  }, [dispatch, loggedIn, tokenExpiresIn]);
 
   return loggedIn;
 };

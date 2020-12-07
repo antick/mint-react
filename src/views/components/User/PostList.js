@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import postsAction from '../../../store/actions/posts.action';
+import postsAction from '../../../store/actions/postAction';
 
 const PostList = () => {
   const title = 'Posts';
@@ -10,9 +10,9 @@ const PostList = () => {
     dispatch(postsAction.fetchPosts());
   }, [dispatch]);
 
-  const renderPosts = () => {
-    const { loading, hasErrors, posts } = useSelector(state => state.posts);
+  const { loading, hasErrors, posts } = useSelector(state => state.posts);
 
+  const renderPosts = () => {
     if (loading) {
       return <div className="flex justify-center items-center">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900" />

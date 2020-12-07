@@ -1,3 +1,3 @@
-export { default as alertConstants } from './alert.constants';
-export { default as postsConstants } from './posts.constants';
-export { default as userConstants } from './user.constants';
+export { default as alertConstants } from './alertConstant';
+export { default as postsConstants } from './postConstant';
+export { default as userConstants } from './userConstant';
