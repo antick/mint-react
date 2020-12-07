@@ -1,12 +1,17 @@
-import { postsConstants } from '../constants';
+import {
+  GET_POSTS,
+  GET_POSTS_SUCCESS,
+  GET_POSTS_FAILURE
+} from '../constants/postConstant';
+import { action } from '../../utilities';
 
 const fetchPosts = () => dispatch => {
-  dispatch({ type: postsConstants.GET_POSTS });
+  dispatch(action(GET_POSTS));
 
   fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
-    .then(response => dispatch({ type: postsConstants.GET_POSTS_SUCCESS, payload: response }))
-    .catch(() => dispatch({ type: postsConstants.GET_POSTS_FAILURE }));
+    .then(response => dispatch(action(GET_POSTS_SUCCESS, response)))
+    .catch(() => dispatch(action(GET_POSTS_FAILURE)));
 };
 
 export default {

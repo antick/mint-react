@@ -1,34 +1,25 @@
-export default {
-  REGISTER_REQUEST: 'USERS_REGISTER_REQUEST',
-  REGISTER_SUCCESS: 'USERS_REGISTER_SUCCESS',
-  REGISTER_FAILURE: 'USERS_REGISTER_FAILURE',
-
-  LOGIN_REQUEST: 'USERS_LOGIN_REQUEST',
-  LOGIN_SUCCESS: 'USERS_LOGIN_SUCCESS',
-  LOGIN_FAILURE: 'USERS_LOGIN_FAILURE',
-
-  SUBMITTING: 'SUBMITTING',
-  FORGOT_PASSWORD_REQUEST: 'FORGOT_PASSWORD_REQUEST',
-  RESET_PASSWORD: 'RESET_PASSWORD',
-  RESET_PASSWORD_FAILURE: 'RESET_PASSWORD_FAILURE',
-
-  TOKEN_REFRESHED: 'TOKEN_REFRESHED',
-  TOKEN_REMOVED: 'TOKEN_REMOVED',
-  LOGOUT: 'USERS_LOGOUT',
-
-  GET_REQUEST: 'USER_GET_REQUEST',
-  GET_SUCCESS: 'USER_GET_SUCCESS',
-  GET_FAILURE: 'USER_GET_FAILURE',
-
-  GET_ALL_REQUEST: 'USERS_GET_ALL_REQUEST',
-  GET_ALL_SUCCESS: 'USERS_GET_ALL_SUCCESS',
-  GET_ALL_FAILURE: 'USERS_GET_ALL_FAILURE',
-
-  UPDATE_REQUEST: 'UPDATE_REQUEST',
-  UPDATE_SUCCESS: 'UPDATE_SUCCESS',
-  UPDATE_FAILURE: 'UPDATE_FAILURE',
-
-  DELETE_REQUEST: 'USERS_DELETE_REQUEST',
-  DELETE_SUCCESS: 'USERS_DELETE_SUCCESS',
-  DELETE_FAILURE: 'USERS_DELETE_FAILURE'
-};
+export const SUBMITTING = 'button/submitting';
+export const REGISTER_REQUEST = 'user/register/request';
+export const REGISTER_SUCCESS = 'user/register/success';
+export const REGISTER_FAILURE = 'user/register/failure';
+export const LOGIN_REQUEST = 'user/login/request';
+export const LOGIN_SUCCESS = 'user/login/success';
+export const LOGIN_FAILURE = 'user/login/failure';
+export const FORGOT_PASSWORD_REQUEST = 'user/forgot-password/request';
+export const RESET_PASSWORD = 'user/reset-password';
+export const RESET_PASSWORD_FAILURE = 'user/reset-password/failure';
+export const TOKEN_REFRESHED = 'user/token/refreshed';
+export const TOKEN_REMOVED = 'user/token/removed';
+export const LOGOUT = 'user/logout';
+export const GET_REQUEST = 'user/get/request';
+export const GET_SUCCESS = 'user/get/success';
+export const GET_FAILURE = 'user/get/failure';
+export const GET_ALL_REQUEST = 'user/get-all/request';
+export const GET_ALL_SUCCESS = 'user/get-all/success';
+export const GET_ALL_FAILURE = 'user/get-all/failure';
+export const UPDATE_REQUEST = 'user/update/request';
+export const UPDATE_SUCCESS = 'user/update/success';
+export const UPDATE_FAILURE = 'user/update/failure';
+export const DELETE_REQUEST = 'user/delete/request';
+export const DELETE_SUCCESS = 'user/delete/success';
+export const DELETE_FAILURE = 'user/delete/failure';

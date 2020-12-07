@@ -1,5 +1,3 @@
-export default {
-  GET_POSTS: 'GET_POSTS',
-  GET_POSTS_SUCCESS: 'GET_POSTS_SUCCESS',
-  GET_POSTS_FAILURE: 'GET_POSTS_FAILURE'
-};
+export const GET_POSTS = 'post/get';
+export const GET_POSTS_SUCCESS = 'post/success';
+export const GET_POSTS_FAILURE = 'post/failure';

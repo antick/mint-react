@@ -1,11 +1,15 @@
-import { alertConstants } from '../constants';
+import {
+  SUCCESS,
+  ERROR,
+  CLEAR
+} from '../constants/alertConstant';
 import { action } from '../../utilities';
 
-const success = message => action(alertConstants.SUCCESS, message);
+const success = message => action(SUCCESS, message);
 
-const error = message => action(alertConstants.ERROR, message);
+const error = message => action(ERROR, message);
 
-const clear = () => action(alertConstants.CLEAR);
+const clear = () => action(CLEAR);
 
 export default {
   success,

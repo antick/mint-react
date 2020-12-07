@@ -1,38 +1,45 @@
-import { userConstants } from '../constants';
+import {
+  GET_ALL_REQUEST,
+  GET_ALL_SUCCESS,
+  GET_ALL_FAILURE,
+  DELETE_REQUEST,
+  DELETE_SUCCESS,
+  DELETE_FAILURE
+} from '../constants/userConstant';
 
 export default function users(state = {}, action) {
   switch (action.type) {
-    case userConstants.GET_ALL_REQUEST:
+    case GET_ALL_REQUEST:
       return {
         loading: true
       };
 
-    case userConstants.GET_ALL_SUCCESS:
+    case GET_ALL_SUCCESS:
       return {
-        users: action.users
+        users: action.payload
       };
 
-    case userConstants.GET_ALL_FAILURE:
+    case GET_ALL_FAILURE:
       return {
         error: action.error
       };
 
-    case userConstants.DELETE_REQUEST:
+    case DELETE_REQUEST:
       return {
         ...state,
-        items: state.items.map(user => user.id === action.id ? { ...user, deleting: true } : user)
+        items: state.items.map(user => user.id === action.payload ? { ...user, deleting: true } : user)
       };
 
-    case userConstants.DELETE_SUCCESS:
+    case DELETE_SUCCESS:
       return {
-        items: state.items.filter(user => user.id !== action.id)
+        items: state.items.filter(user => user.id !== action.payload)
       };
 
-    case userConstants.DELETE_FAILURE:
+    case DELETE_FAILURE:
       return {
         ...state,
         items: state.items.map(user => {
-          if (user.id === action.id) {
+          if (user.id === action.payload) {
             // make copy of user without 'deleting:true' property
             // const { deleting, ...userCopy } = user;
             const { ...userCopy } = user;

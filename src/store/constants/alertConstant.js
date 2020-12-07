@@ -1,5 +1,3 @@
-export default {
-  SUCCESS: 'ALERT_SUCCESS',
-  ERROR: 'ALERT_ERROR',
-  CLEAR: 'ALERT_CLEAR'
-};
+export const SUCCESS = 'alert/success';
+export const ERROR = 'alert/error';
+export const CLEAR = 'alert/clear';

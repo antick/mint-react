@@ -1,4 +1,8 @@
-import { postsConstants } from '../constants';
+import {
+  GET_POSTS,
+  GET_POSTS_SUCCESS,
+  GET_POSTS_FAILURE
+} from '../constants/postConstant';
 
 export const initialState = {
   posts: [],
@@ -8,20 +12,20 @@ export const initialState = {
 
 export default function postsReducer(state = initialState, action) {
   switch (action.type) {
-    case postsConstants.GET_POSTS:
+    case GET_POSTS:
       return {
         ...state,
         loading: true
       };
 
-    case postsConstants.GET_POSTS_SUCCESS:
+    case GET_POSTS_SUCCESS:
       return {
         posts: action.payload,
         loading: false,
         hasErrors: false
       };
 
-    case postsConstants.GET_POSTS_FAILURE:
+    case GET_POSTS_FAILURE:
       return {
         ...state,
         loading: false,

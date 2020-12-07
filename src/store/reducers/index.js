@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import authentication from './authenticationReducer';
 import password from './passwordReducer';
-import registration from './registration.reducer';
+import registration from './registrationReducer';
 import posts from './postReducer';
 import users from './userReducer';
 import alert from './alertReducer';
