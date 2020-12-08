@@ -7,7 +7,7 @@ A beautifully crafted boilerplate for starting a React JS and Tailwind css proje
 **Demo:** Coming Soon
 
 <p style="text-align: center;">
-    <img src="src/views/assets/images/preview.png" alt="React Mint Preview"/>
+    <img src="public/images/preview.png" alt="React Mint Preview"/>
 </p>
 
 ## Features
@@ -19,6 +19,7 @@ A beautifully crafted boilerplate for starting a React JS and Tailwind css proje
 5. Forgot Password
 6. Public and private routes
 7. Robust token authentication
+8. Redux with hooks
 
 ## Quick start
 
@@ -76,3 +77,11 @@ Builds the app for production to the `build` folder.
 ## License
 
 MIT License
+
+## Thanks
+
+<p style="text-align: center;">
+  <a href="https://www.jetbrains.com/?from=mintreact">
+    <img src="public/images/jetbrains.png" alt="Jetbrains" />
+  </a>
+</p>
