@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 import * as serviceWorker from './serviceWorker';
 import store, { history } from './store';
-import App from './views/components/App';
+import App from './modules/app/components/App';
 import config from './config';
-import { auth } from './utilities';
+import auth from './modules/auth/utilities/authUtility';
 
 axios.defaults.baseURL = config.apiUrl;
 axios.defaults.headers.common['Content-Type'] = 'application/json';

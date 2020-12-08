@@ -1,4 +1,4 @@
-# Mint React 0.7.0
+# Mint React 0.8.0
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -20,6 +20,7 @@ A beautifully crafted boilerplate for starting a React JS and Tailwind css proje
 6. Public and private routes
 7. Robust token authentication
 8. Redux with hooks
+9. Modular architecture
 
 ## Quick start
 
