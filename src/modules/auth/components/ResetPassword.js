@@ -10,6 +10,7 @@ import Motion from '../../shared/components/Motion';
 import userActions from '../../user/actions/userAction';
 import SubmitButton from '../../shared/components/Form/SubmitButton';
 import alertActions from '../../shared/actions/alertAction';
+import useAlert from '../../shared/hooks/useAlert';
 
 const initialValues = {
   password: '',
@@ -31,7 +32,7 @@ const validationSchema = Yup.object().shape({
 const ResetPassword = ({ history }) => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const alert = useSelector(state => state.alert);
+  const alert = useAlert();
   const passwordSelector = useSelector(state => state.password);
 
   const handleChangePassword = values => {
@@ -61,9 +62,7 @@ const ResetPassword = ({ history }) => {
           <div className="guest-container">
             <Motion type="5" className="guest-block">
               <h3 className="guest-title">Reset Password</h3>
-
-              {alert.message && <div className={alert.type}>{alert.message}</div>}
-
+              {alert}
               <Form className="guest-form">
                 <div className="mb-8">
                   <label className="input-label-top" htmlFor="password">Password</label>

@@ -9,34 +9,21 @@ import PropTypes from 'prop-types';
 import Motion from '../../shared/components/Motion';
 import userActions from '../../user/actions/userAction';
 import SubmitButton from '../../shared/components/Form/SubmitButton';
+import useAlert from '../../shared/hooks/useAlert';
 
-/**
- * Initial form values
- *
- * @type {{ email: string }}
- */
 const initialValues = {
   email: ''
 };
 
-/**
- * Form validation schema
- */
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Enter a valid email')
     .required('Email is required')
 });
 
-/**
- * Forgot Password Component
- *
- * @returns {JSX.Element}
- * @constructor
- */
 const ForgotPassword = () => {
   const dispatch = useDispatch();
-  const alert = useSelector(state => state.alert);
+  const alert = useAlert();
   const password = useSelector(state => state.password);
 
   const handlePasswordRequestSubmission = inputs => {
@@ -61,7 +48,7 @@ const ForgotPassword = () => {
             <Motion type="5" className="guest-block">
               <h3 className="guest-title">Forgot Password</h3>
 
-              {alert.message && <div className={alert.type}>{alert.message}</div>}
+              {alert}
 
               <Form className="guest-form">
                 <div className="mb-8">

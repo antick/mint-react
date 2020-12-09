@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   Formik, Form, Field, ErrorMessage
 } from 'formik';
@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import Motion from '../../shared/components/Motion';
 import userActions from '../../user/actions/userAction';
 import alertAction from '../../shared/actions/alertAction';
+import useAlert from '../../shared/hooks/useAlert';
 
 const initialValues = {
   email: '',
@@ -28,7 +29,7 @@ const validationSchema = Yup.object().shape({
 const Login = ({ history }) => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const alert = useSelector(state => state.alert);
+  const alert = useAlert();
 
   const handleLogin = inputs => {
     const { email, password } = inputs;
@@ -62,9 +63,7 @@ const Login = ({ history }) => {
           <div className="guest-container">
             <Motion type="5" className="guest-block">
               <h3 className="guest-title">Login</h3>
-
-              {alert.message && <div className={alert.type}>{alert.message}</div>}
-
+              {alert}
               <Form className="guest-form">
                 <div className="mb-8">
                   <label className="input-label-top" htmlFor="email">Email</label>
