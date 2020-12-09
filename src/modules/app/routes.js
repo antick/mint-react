@@ -9,7 +9,7 @@ export default [
     exact: true,
     menu: {
       title: 'Dashboard',
-      icon: <SvgIcon name="book" classes="nav-link" />,
+      icon: <SvgIcon name="dashboard" classes="nav-link" />,
       visible: {
         top: false,
         right: false,

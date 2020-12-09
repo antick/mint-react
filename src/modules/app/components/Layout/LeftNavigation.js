@@ -18,8 +18,10 @@ const LeftNavigation = () => {
   return (
     <nav className="left-nav">
       <div className="flex justify-center">
-        <div className="relative overflow-hidden w-20 h-20 rounded-full border-4 border-gray-300">
-          <img className="w-full h-auto absolute" src={'./images/avatar.jpg'} alt="avatar" />
+        <div className="nav-avatar">
+          <Link to="/profile">
+            <img className="w-full h-auto absolute" src={'./images/avatar.jpg'} alt="avatar" />
+          </Link>
         </div>
       </div>
       <Motion type="4" className="flex flex-col pt-10 justify-center items-center">

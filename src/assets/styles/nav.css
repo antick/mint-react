@@ -94,3 +94,7 @@ svg.link {
   @apply flex bg-transparent p-2 hover:text-gray-900 hover:bg-gray-200;
   @apply focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:ring;
 }
+
+.nav-avatar {
+  @apply relative overflow-hidden w-20 h-20 rounded-full border-4 border-gray-300 cursor-pointer;
+}

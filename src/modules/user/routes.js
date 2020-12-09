@@ -10,7 +10,7 @@ export default [
     path: '/users',
     menu: {
       title: 'Users',
-      icon: <SvgIcon name="cog" classes="nav-link" />,
+      icon: <SvgIcon name="users" classes="nav-link" />,
       visible: {
         top: false,
         right: false,
@@ -38,7 +38,7 @@ export default [
     path: '/posts',
     menu: {
       title: 'Posts',
-      icon: <SvgIcon name="bookmarks" classes="nav-link" />,
+      icon: <SvgIcon name="wallet" classes="nav-link" />,
       visible: {
         top: false,
         right: false,
@@ -49,10 +49,10 @@ export default [
   },
   {
     component: NotFound,
-    path: '/oops',
+    path: '/test',
     menu: {
-      title: 'Users',
-      icon: <SvgIcon name="calculator" classes="nav-link" />,
+      title: 'Test',
+      icon: <SvgIcon name="book" classes="nav-link" />,
       visible: {
         top: false,
         right: false,
@@ -66,7 +66,7 @@ export default [
     path: '/posts',
     menu: {
       title: 'Users',
-      icon: <SvgIcon name="calendar" classes="nav-link" />,
+      icon: <SvgIcon name="air" classes="nav-link" />,
       visible: {
         top: false,
         right: false,
@@ -90,11 +90,11 @@ export default [
     }
   },
   {
-    component: UserList,
-    path: '/users',
+    component: NotFound,
+    path: '/settings',
     menu: {
-      title: 'Users',
-      icon: <SvgIcon name="wallet" classes="nav-link" />,
+      title: 'Settings',
+      icon: <SvgIcon name="cog" classes="nav-link" />,
       visible: {
         top: false,
         right: false,
