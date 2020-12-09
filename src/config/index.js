@@ -1,6 +1,5 @@
-export default {
-  appName: 'Mint React',
-  appVersion: '0.8.0',
+export const reduxDevTools = () => process.env.REACT_APP_REDUX_DEV_TOOLS === 'true';
 
-  apiUrl: process.env.REACT_APP_API_URL
-};
+export const apiUrl = process.env.REACT_APP_API_URL;
+
+export const contentType = 'application/json';

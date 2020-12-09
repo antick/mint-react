@@ -3,10 +3,10 @@ import { shallow, mount } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from '../components/App';
-import LeftNavigation from '../../shared/components/Layout/LeftNavigation';
+import LeftNavigation from '../components/Layout/LeftNavigation';
 import UserList from '../../user/components/UserList';
 import store from '../../../store';
-import MainContainer from '../../shared/components/Layout/MainContainer';
+import MainContainer from '../components/Layout/MainContainer';
 
 const configuredStore = store();
 

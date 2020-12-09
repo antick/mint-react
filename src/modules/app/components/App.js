@@ -2,25 +2,20 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import PropTypes from 'prop-types';
-import Login from '../../auth/components/Login';
-import Register from '../../auth/components/Register';
-import ForgotPassword from '../../auth/components/ForgotPassword';
-import ResetPassword from '../../auth/components/ResetPassword';
+import { get } from 'lodash';
 import NotFound from '../../auth/components/NotFound';
-import MainContainer from '../../shared/components/Layout/MainContainer';
-import PublicRoute from '../../shared/components/PublicRoute';
-import PrivateRoute from '../../shared/components/PrivateRoute';
+import MainContainer from './Layout/MainContainer';
+import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivateRoute';
+import routes from '../../../config/routes';
 
 const App = ({ history }) => (
   <ConnectedRouter history={history}>
     <Switch>
-      <PublicRoute path='/login' component={Login} />
-      <PublicRoute path='/register' component={Register} />
-      <PublicRoute path='/forgot-password' component={ForgotPassword} />
-      <PublicRoute path='/reset-password' component={ResetPassword} />
-
+      {routes.filter(route => get(route, 'public', false)).map((prop, key) => (
+        <PublicRoute exact={!!prop.exact} path={prop.path} component={prop.component} key={key} />
+      ))}
       <PrivateRoute path='/' component={MainContainer} history={history} />
-
       <Route component={NotFound} />
     </Switch>
   </ConnectedRouter>

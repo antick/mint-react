@@ -1,11 +1,12 @@
 import React from 'react';
 import { get } from 'lodash';
 import { Link } from 'react-router-dom';
-import Motion from '../Motion';
-import routes from '../../../../routes';
+import Motion from '../../../shared/components/Motion';
+import routes from '../../../../config/routes';
 
 const LeftNavigation = () => {
-  const leftNavigationLinks = routes.filter(route => get(route, 'menu.visible.left', false))
+  const leftNavigationLinks = routes
+    .filter(route => get(route, 'menu.visible.left', false) && !get(route, 'public', false))
     .map((route, index) => (
       <Link to={route.path} key={index}>
         <div className="left-nav-icons" title={route.menu.title}>

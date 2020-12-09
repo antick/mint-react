@@ -8,6 +8,7 @@ import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 import Motion from '../../shared/components/Motion';
 import userActions from '../../user/actions/userAction';
+import alertAction from '../../shared/actions/alertAction';
 
 const initialValues = {
   email: '',
@@ -41,6 +42,7 @@ const Login = ({ history }) => {
         from
       };
 
+      dispatch(alertAction.clear());
       dispatch(userActions.login(actionData));
     }
   };

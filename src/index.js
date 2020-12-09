@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import axios from 'axios';
 import * as serviceWorker from './serviceWorker';
 import store, { history } from './store';
-import App from './modules/app/components/App';
-import config from './config';
+import * as config from './config';
 import auth from './modules/auth/utilities/authUtility';
+import App from './modules/app/components/App';
 
 axios.defaults.baseURL = config.apiUrl;
-axios.defaults.headers.common['Content-Type'] = 'application/json';
+axios.defaults.headers.common['Content-Type'] = config.contentType;
 
 const token = auth.getAccessToken();
 

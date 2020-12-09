@@ -1,29 +1,10 @@
 import React from 'react';
-import UserList from './modules/user/components/UserList';
-import MainDashboard from './modules/app/components/MainDashboard';
-import NotFound from './modules/auth/components/NotFound';
-import SvgIcon from './modules/shared/components/SvgIcon';
-import PostList from './modules/user/components/PostList';
+import SvgIcon from '../shared/components/SvgIcon';
+import UserList from './components/UserList';
+import PostList from './components/PostList';
+import NotFound from '../auth/components/NotFound';
 
-/**
- * All protected routes should be placed here
- */
-const routes = [
-  {
-    component: MainDashboard,
-    path: '/',
-    exact: true,
-    menu: {
-      title: 'Dashboard',
-      icon: <SvgIcon name="book" classes="nav-link" />,
-      visible: {
-        top: false,
-        right: false,
-        bottom: false,
-        left: true
-      }
-    }
-  },
+export default [
   {
     component: UserList,
     path: '/users',
@@ -121,10 +102,5 @@ const routes = [
         left: true
       }
     }
-  },
-  {
-    component: NotFound
   }
 ];
-
-export default routes;
