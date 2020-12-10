@@ -14,7 +14,7 @@ const MainContainer = ({ history }) => {
   );
 
   return (
-    <div className="flex">
+    <div className="main-container">
       <aside className="flex">
         <LeftNavigation />
       </aside>
@@ -22,7 +22,7 @@ const MainContainer = ({ history }) => {
       <section className="flex flex-col w-full">
         {Header}
 
-        <div className="pl-8 pr-12 pt-1">
+        <div className="pl-4 pr-12 pt-1">
           <Switch>
             {routes.filter(route => !get(route, 'public', false))
               .map((prop, key) => (

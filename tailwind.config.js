@@ -34,6 +34,7 @@ module.exports = {
     },
     fontFamily: {
       roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
+      noto: ['Noto Sans JP', ...defaultTheme.fontFamily.sans],
       sans: [
         'ui-sans-serif',
         'system-ui',

@@ -1,3 +1,7 @@
+.main-container {
+  @apply flex bg-gray-100;
+}
+
 .guest-container {
   @apply flex justify-center items-center h-screen bg-gradient-to-r from-teal-400 via-teal-500 to-pink-400;
 }

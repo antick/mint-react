@@ -34,8 +34,8 @@ export default [
     }
   },
   {
-    component: UserList,
-    path: '/posts',
+    component: NotFound,
+    path: '/todos',
     menu: {
       title: 'Posts',
       icon: <SvgIcon name="wallet" classes="nav-link" />,
@@ -62,22 +62,8 @@ export default [
     }
   },
   {
-    component: UserList,
-    path: '/posts',
-    menu: {
-      title: 'Users',
-      icon: <SvgIcon name="air" classes="nav-link" />,
-      visible: {
-        top: false,
-        right: false,
-        bottom: false,
-        left: true
-      }
-    }
-  },
-  {
     component: NotFound,
-    path: '/test',
+    path: '/reminders',
     menu: {
       title: 'Users',
       icon: <SvgIcon name="mail" classes="nav-link" />,

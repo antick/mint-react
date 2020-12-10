@@ -10,7 +10,7 @@ const TopNavigation = ({ history }) => {
   const logout = () => dispatch(userActions.logout(history));
 
   return (
-    <nav className="font-sans flex items-center w-full text-gray-600 p-4 pt-4">
+    <nav className="top-nav">
       <div className="flex w-full">
         <nav className="flex-col pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
           <div>

@@ -31,12 +31,3 @@
 .guest-form {
   @apply px-28 mt-4 mb-4;
 }
-
-/* Checkbox */
-.custom-check {
-  @apply bg-white border-2 rounded border-gray-400 w-4 h-4 flex flex-shrink-0 justify-center items-center mr-2;
-}
-
-input:checked + svg {
-  @apply block;
-}

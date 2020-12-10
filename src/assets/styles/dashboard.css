@@ -1,6 +1,7 @@
 /* Widgets */
 .weather-widget {
   @apply bg-gradient-to-bl from-pink-400 via-pink-500 to-pink-600 transform hover:scale-95 transition duration-300;
+  @apply flex flex-col rounded-lg my-6 mr-6 p-8 bg-red-300 text-white w-2/4;
 }
 
 .wod-widget {
@@ -9,6 +10,6 @@
 }
 
 .today-event-widget {
-  @apply bg-gradient-to-bl from-white via-white to-gray-50;
-  @apply flex flex-col p-6 text-gray-600 border-l;
+  @apply flex flex-col w-full p-6 text-gray-600 border-l;
+  @apply bg-gradient-to-tr from-gray-50 via-gray-50 to-gray-100;
 }

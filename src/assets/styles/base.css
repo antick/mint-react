@@ -1,3 +1,7 @@
 body {
   @apply font-roboto;
 }
+
+.section-bg {
+  @apply bg-gray-50;
+}

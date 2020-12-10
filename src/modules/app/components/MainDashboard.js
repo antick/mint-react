@@ -16,9 +16,9 @@ const MainDashboard = () => {
   const today = new Date().toDateString();
 
   return (
-    <div className="mb-10">
+    <div className="mb-4">
       <div className="flex">
-        <Motion type="1" className="w-2/3 font-sans bg-gray-100 border border-gray-200 rounded-lg text-gray-700 h-64">
+        <Motion type="1" className="section-bg w-2/3 font-sans border border-gray-200 rounded-lg text-gray-700 h-64">
           <div className="flex">
             <div className="flex flex-col p-8 w-3/4">
               <h3 className="text-xl font-semibold">Good Morning!</h3>
@@ -33,8 +33,7 @@ const MainDashboard = () => {
                 – Booker T. Washington
               </p>
             </div>
-
-            <div className="weather-widget flex flex-col rounded-lg my-6 mr-6 p-8 bg-red-300 text-white w-2/4">
+            <div className="weather-widget">
               <div className="flex font-semibold">
                 Weather today in Olympus, Mars
               </div>
@@ -76,7 +75,7 @@ const MainDashboard = () => {
 
       <div className="flex mt-6">
         <div className="w-2/3 font-sans text-gray-700">
-          <Motion type="3" className="flex border bg-white border-gray-200 rounded-lg h-48">
+          <Motion type="3" className="section-bg flex border border-gray-200 rounded-lg h-48">
             <div className="flex flex-col p-8 pt-6 w-3/4">
               <div className="text-xl font-semibold">
                 <h3 className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-600 bg-clip-text text-transparent">
@@ -85,35 +84,26 @@ const MainDashboard = () => {
                 <span className="text-sm items-center flex text-gray-500 font-normal">18 May - 24 May</span>
               </div>
               <div className="flex flex-row pt-6 text-md">
-                <div className="text-sm border-r border-gray-300 py-4 px-8 pl-1 text-gray-600">
-                  Mon
-                  <p className="text-center">18</p>
+                <div className="text-sm border-r border-gray-300 py-4 px-9 pl-0 text-gray-600">
+                  Mon <p className="text-center">18</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
-                  Tue
-                  <p className="text-gray-600 text-center">
-                    19
-                  </p>
+                <div className="text-sm border-r border-gray-300 py-4 px-9 text-gray-600">
+                  Tue <p className="text-gray-600 text-center">19</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-teal-500 font-semibold">
-                  Wed
-                  <p className="text-center">20</p>
+                <div className="text-sm border-r border-gray-300 py-4 px-9 text-teal-500 font-semibold">
+                  Wed <p className="text-center">20</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
-                  Thu
-                  <p className="text-center">21</p>
+                <div className="text-sm border-r border-gray-300 py-4 px-9 text-gray-600">
+                  Thu <p className="text-center">21</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
-                  Fri
-                  <p className="text-center">22</p>
+                <div className="text-sm border-r border-gray-300 py-4 px-9 text-gray-600">
+                  Fri <p className="text-center">22</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
-                  Sat
-                  <p className="text-center">23</p>
+                <div className="text-sm border-r border-gray-300 py-4 px-9 text-gray-600">
+                  Sat <p className="text-center">23</p>
                 </div>
                 <div className="text-sm py-4 px-8 text-gray-600">
-                  Sun
-                  <p className="text-center">24</p>
+                  Sun <p className="text-center">24</p>
                 </div>
               </div>
             </div>
@@ -134,7 +124,7 @@ const MainDashboard = () => {
             </div>
           </Motion>
 
-          <Motion type="3" className="flex border mt-6 bg-white border-gray-200 rounded-lg">
+          <Motion type="3" className="section-bg flex border mt-6 border-gray-200 rounded-lg">
             <div className="flex flex-col p-8 w-full">
               <div className="font-semibold">Monthly Growth</div>
               <div className="pt-3 text-sm w-full h-64">
@@ -157,50 +147,25 @@ const MainDashboard = () => {
           </Motion>
         </div>
 
-        <Motion type="3" className="w-1/3 font-sans bg-white border border-gray-200 rounded-lg text-gray-700 ml-6 -mr-6">
+        <Motion type="3" className="section-bg w-1/3 font-sans border border-gray-200 rounded-lg text-gray-700 ml-6 -mr-6">
           <div className="p-8">
             <div className="font-semibold text-left">Due Today</div>
             <div className="text-sm ml-4 mt-5 text-gray-600">
               <ul>
                 <li className="py-2">
-                  <label className="flex justify-start items-start">
-                    <CheckBox />
-                    <div className="select-none">
-                      Make the design responsive.
-                    </div>
-                  </label>
+                  <CheckBox label="Make the design responsive"/>
                 </li>
                 <li className="py-2">
-                  <label className="flex justify-start items-start">
-                    <CheckBox />
-                    <div className="select-none">
-                      Do your dishes before you are thrown out of your house.
-                    </div>
-                  </label>
+                  <CheckBox label="Do your dishes before you are thrown out of your house"/>
                 </li>
                 <li className="py-2">
-                  <label className="flex justify-start items-start">
-                    <CheckBox />
-                    <div className="select-none">
-                      Learn Next.js and build something.
-                    </div>
-                  </label>
+                  <CheckBox label="Learn Next.js and build something"/>
                 </li>
                 <li className="py-2">
-                  <label className="flex justify-start items-start">
-                    <CheckBox />
-                    <div className="select-none">
-                      Call your best friend and tell him that he is an idiot.
-                    </div>
-                  </label>
+                  <CheckBox label="Call your best friend and tell him that he is an idiot."/>
                 </li>
                 <li className="py-2">
-                  <label className="flex justify-start items-start">
-                    <CheckBox />
-                    <div className="select-none">
-                      Take a deep breath.
-                    </div>
-                  </label>
+                  <CheckBox label="Take a deep breath"/>
                 </li>
               </ul>
             </div>
@@ -210,36 +175,16 @@ const MainDashboard = () => {
             <div className="text-sm ml-4 mt-5 text-gray-600">
               <ul>
                 <li className="py-2">
-                  <label className="flex justify-start items-start">
-                    <CheckBox />
-                    <div className="select-none">
-                      Throw out the smelly trash.
-                    </div>
-                  </label>
+                  <CheckBox label="Throw out the smelly trash"/>
                 </li>
                 <li className="py-2">
-                  <label className="flex justify-start items-start">
-                    <CheckBox />
-                    <div className="select-none">
-                      Invent a time machine.
-                    </div>
-                  </label>
+                  <CheckBox label="Invent a time machine"/>
                 </li>
                 <li className="py-2">
-                  <label className="flex justify-start items-start">
-                    <CheckBox />
-                    <div className="select-none">
-                      Buy a new headphone.
-                    </div>
-                  </label>
+                  <CheckBox label="Buy a new headphone"/>
                 </li>
                 <li className="py-2">
-                  <label className="flex justify-start items-start">
-                    <CheckBox />
-                    <div className="select-none">
-                      Prepare for the presentation.
-                    </div>
-                  </label>
+                  <CheckBox label="Prepare for the presentation"/>
                 </li>
               </ul>
             </div>
