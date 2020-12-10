@@ -2,6 +2,18 @@ body {
   @apply font-roboto;
 }
 
+.main-section {
+  @apply p-4;
+}
+
 .section-bg {
-  @apply bg-gray-50;
+  @apply bg-white;
+}
+
+.main-container {
+  @apply flex bg-gray-100;
+}
+
+.right-container {
+  @apply flex flex-col w-full;
 }

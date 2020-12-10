@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
+const tailwindForms = require('@tailwindcss/forms');
 
 module.exports = {
   theme: {
@@ -13,7 +14,24 @@ module.exports = {
     },
     colors: {
       ...defaultTheme.colors,
-      teal: colors.teal
+      teal: colors.teal,
+      rose: colors.rose,
+      fuchsia: colors.fuchsia,
+      purple: colors.purple,
+      violet: colors.violet,
+      sky: colors.lightBlue,
+      cyan: colors.cyan,
+      emerald: colors.emerald,
+      lime: colors.lime,
+      yellow: colors.yellow,
+      amber: colors.amber,
+      green: colors.green,
+      gray: colors.coolGray,
+      // gray: colors.trueGray,
+      // gray: colors.gray,
+      // gray: colors.blueGray,
+      // gray: colors.warmGray,
+      orange: colors.orange
     },
     rotate: {
       ...defaultTheme.rotate,
@@ -69,5 +87,8 @@ module.exports = {
     fontWeight: ['responsive', 'hover', 'focus'],
     scale: ['responsive', 'hover', 'focus', 'group-hover'],
     rotate: ['responsive', 'hover', 'focus', 'group-hover']
-  }
+  },
+  plugins: [
+    tailwindForms
+  ]
 };

@@ -11,18 +11,20 @@ export const history = createBrowserHistory();
 
 const loggerMiddleware = createLogger();
 
-let middlewaresCombined = applyMiddleware(
-  routerMiddleware(history),
-  thunkMiddleware
-);
+let middlewaresCombined;
 
-if (config.reduxDevTools === true) {
+if (config.reduxDevTools) {
   middlewaresCombined = composeWithDevTools(
     applyMiddleware(
       routerMiddleware(history),
       thunkMiddleware,
       loggerMiddleware
     )
+  );
+} else {
+  middlewaresCombined = applyMiddleware(
+    routerMiddleware(history),
+    thunkMiddleware
   );
 }
 

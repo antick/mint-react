@@ -19,22 +19,20 @@ const MainContainer = ({ history }) => {
         <LeftNavigation />
       </aside>
 
-      <section className="flex flex-col w-full">
+      <section className="right-container">
         {Header}
 
-        <div className="pl-4 pr-12 pt-1">
-          <Switch>
-            {routes.filter(route => !get(route, 'public', false))
-              .map((prop, key) => (
-                <Route
-                  exact={!!prop.exact}
-                  path={prop.path}
-                  component={prop.component}
-                  key={key}
-                />
-              ))}
-          </Switch>
-        </div>
+        <Switch>
+          {routes.filter(route => !get(route, 'public', false))
+            .map((prop, key) => (
+              <Route
+                exact={!!prop.exact}
+                path={prop.path}
+                component={prop.component}
+                key={key}
+              />
+            ))}
+        </Switch>
       </section>
     </div>
   );

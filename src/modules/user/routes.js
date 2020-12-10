@@ -2,7 +2,10 @@ import React from 'react';
 import SvgIcon from '../shared/components/SvgIcon';
 import UserList from './components/UserList';
 import PostList from './components/PostList';
-import NotFound from '../auth/components/NotFound';
+import Profile from './components/Profile';
+import Settings from './components/Settings';
+import Task from './components/Task';
+import Campaign from './components/Campaign';
 
 export default [
   {
@@ -34,11 +37,11 @@ export default [
     }
   },
   {
-    component: NotFound,
-    path: '/todos',
+    component: Task,
+    path: '/tasks',
     menu: {
-      title: 'Posts',
-      icon: <SvgIcon name="wallet" classes="nav-link" />,
+      title: 'Tasks',
+      icon: <SvgIcon name="air" classes="nav-link" />,
       visible: {
         top: false,
         right: false,
@@ -48,24 +51,10 @@ export default [
     }
   },
   {
-    component: NotFound,
-    path: '/test',
+    component: Campaign,
+    path: '/campaigns',
     menu: {
-      title: 'Test',
-      icon: <SvgIcon name="book" classes="nav-link" />,
-      visible: {
-        top: false,
-        right: false,
-        bottom: false,
-        left: true
-      }
-    }
-  },
-  {
-    component: NotFound,
-    path: '/reminders',
-    menu: {
-      title: 'Users',
+      title: 'Campaigns',
       icon: <SvgIcon name="mail" classes="nav-link" />,
       visible: {
         top: false,
@@ -76,7 +65,7 @@ export default [
     }
   },
   {
-    component: NotFound,
+    component: Settings,
     path: '/settings',
     menu: {
       title: 'Settings',
@@ -88,5 +77,9 @@ export default [
         left: true
       }
     }
+  },
+  {
+    component: Profile,
+    path: '/profile'
   }
 ];

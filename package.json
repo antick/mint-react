@@ -29,7 +29,7 @@
     "test:watch": "jest --watchAll",
     "test:default": "react-scripts test",
     "build": "react-scripts build",
-    "build:prod": "cross-env REACT_APP_GA_ID=UA-123123123-1 npm run build",
+    "build:prod": "cross-env npm run build",
     "coverage": "jest -i --coverage",
     "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install"
@@ -69,6 +69,7 @@
     ]
   },
   "dependencies": {
+    "@tailwindcss/forms": "^0.2.1",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.4.0",

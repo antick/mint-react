@@ -15,8 +15,8 @@ const useSilentToken = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Refresh the token before 1 minute (60000 ms) of it's expiry
-    const timeout = (tokenExpiresIn * 60000) - 60000;
+    // Refresh the token before 3 minutes of it's expiry
+    const timeout = (tokenExpiresIn * 60000) - (60000 * 3);
 
     const loggedInStatus = setTimeout(() => {
       dispatch(userAction.refreshTokens());
