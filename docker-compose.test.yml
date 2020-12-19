@@ -1,0 +1,6 @@
+version: '3.7'
+
+services:
+  mint-react-test:
+    container_name: mint_react
+    command: npm run test

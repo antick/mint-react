@@ -1,0 +1,7 @@
+.git
+.gitignore
+.history
+.idea
+build
+coverage
+node_modules

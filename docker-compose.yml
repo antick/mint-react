@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  mint_react:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src/:/home/mint-react/src
+    ports:
+      - '3001:3001'
+    networks:
+      - node-network
+
+networks:
+  node-network:
+    driver: bridge

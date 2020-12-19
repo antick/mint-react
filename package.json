@@ -32,6 +32,8 @@
     "build:prod": "cross-env npm run build",
     "coverage": "jest -i --coverage",
     "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls",
+    "docker": "docker-compose -f docker-compose.yml up",
+    "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml up",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install"
   },
   "husky": {

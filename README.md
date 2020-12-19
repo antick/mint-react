@@ -6,7 +6,7 @@ A beautifully crafted boilerplate for starting a React JS and Tailwind css proje
 
 **Demo:** Coming Soon
 
-<p style="text-align: center;">
+<p align="center">
     <img src="public/images/preview.png" alt="React Mint Preview"/>
 </p>
 
@@ -51,6 +51,16 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 #### `npm run build`
 
 Builds the app for production to the `build` folder.
+
+#### Docker
+
+```bash
+# run docker container
+npm run docker
+
+# run all tests in a docker container
+npm run docker:test
+```
 
 ## Directory Structure
 
