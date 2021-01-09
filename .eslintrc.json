@@ -8,6 +8,7 @@
     "react-app/jest",
     "airbnb-base",
     "plugin:jest/all",
+    "plugin:cypress/recommended",
     "eslint:recommended",
     "plugin:react/recommended"
   ],

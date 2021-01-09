@@ -71,7 +71,7 @@ const Login = ({ history }) => {
                     type="email"
                     name="email"
                     placeholder="email@domain.com"
-                    className={`form-input ${errors.email && touched.email ? 'is-invalid' : null}`}
+                    className={`form-input${errors.email && touched.email ? ' is-invalid' : ''}`}
                   />
                   <ErrorMessage name="email" component="span" className="input-error" />
                 </div>
@@ -82,7 +82,7 @@ const Login = ({ history }) => {
                     type="password"
                     name="password"
                     placeholder="********"
-                    className={`form-input ${errors.password && touched.password ? 'is-invalid' : null}`}
+                    className={`form-input${errors.password && touched.password ? ' is-invalid' : ''}`}
                   />
                   <ErrorMessage name="password" component="span" className="input-error" />
                 </div>
