@@ -21,7 +21,7 @@ const LeftNavigation = () => {
             {route.menu.icon}
           </div>
 
-          <span className="text-gray-600 font-medium mt-2 font-noto text-xs tracking-wide">
+          <span className="text-gray-600 font-medium mt-2 font-noto text-sm tracking-wide">
             {route.menu.title}
           </span>
         </div>

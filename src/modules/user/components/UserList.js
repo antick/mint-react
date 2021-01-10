@@ -19,10 +19,10 @@ const UserList = () => {
   const users = useSelector(state => state.users);
 
   return (
-    <section className="flex flex-col w-full text-gray-800 min-h-screen bg-white bg-opacity-60">
+    <main className="main-content">
       <Breadcrumb title={title} />
 
-      <main className="p-4">
+      <section className="p-4">
         <div className="flex flex-col">
           <div className="overflow-x-auto">
             {users.loading && <em>Loading users...</em>}
@@ -112,8 +112,8 @@ const UserList = () => {
             </svg>
           </button>
         </div>
-      </main>
-    </section>
+      </section>
+    </main>
   );
 };
 

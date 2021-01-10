@@ -16,7 +16,7 @@ const MainDashboard = () => {
   const today = new Date().toDateString();
 
   return (
-    <div className="main-section">
+    <div className="p-5 bg-white bg-opacity-60 rounded-br-xl">
       <div className="flex">
         <Motion type="1" className="welcome-block">
           <div className="flex">

@@ -17,8 +17,8 @@ body {
   @apply flex flex-col w-full z-10;
 }
 
-.main-section {
-  @apply p-5 bg-white bg-opacity-60 rounded-br-xl;
+.main-content {
+  @apply flex flex-col w-full text-gray-800 h-full section-bg rounded-br-lg;
 }
 
 .section-bg {

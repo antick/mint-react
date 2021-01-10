@@ -68,6 +68,7 @@ const Login = ({ history }) => {
                 <div className="mb-8">
                   <label className="input-label-top" htmlFor="email">Email</label>
                   <Field
+                    id="email"
                     type="email"
                     name="email"
                     placeholder="email@domain.com"
@@ -79,6 +80,7 @@ const Login = ({ history }) => {
                 <div className="mb-8">
                   <label className="input-label-top" htmlFor="password">Password</label>
                   <Field
+                    id="password"
                     type="password"
                     name="password"
                     placeholder="********"
@@ -89,6 +91,7 @@ const Login = ({ history }) => {
 
                 <div className="mb-4 text-center">
                   <button
+                    id="btn-submit"
                     type="submit"
                     className={`btn-submit ${!(dirty && isValid) ? 'btn-disabled' : ''}`}
                     disabled={!(dirty && isValid)}>

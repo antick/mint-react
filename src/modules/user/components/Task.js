@@ -13,10 +13,10 @@ const Task = () => {
   }, [dispatch]);
 
   return (
-    <section className="flex flex-col w-full text-gray-800 min-h-screen section-bg">
+    <main className="main-content">
       <Breadcrumb title={title} />
 
-      <main className="p-4 h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
+      <section className="p-4 h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
         <div className="bg-white bg-opacity-70 rounded shadow p-6 m-4 w-full m-auto lg:w-6/12">
           <div className="mb-4">
             <h1 className="text-gray-900 font-medium text-2xl">To Do List</h1>
@@ -48,8 +48,8 @@ const Task = () => {
             </div>
           </div>
         </div>
-      </main>
-    </section>
+      </section>
+    </main>
   );
 };
 

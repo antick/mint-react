@@ -13,10 +13,10 @@ const Campaign = () => {
   }, [dispatch]);
 
   return (
-    <section className="flex flex-col w-full text-gray-800 min-h-screen section-bg">
+    <main className="main-content">
       <Breadcrumb title={title} />
 
-      <main className="p-4">
+      <section className="p-4">
         <div className="text-gray-700 dark:text-gray-500 transition duration-500 ease-in-out">
           <h2 className="text-3xl font-bold capitalize py-4">Campaigns</h2>
           <div className="mt-1 mb-4 flex items-center justify-between">
@@ -183,8 +183,8 @@ const Campaign = () => {
             </div>
           </div>
         </div>
-      </main>
-    </section>
+      </section>
+    </main>
   );
 };
 

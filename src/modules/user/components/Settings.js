@@ -13,10 +13,10 @@ const Settings = () => {
   }, [dispatch]);
 
   return (
-    <section className="flex flex-col w-full text-gray-800 min-h-screen section-bg">
+    <main className="main-content">
       <Breadcrumb title={title} />
 
-      <main className="p-4">
+      <section className="p-4">
         <div>
           <div className="md:grid md:grid-cols-3 md:gap-6">
             <div className="md:col-span-1">
@@ -280,8 +280,8 @@ const Settings = () => {
           </div>
         </div>
 
-      </main>
-    </section>
+      </section>
+    </main>
   );
 };
 

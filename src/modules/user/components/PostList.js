@@ -69,13 +69,13 @@ const PostList = () => {
   };
 
   return (
-    <section className="flex flex-col w-full text-gray-800 min-h-screen section-bg">
+    <main className="main-content">
       <Breadcrumb title={title} />
 
-      <div className="flex flex-col justify-center m-auto">
+      <section className="flex flex-col justify-center m-auto">
         {renderPosts()}
-      </div>
-    </section>
+      </section>
+    </main>
   );
 };
 
