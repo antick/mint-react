@@ -1,25 +1,24 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import Cookies from 'js-cookie';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { act } from '@testing-library/react';
 import * as redux from 'react-redux';
+import { Provider } from 'react-redux';
+import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import Login from '../components/Login';
-import store from '../../../store';
+import store, { history } from '../../../store';
 
-describe('test Login component', () => {
+describe('the Login component', () => {
   const configuredStore = store();
+  const wrapper = mount(
+    <Provider store={configuredStore}>
+      <Router>
+        <Login />
+      </Router>
+    </Provider>
+  );
 
-  // TODO: Refactor this test case, cookies should set only when login in successful
   it('should set tokens in cookies after clicking on login button', () => {
-    const wrapper = mount(
-      <Provider store={configuredStore}>
-        <Router>
-          <Login />
-        </Router>
-      </Provider>
-    );
     const button = wrapper.find('button');
 
     button.simulate('click');
@@ -34,85 +33,95 @@ describe('test Login component', () => {
     expect(mockSet).toHaveBeenCalledWith('refreshToken', 'random-token');
   });
 
-  it('should set state if wrong email and correct password inputs are set when clicked on login button', () => {
-    const wrapper = mount(
+  it('should show an error for wrong email and correct password after clicking on login button', async () => {
+    jest.spyOn(redux, 'useSelector').mockImplementation(() => ({
+      message: 'Incorrect email or password',
+      type: 'alert-danger'
+    }));
+
+    const { getByTestId, findAllByText } = render(
       <Provider store={configuredStore}>
         <Router>
-          <Login />
+          <Login history={history} />
         </Router>
       </Provider>
     );
 
-    const emailInput = wrapper.find('#email');
-    const passwordInput = wrapper.find('#password');
-    const loginButton = wrapper.find('#btn-submit');
+    const emailInput = getByTestId('email');
+    const passwordInput = getByTestId('password');
+    const loginButton = getByTestId('btn-submit');
 
-    act(() => {
-      emailInput.props().onChange({
-        target: {
-          name: 'email',
-          value: 'wrong-email-format.email.com'
-        }
-      });
-
-      emailInput.props().onChange({
-        target: {
-          name: 'password',
-          value: 'rAnDomPaSsWorD'
-        }
-      });
+    fireEvent.change(emailInput, {
+      target: {
+        name: 'email',
+        value: 'wrong-email-format.email.com'
+      }
     });
 
-    emailInput.simulate('change');
-    passwordInput.simulate('change');
-    loginButton.simulate('click');
+    fireEvent.change(passwordInput, {
+      target: {
+        name: 'password',
+        value: 'rAnDomPaSsWorD'
+      }
+    });
 
-    expect(wrapper.find('#email').props().value).toStrictEqual('wrong-email-format.email.com');
-    expect(wrapper.find('#password').props().value).toStrictEqual('rAnDomPaSsWorD');
-    expect(wrapper.find('#error-placeholder').getElements()).toHaveLength(0);
+    fireEvent.click(loginButton);
+
+    expect(getByTestId('email').value).toStrictEqual('wrong-email-format.email.com');
+    expect(getByTestId('password').value).toStrictEqual('rAnDomPaSsWorD');
+    expect(await findAllByText('Incorrect email or password')).toHaveLength(1);
   });
 
-  // TODO: Properly test alert dispatch here and cover the remaining test case
-  it('should set state if correct email and correct password inputs are set when clicked on login button', () => {
+  it('should not show any error if email and password are correct', async () => {
     const useDispatchSpy = jest.spyOn(redux, 'useDispatch');
     const mockDispatchFn = jest.fn();
     useDispatchSpy.mockReturnValue(mockDispatchFn);
 
-    const wrapper = mount(
+    jest.spyOn(redux, 'useSelector').mockImplementation(() => ({
+      message: '',
+      type: ''
+    }));
+
+    const { getByTestId, findAllByText } = render(
       <Provider store={configuredStore}>
         <Router>
-          <Login />
+          <Login history={history} />
         </Router>
       </Provider>
     );
 
-    const emailInput = wrapper.find('#email');
-    const passwordInput = wrapper.find('#password');
-    const loginButton = wrapper.find('#btn-submit');
+    const emailInput = getByTestId('email');
+    const passwordInput = getByTestId('password');
+    const loginButton = getByTestId('btn-submit');
 
-    act(() => {
-      emailInput.props().onChange({
-        target: {
-          name: 'email',
-          value: 'test@email.com'
-        }
-      });
-
-      emailInput.props().onChange({
-        target: {
-          name: 'password',
-          value: 'rAnDomPaSsWorD'
-        }
-      });
+    fireEvent.change(emailInput, {
+      target: {
+        name: 'email',
+        value: 'test@email.com'
+      }
     });
 
-    emailInput.simulate('change');
-    passwordInput.simulate('change');
-    loginButton.simulate('click');
+    fireEvent.change(passwordInput, {
+      target: {
+        name: 'password',
+        value: 'rAnDomPaSsWorD'
+      }
+    });
 
-    expect(wrapper.find('#email').props().value).toStrictEqual('test@email.com');
-    expect(wrapper.find('#password').props().value).toStrictEqual('rAnDomPaSsWorD');
-    expect(wrapper.find('#error-placeholder').getElements()).toHaveLength(0);
+    fireEvent.click(loginButton);
+
+    expect(getByTestId('email').value).toStrictEqual('test@email.com');
+    expect(getByTestId('password').value).toStrictEqual('rAnDomPaSsWorD');
+
+    let alertMessage;
+
+    try {
+      alertMessage = await findAllByText('Incorrect email or password');
+    } catch (e) {
+      alertMessage = [];
+    }
+
+    expect(alertMessage).toHaveLength(0);
 
     useDispatchSpy.mockClear();
   });
