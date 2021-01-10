@@ -1,30 +1,28 @@
 .top-nav {
-  @apply section-bg font-sans flex items-center w-full text-gray-600 py-1 border-b;
+  @apply font-sans flex items-center w-full text-gray-600 rounded-tr-xl bg-gray-200 bg-opacity-60;
+}
+
+.left-nav-detached {
+  @apply flex flex-col min-h-screen w-32 rounded-l-3xl;
+  @apply bg-gray-200 bg-opacity-60;
 }
 
 .left-nav-menu {
   @apply flex flex-col pt-10 justify-center items-center;
 }
 
-.left-nav {
-  @apply w-36 flex pt-10 pb-4 flex-col min-h-screen bg-teal-600 outline-none;
-}
-
-.left-nav-detached {
-  @apply flex flex-col my-4 ml-4 pt-10 pb-10 w-32 min-h-screen rounded-3xl bg-gradient-to-b from-teal-500 via-teal-600 to-teal-700;
-}
-
 .left-nav-item {
-  @apply py-6 hover:bg-teal-700 flex justify-center items-center w-full h-full;
+  @apply py-6 flex justify-center items-center w-full h-full;
+  @apply hover:bg-gray-200;
   @apply transition duration-300 ease-linear;
 }
 
 .left-nav-active {
-  @apply bg-teal-800 border-l-4 border-gray-100;
+  @apply bg-gray-100;
 }
 
 svg.nav-link {
-  @apply w-10 h-10 text-white cursor-pointer;
+  @apply w-10 h-10 text-gray-600 cursor-pointer;
 }
 
 svg.link {
@@ -65,18 +63,30 @@ li:hover > button svg {
 }
 
 .multi-menu {
-  @apply px-2 pt-2 pb-4 bg-white rounded-md grid grid-cols-1 gap-4 bg-white border rounded-sm absolute origin-top z-10;
+  @apply px-2 pt-2 pb-2 rounded-md grid grid-cols-1 gap-1 border rounded-sm absolute origin-top z-10;
+  @apply bg-white bg-opacity-80;
 }
 
 .multi-menu-item {
-  @apply flex items-start rounded-lg bg-transparent p-2;
-  @apply hover:text-gray-900 hover:bg-gray-200 focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:ring;
+  @apply flex items-start rounded px-3 py-2 bg-white cursor-pointer shadow;
+  @apply hover:text-gray-900 focus:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring;
+}
+
+.multi-menu-icon {
+  @apply bg-gray-600 text-white rounded-full p-2;
+}
+
+.multi-menu-text {
+  @apply ml-3 -mt-1;
+}
+
+.multi-sub-menu {
+  @apply bg-white rounded-sm relative p-4 hover:bg-gray-100 shadow;
 }
 
 .menu-item {
-  @apply px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg;
-  @apply hover:text-gray-900 hover:bg-gray-200;
-  @apply focus:text-gray-900 focus:bg-gray-200 focus:outline-none focus:ring;
+  @apply px-4 py-5 w-full h-full text-sm font-semibold bg-transparent focus:outline-none;
+  @apply hover:text-gray-900 focus:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:ring;
 }
 
 .sub-menu {
@@ -84,14 +94,14 @@ li:hover > button svg {
 }
 
 .sub-menu-button {
-  @apply block w-full px-4 py-2 font-medium text-gray-700 whitespace-nowrap transition duration-300 ease-in-out;
-  @apply hover:bg-gray-100 hover:text-gray-900;
-  @apply focus:outline-none focus:text-gray-900 focus:ring;
+  @apply block w-full px-4 py-2 font-medium text-gray-700 whitespace-nowrap text-left;
+  @apply hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:text-gray-900 focus:ring;
+  @apply transition duration-300 ease-in-out;
 }
 
 @screen md {
   .menu-item {
-    @apply mt-0 ml-4;
+    @apply mt-0;
   }
 
   .multi-menu {

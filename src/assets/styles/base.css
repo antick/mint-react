@@ -2,18 +2,25 @@ body {
   @apply font-roboto;
 }
 
-.main-section {
-  @apply p-4;
-}
-
-.section-bg {
-  @apply bg-white;
-}
-
 .main-container {
-  @apply flex bg-gray-100;
+  @apply flex bg-gray-100 px-14 py-12 bg-gradient-to-br from-teal-400 via-blue-400 to-emerald-400;
+}
+
+.blob1:before {
+  content: '';
+  border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+  @apply w-64 h-64 absolute right-72 top-2;
+  @apply bg-gray-50 bg-opacity-20;
 }
 
 .right-container {
-  @apply flex flex-col w-full;
+  @apply flex flex-col w-full z-10;
+}
+
+.main-section {
+  @apply p-5 bg-white bg-opacity-60 rounded-br-xl;
+}
+
+.section-bg {
+  @apply bg-white bg-opacity-60;
 }

@@ -5,7 +5,7 @@ import {
   Tooltip,
   CartesianGrid,
   ResponsiveContainer
-} from 'recharts';
+} from 'recharts/umd/Recharts';
 import faker from '../../shared/utilities/fakerUtility';
 import Motion from '../../shared/components/Motion';
 import CheckBox from '../../shared/components/Form/CheckBox';
@@ -18,7 +18,7 @@ const MainDashboard = () => {
   return (
     <div className="main-section">
       <div className="flex">
-        <Motion type="1" className="section-bg w-2/3 font-sans border border-gray-200 rounded-lg text-gray-700 h-64">
+        <Motion type="1" className="welcome-block">
           <div className="flex">
             <div className="flex flex-col p-8 w-3/4">
               <h3 className="text-xl font-semibold">Good Morning!</h3>
@@ -79,7 +79,7 @@ const MainDashboard = () => {
             <div className="col-span-12 sm:col-span-6 md:col-span-3">
               <div className="section-bg flex flex-row shadow-sm rounded-lg p-4">
                 <div
-                  className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-full bg-blue-100 text-blue-500">
+                  className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-full bg-blue-200 text-blue-500">
                   {/* eslint-disable-next-line max-len */}
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     {/* eslint-disable-next-line max-len */}
@@ -94,8 +94,8 @@ const MainDashboard = () => {
             </div>
             <div className="col-span-12 sm:col-span-6 md:col-span-3">
               <div className="section-bg flex flex-row shadow-sm rounded-lg p-4">
-                <div
-                  className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-full bg-green-100 text-green-500">
+                <div className="flex items-center justify-center flex-shrink-0 h-12 w-12
+                  rounded-full bg-fuchsia-200 text-fuchsia-500">
                   {/* eslint-disable-next-line max-len */}
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     {/* eslint-disable-next-line max-len */}
@@ -111,7 +111,7 @@ const MainDashboard = () => {
             <div className="col-span-12 sm:col-span-6 md:col-span-3">
               <div className="section-bg flex flex-row shadow-sm rounded-lg p-4">
                 <div
-                  className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-full bg-orange-100 text-orange-500">
+                  className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-full bg-orange-200 text-orange-500">
                   {/* eslint-disable-next-line max-len */}
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     {/* eslint-disable-next-line max-len */}
@@ -126,8 +126,8 @@ const MainDashboard = () => {
             </div>
             <div className="col-span-12 sm:col-span-6 md:col-span-3">
               <div className="section-bg flex flex-row shadow-sm rounded-lg p-4">
-                <div
-                  className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-full bg-red-100 text-red-500">
+                <div className="flex items-center justify-center flex-shrink-0 h-12 w-12
+                  rounded-full bg-emerald-200 text-emerald-500">
                   {/* eslint-disable-next-line max-len */}
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     {/* eslint-disable-next-line max-len */}
@@ -155,22 +155,22 @@ const MainDashboard = () => {
                 <span className="text-sm items-center flex text-gray-500 font-normal">18 May - 24 May</span>
               </div>
               <div className="flex flex-row pt-6 text-md">
-                <div className="text-sm border-r border-gray-300 py-4 px-9 pl-0 text-gray-600">
+                <div className="text-sm border-r border-gray-300 py-4 px-8 pl-0 text-gray-600">
                   Mon <p className="text-center">18</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-9 text-gray-600">
+                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
                   Tue <p className="text-gray-600 text-center">19</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-9 text-teal-500 font-semibold">
+                <div className="text-sm border-r border-gray-300 py-4 px-8 text-teal-500 font-semibold">
                   Wed <p className="text-center">20</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-9 text-gray-600">
+                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
                   Thu <p className="text-center">21</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-9 text-gray-600">
+                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
                   Fri <p className="text-center">22</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-9 text-gray-600">
+                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
                   Sat <p className="text-center">23</p>
                 </div>
                 <div className="text-sm py-4 px-8 text-gray-600">
@@ -237,9 +237,6 @@ const MainDashboard = () => {
                 </li>
                 <li className="py-2">
                   <CheckBox label="Take a deep breath"/>
-                </li>
-                <li className="py-2">
-                  <CheckBox label="Buy a rubber duck to increase code debugging skills"/>
                 </li>
               </ul>
             </div>

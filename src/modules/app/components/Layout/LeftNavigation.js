@@ -21,7 +21,7 @@ const LeftNavigation = () => {
             {route.menu.icon}
           </div>
 
-          <span className="text-gray-100 font-medium mt-2 font-noto text-xs tracking-wide">
+          <span className="text-gray-600 font-medium mt-2 font-noto text-xs tracking-wide">
             {route.menu.title}
           </span>
         </div>
@@ -29,8 +29,8 @@ const LeftNavigation = () => {
     ));
 
   return (
-    <nav className="left-nav">
-      <div className="flex justify-center">
+    <nav className="left-nav-detached">
+      <div className="flex justify-center mt-6">
         <div className="nav-avatar">
           <Link to="/profile">
             <img className="w-full h-auto absolute" src={'./images/avatar.jpg'} alt="avatar" />

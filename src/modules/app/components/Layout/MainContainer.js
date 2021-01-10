@@ -14,27 +14,33 @@ const MainContainer = ({ history }) => {
   );
 
   return (
-    <div className="main-container">
-      <aside className="flex">
-        <LeftNavigation />
-      </aside>
+    <>
+      <div className="blobs">
+        <div className="blob1" />
+      </div>
 
-      <section className="right-container">
-        {Header}
+      <div className="main-container">
+        <aside className="flex">
+          <LeftNavigation />
+        </aside>
 
-        <Switch>
-          {routes.filter(route => !get(route, 'public', false))
-            .map((prop, key) => (
-              <Route
-                exact={!!prop.exact}
-                path={prop.path}
-                component={prop.component}
-                key={key}
-              />
-            ))}
-        </Switch>
-      </section>
-    </div>
+        <section className="right-container">
+          {Header}
+
+          <Switch>
+            {routes.filter(route => !get(route, 'public', false))
+              .map((prop, key) => (
+                <Route
+                  exact={!!prop.exact}
+                  path={prop.path}
+                  component={prop.component}
+                  key={key}
+                />
+              ))}
+          </Switch>
+        </section>
+      </div>
+    </>
   );
 };
 
