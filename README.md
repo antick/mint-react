@@ -1,4 +1,4 @@
-# Mint React 0.8.0
+# Mint React 0.1.0
 
 ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 
@@ -12,21 +12,22 @@ A beautifully crafted boilerplate for starting a React JS and Tailwind css proje
 
 ## Features
 
-1. Jest for tests with coverage report
-2. Preconfigured Tailwind CSS
-3. Pre-configured ESLint
-4. Login and Registration
+1. Jest for unit tests with coverage report
+2. Cypress for end-to-end testing
+3. Preconfigured Tailwind CSS
+4. Pre-configured ESLint
 5. Forgot Password
-6. Public and private routes
-7. Robust token authentication
+6. Login and Registration
+7. Public and private routes
 8. Redux with hooks
 9. Modular architecture
+10. Robust token authentication
 
 ## Quick start
 
 Clone the repo:
 
-`git clone https://github.com/creativetimofficial/material-dashboard-react.git`.
+`git clone https://github.com/pankajsanam/mint-react.git`.
 
 Run `npm install` to install all the dependencies.
 
@@ -67,22 +68,30 @@ npm run docker:test
 ```
 |-- public
 |-- src
-    |-- actions
-    |-- assets
-        |-- images
-        |-- styles
-    |-- components
-        |-- __tests__
-        |-- Dashboard
-        |-- Guest
-        |-- Layout
-        |-- shared
-        |-- User
-    |-- constants
-    |-- hooks
-    |-- reducers
-    |-- services
-    |-- utils
+  |-- assets
+    |-- styles
+  |-- config
+  |-- modules
+    |-- app
+      |-- __tests__
+      |-- components
+    |-- auth
+      |-- __tests__
+      |-- components
+      |-- hooks
+      |-- reducers
+      |-- utilities
+    |-- shared
+      |-- __tests__
+      |-- actions
+      |-- components
+      |-- hooks
+      |-- reducers
+      |-- utilities
+    |-- user
+      |-- actions
+      |-- components
+      |-- reducers
 ```
 
 ## License
