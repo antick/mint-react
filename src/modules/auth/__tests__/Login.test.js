@@ -4,7 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import * as redux from 'react-redux';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
-import { render, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Login from '../components/Login';
 import store, { history } from '../../../store';
 
@@ -17,6 +18,18 @@ describe('the Login component', () => {
       </Router>
     </Provider>
   );
+
+  it('should have a disabled login button if email/password is not entered', async () => {
+    render(
+      <Provider store={configuredStore}>
+        <Router>
+          <Login history={history} />
+        </Router>
+      </Provider>
+    );
+
+    expect(screen.getByTestId('btn-submit')).toBeDisabled();
+  });
 
   it('should set tokens in cookies after clicking on login button', () => {
     const button = wrapper.find('button');
@@ -39,7 +52,7 @@ describe('the Login component', () => {
       type: 'alert-danger'
     }));
 
-    const { getByTestId, findAllByText } = render(
+    render(
       <Provider store={configuredStore}>
         <Router>
           <Login history={history} />
@@ -47,32 +60,20 @@ describe('the Login component', () => {
       </Provider>
     );
 
-    const emailInput = getByTestId('email');
-    const passwordInput = getByTestId('password');
-    const loginButton = getByTestId('btn-submit');
+    const emailInput = screen.getByTestId('email');
+    const passwordInput = screen.getByTestId('password');
+    const loginButton = screen.getByTestId('btn-submit');
 
-    fireEvent.change(emailInput, {
-      target: {
-        name: 'email',
-        value: 'wrong-email-format.email.com'
-      }
-    });
+    userEvent.type(emailInput, 'wrong-email-format.email.com');
+    userEvent.type(passwordInput, 'rAnDomPaSsWorD');
+    userEvent.click(loginButton);
 
-    fireEvent.change(passwordInput, {
-      target: {
-        name: 'password',
-        value: 'rAnDomPaSsWorD'
-      }
-    });
-
-    fireEvent.click(loginButton);
-
-    expect(getByTestId('email').value).toStrictEqual('wrong-email-format.email.com');
-    expect(getByTestId('password').value).toStrictEqual('rAnDomPaSsWorD');
-    expect(await findAllByText('Incorrect email or password')).toHaveLength(1);
+    expect(screen.getByTestId('email').value).toStrictEqual('wrong-email-format.email.com');
+    expect(screen.getByTestId('password').value).toStrictEqual('rAnDomPaSsWorD');
+    expect(await screen.findByText('Incorrect email or password')).toBeInTheDocument();
   });
 
-  it('should not show any error if email and password are correct', async () => {
+  it('should not show any error if email and password are correct', () => {
     const useDispatchSpy = jest.spyOn(redux, 'useDispatch');
     const mockDispatchFn = jest.fn();
     useDispatchSpy.mockReturnValue(mockDispatchFn);
@@ -82,7 +83,7 @@ describe('the Login component', () => {
       type: ''
     }));
 
-    const { getByTestId, findAllByText } = render(
+    render(
       <Provider store={configuredStore}>
         <Router>
           <Login history={history} />
@@ -90,38 +91,17 @@ describe('the Login component', () => {
       </Provider>
     );
 
-    const emailInput = getByTestId('email');
-    const passwordInput = getByTestId('password');
-    const loginButton = getByTestId('btn-submit');
+    const emailInput = screen.getByTestId('email');
+    const passwordInput = screen.getByTestId('password');
+    const loginButton = screen.getByTestId('btn-submit');
 
-    fireEvent.change(emailInput, {
-      target: {
-        name: 'email',
-        value: 'test@email.com'
-      }
-    });
+    userEvent.type(emailInput, 'test@email.com');
+    userEvent.type(passwordInput, 'rAnDomPaSsWorD');
+    userEvent.click(loginButton);
 
-    fireEvent.change(passwordInput, {
-      target: {
-        name: 'password',
-        value: 'rAnDomPaSsWorD'
-      }
-    });
-
-    fireEvent.click(loginButton);
-
-    expect(getByTestId('email').value).toStrictEqual('test@email.com');
-    expect(getByTestId('password').value).toStrictEqual('rAnDomPaSsWorD');
-
-    let alertMessage;
-
-    try {
-      alertMessage = await findAllByText('Incorrect email or password');
-    } catch (e) {
-      alertMessage = [];
-    }
-
-    expect(alertMessage).toHaveLength(0);
+    expect(screen.getByTestId('email').value).toStrictEqual('test@email.com');
+    expect(screen.getByTestId('password').value).toStrictEqual('rAnDomPaSsWorD');
+    expect(screen.queryByText('Incorrect email or password')).not.toBeInTheDocument();
 
     useDispatchSpy.mockClear();
   });

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from '../../../store';
 import Register from '../components/Register';
 
-describe('test Register component', () => {
+describe('the Register component', () => {
   const configuredStore = store();
 
   it('should set cookie after clicking on register button', () => {

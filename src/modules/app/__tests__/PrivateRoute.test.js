@@ -1,16 +1,13 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import store from '../../../store';
 import PrivateRoute from '../components/PrivateRoute';
 import MainContainer from '../components/Layout/MainContainer';
 
-describe('test PrivateRoute component', () => {
+describe('the PrivateRoute component', () => {
   const configuredStore = store();
-
-  afterEach(cleanup);
 
   it('should render a protected component', () => {
     const isAuthenticated = true;

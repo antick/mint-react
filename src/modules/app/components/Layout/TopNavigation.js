@@ -208,6 +208,7 @@ const TopNavigation = ({ history }) => {
           <div className="flex relative rounded-full items-center">
             <div className="group inline-block">
               <button
+                id="logout-button"
                 className="flex rounded-full p-2 focus:outline-none"
                 onClick={logout}
                 title="Logout">

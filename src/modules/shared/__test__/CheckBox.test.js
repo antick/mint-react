@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import CheckBox from '../components/Form/CheckBox';
 
-describe('test CheckBox component', () => {
+describe('the CheckBox component', () => {
   it('should render without crashing', () => {
     const wrapper = shallow(<CheckBox />);
 

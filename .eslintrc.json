@@ -1,6 +1,8 @@
 {
   "plugins": [
-    "jest"
+    "jest",
+    "testing-library",
+    "jest-dom"
   ],
 
   "extends": [
@@ -8,6 +10,8 @@
     "react-app/jest",
     "airbnb-base",
     "plugin:jest/all",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
     "plugin:cypress/recommended",
     "eslint:recommended",
     "plugin:react/recommended"

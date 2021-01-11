@@ -93,7 +93,7 @@ const Login = ({ history }) => {
                   <button
                     data-testid="btn-submit"
                     type="submit"
-                    className={`btn-submit ${!(dirty && isValid) ? 'btn-disabled' : ''}`}
+                    className={`btn-submit${!(dirty && isValid) ? 'btn-disabled' : ''}`}
                     disabled={!(dirty && isValid)}>
                     Login
                   </button>

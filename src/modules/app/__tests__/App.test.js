@@ -10,20 +10,25 @@ import MainContainer from '../components/Layout/MainContainer';
 
 const configuredStore = store();
 
-describe('test App component', () => {
+describe('the App component', () => {
   it('should render without crashing', () => {
     shallow(<App />);
   });
 });
 
-describe('test LeftNavigation component', () => {
+describe('the LeftNavigation component', () => {
   it('should render without crashing', () => {
-    shallow(<LeftNavigation />);
+    mount(
+      <Provider store={configuredStore}>
+        <Router>
+          <LeftNavigation />
+        </Router>
+      </Provider>
+    );
   });
 });
 
-// TODO: https://github.com/enzymejs/enzyme/issues/2429
-describe('test UserList component', () => {
+describe('the UserList component', () => {
   it('should render without crashing', () => {
     mount(
       <Provider store={configuredStore}>
@@ -35,7 +40,7 @@ describe('test UserList component', () => {
   });
 });
 
-describe('test MainContainer component', () => {
+describe('the MainContainer component', () => {
   it('should render without crashing', () => {
     shallow(<MainContainer />);
   });

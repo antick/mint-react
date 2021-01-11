@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import SvgIcon from '../components/SvgIcon';
 
-describe('test SvgIcon component', () => {
+describe('the SvgIcon component', () => {
   it('should render without crashing', () => {
     const svgIcon = shallow(<SvgIcon />);
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import NotFound from '../components/NotFound';
 
-describe('test NotFound component', () => {
+describe('the NotFound component', () => {
   it('should render without crashing', () => {
     const wrapper = shallow(<NotFound />);
 

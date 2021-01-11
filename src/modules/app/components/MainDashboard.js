@@ -199,7 +199,7 @@ const MainDashboard = () => {
             <div className="flex flex-col p-8 w-full">
               <div className="font-semibold">Monthly Growth</div>
               <div className="pt-3 text-sm w-full h-64">
-                <ResponsiveContainer>
+                <ResponsiveContainer height={'100%'} width={'100%'}>
                   <AreaChart
                     data={data}
                     margin={{

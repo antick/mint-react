@@ -8,7 +8,7 @@ import store from '../../../store';
 
 const configuredStore = store();
 
-describe('test MainDashboard component', () => {
+describe('the MainDashboard component', () => {
   it('should render MainDashboard component without crashing', () => {
     const useDispatchSpy = jest.spyOn(redux, 'useDispatch');
     const mockDispatchFn = jest.fn();
@@ -17,7 +17,7 @@ describe('test MainDashboard component', () => {
     mount(
       <Provider store={configuredStore}>
         <Router>
-          <MainDashboard/>
+          <MainDashboard />
         </Router>
       </Provider>
     );
