@@ -50,11 +50,12 @@ const ForgotPassword = () => {
 
               {alert}
 
-              <Form className="guest-form">
+              <Form data-testid="forgot-password-form" className="guest-form">
                 <div className="mb-8">
                   <label className="input-label-top" htmlFor="email">Email</label>
                   <Field
                     type="email"
+                    data-testid="email"
                     name="email"
                     placeholder="email@domain.com"
                     className={`form-input ${errors.email && touched.email ? 'is-invalid' : null}`}
@@ -66,6 +67,7 @@ const ForgotPassword = () => {
                   <div className="flex justify-around">
                     <span className="inline-flex rounded-md shadow-sm">
                       <SubmitButton
+                        data-testid="btn-submit"
                         text="Recover Password"
                         submitting={password.submitting}
                         state={formik}

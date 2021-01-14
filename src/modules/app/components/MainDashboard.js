@@ -5,7 +5,7 @@ import {
   Tooltip,
   CartesianGrid,
   ResponsiveContainer
-} from 'recharts/umd/Recharts';
+} from 'recharts';
 import faker from '../../shared/utilities/fakerUtility';
 import Motion from '../../shared/components/Motion';
 import CheckBox from '../../shared/components/Form/CheckBox';

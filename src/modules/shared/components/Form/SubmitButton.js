@@ -8,15 +8,19 @@ import useButtonText from '../../hooks/useButtonText';
  * @param state
  * @param submitting
  * @param text
+ * @param props
  * @returns {JSX.Element}
  * @constructor
  */
-const SubmitButton = ({ state, submitting, text }) => {
+const SubmitButton = ({
+  state, submitting, text, ...props
+}) => {
   const { isValid, dirty } = state;
   const buttonText = useButtonText(submitting, text);
 
   return (
     <button
+      {...props}
       type="submit"
       disabled={!(dirty && isValid) || submitting}
       className={`btn-submit ${!(dirty && isValid) ? 'btn-disabled' : ''}`}

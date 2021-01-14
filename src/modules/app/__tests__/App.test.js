@@ -1,18 +1,23 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from '../components/App';
 import LeftNavigation from '../components/Layout/LeftNavigation';
-import UserList from '../../user/components/UserList';
-import store from '../../../store';
 import MainContainer from '../components/Layout/MainContainer';
+import store, { history } from '../../../store';
 
 const configuredStore = store();
 
 describe('the App component', () => {
-  it('should render without crashing', () => {
-    shallow(<App />);
+  it('should render Route component without crashing', () => {
+    const wrapper = mount(
+      <Provider store={configuredStore}>
+        <App history={history} />
+      </Provider>
+    );
+
+    expect(wrapper.find(Route)).toHaveLength(1);
   });
 });
 
@@ -22,18 +27,6 @@ describe('the LeftNavigation component', () => {
       <Provider store={configuredStore}>
         <Router>
           <LeftNavigation />
-        </Router>
-      </Provider>
-    );
-  });
-});
-
-describe('the UserList component', () => {
-  it('should render without crashing', () => {
-    mount(
-      <Provider store={configuredStore}>
-        <Router>
-          <UserList />
         </Router>
       </Provider>
     );
