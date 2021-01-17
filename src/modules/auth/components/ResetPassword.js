@@ -63,7 +63,7 @@ const ResetPassword = ({ history }) => {
             <Motion type="5" className="guest-block">
               <h3 className="guest-title">Reset Password</h3>
               {alert}
-              <Form className="guest-form">
+              <Form className="auth-form">
                 <div className="mb-8">
                   <label className="input-label-top" htmlFor="password">Password</label>
                   <Field

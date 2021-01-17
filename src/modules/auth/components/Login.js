@@ -64,7 +64,7 @@ const Login = ({ history }) => {
             <Motion type="5" className="guest-block">
               <h3 className="guest-title">Login</h3>
               {alert}
-              <Form className="guest-form">
+              <Form className="auth-form">
                 <div className="mb-8">
                   <label className="input-label-top" htmlFor="email">Email</label>
                   <Field
@@ -93,7 +93,7 @@ const Login = ({ history }) => {
                   <button
                     data-testid="btn-submit"
                     type="submit"
-                    className={`btn-submit${!(dirty && isValid) ? 'btn-disabled' : ''}`}
+                    className={`btn-submit${!(dirty && isValid) ? ' btn-disabled' : ''}`}
                     disabled={!(dirty && isValid)}>
                     Login
                   </button>

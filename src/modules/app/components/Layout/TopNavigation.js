@@ -10,16 +10,11 @@ const TopNavigation = ({ history }) => {
   const logout = () => dispatch(userActions.logout(history));
 
   return (
-    <nav className="top-nav">
-      <div className="flex w-full h-full items-center">
-        <div className="h-full">
-          <button className="menu-item">
-            Entertainment
-          </button>
-        </div>
-        <div className="h-full">
-          <div className="group inline-block h-full">
-            <button className="flex menu-item items-center">
+    <nav className="top">
+      <div className="menu">
+        <div className="item">
+          <div className="group">
+            <button className="link flex items-center">
               Crazy Stuff
               <SvgIcon
                 name="arrow"
@@ -103,19 +98,14 @@ const TopNavigation = ({ history }) => {
             </ul>
           </div>
         </div>
-        <div className="h-full">
-          <button className="menu-item">
-            Productivity
+        <div className="item">
+          <button className="link">
+            Entertainment
           </button>
         </div>
-        <div className="h-full">
-          <button className="menu-item">
-            Daily Journal
-          </button>
-        </div>
-        <div className="h-full">
-          <div className="group inline-block h-full">
-            <button className="flex menu-item items-center">
+        <div className="item">
+          <div className="group">
+            <button className="link flex items-center">
               Photos
               <SvgIcon
                 name="arrow"
@@ -200,6 +190,16 @@ const TopNavigation = ({ history }) => {
               </li>
             </ul>
           </div>
+        </div>
+        <div className="item">
+          <button className="link">
+            Productivity
+          </button>
+        </div>
+        <div className="item">
+          <button className="link">
+            Daily Journal
+          </button>
         </div>
       </div>
 

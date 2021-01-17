@@ -1,18 +1,46 @@
 /* Widgets */
 .welcome-block {
-  @apply bg-white bg-opacity-60 w-2/3 font-sans rounded-lg text-gray-700 h-64;
+  @apply bg-white bg-opacity-60 w-2/3 font-sans rounded-lg text-gray-700 h-full;
 }
 
 .weather-widget {
-  @apply bg-gradient-to-bl from-pink-400 via-pink-500 to-pink-600 transform hover:scale-95 transition duration-300;
-  @apply flex flex-col rounded-lg my-6 mr-6 p-8 bg-red-300 text-white w-2/4;
+  @apply flex flex-col rounded-lg text-white w-2/4 my-6 mr-6 p-7;
+  @apply transform hover:scale-95 transition duration-300 bg-gradient-to-bl from-pink-400 via-pink-500 to-pink-600;
 }
 
 .wod-widget {
-  @apply w-1/3 font-sans shadow rounded-lg text-gray-100 h-64 ml-6;
+  @apply w-1/3 font-sans shadow rounded-lg text-gray-100 ml-6;
   @apply bg-gradient-to-br from-teal-400 via-teal-500 to-teal-600;
 }
 
+.week-widget {
+  @apply section-bg flex border border-gray-200 rounded-lg;
+}
+
+.week-widget-section {
+  @apply flex flex-col pb-8 pl-8 pt-6 w-3/4;
+}
+
+.week-widget-header {
+  @apply text-xl font-semibold;
+}
+
+.week-widget-dates {
+  @apply flex flex-row pt-6 text-sm flex-wrap w-full;
+}
+
+.week-widget-dates .item {
+  @apply text-sm py-4 text-gray-600 w-16 text-center;
+}
+
+.week-widget-dates .item.first {
+  @apply pl-0;
+}
+
+.week-widget-dates .item.current {
+  @apply text-teal-500 font-semibold;
+}
+
 .today-event-widget {
-  @apply flex flex-col w-full p-6 text-gray-600 border-l rounded-lg;
+  @apply flex flex-col w-1/3 text-gray-600 xl:rounded p-6 xl:border-l border-gray-300;
 }

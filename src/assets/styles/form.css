@@ -28,6 +28,6 @@
   @apply transition ease-in-out duration-150 bg-teal-600 hover:bg-teal-700 focus:border-teal-700 active:bg-teal-700;
 }
 
-.guest-form {
-  @apply px-28 mt-4 mb-4;
+.auth-form {
+  @apply px-10 xs:px-20 sm:px-28 mt-4 mb-4;
 }

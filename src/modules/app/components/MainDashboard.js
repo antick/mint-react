@@ -16,7 +16,7 @@ const MainDashboard = () => {
   const today = new Date().toDateString();
 
   return (
-    <div className="p-5 bg-white bg-opacity-60 rounded-br-xl">
+    <div className="p-5 bg-white bg-opacity-60 rounded-br-xl min-h-screen">
       <div className="flex">
         <Motion type="1" className="welcome-block">
           <div className="flex">
@@ -37,13 +37,15 @@ const MainDashboard = () => {
               <div className="flex font-semibold">
                 Weather today in Olympus, Mars
               </div>
-              <div className="flex flex-row pt-4 justify-center">
-                <div>
-                  <SvgIcon name="air" classes="w-20 h-20 text-white" />
-                  <span className="p-4">Windy</span>
-                </div>
-                <div className="pt-3 pl-8 text-4xl font-semibold">
-                  40 / 28 °C
+              <div className="justify-start items-center">
+                <div className="flex flex-row mt-4">
+                  <div className="flex flex-col items-center">
+                    <SvgIcon name="air" classes="w-16 h-16 text-white" />
+                    <span>Windy</span>
+                  </div>
+                  <div className="text-3xl 2xl:text-5xl ml-6 mt-4 font-semibold">
+                    28 <span className="text-2xl 2xl:text-4xl">°C</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -55,7 +57,7 @@ const MainDashboard = () => {
             <div className="font-semibold text-left text-gray-100">
               Word of the Day
             </div>
-            <div className="ml-8">
+            <div className="ml-6">
               <div className="font-semibold italic mt-5">
                 Repeat
               </div>
@@ -146,34 +148,34 @@ const MainDashboard = () => {
 
       <div className="flex">
         <div className="w-2/3 font-sans text-gray-700">
-          <Motion type="2" className="section-bg flex border border-gray-200 rounded-lg h-48">
-            <div className="flex flex-col p-8 pt-6 w-3/4">
-              <div className="text-xl font-semibold">
+          <Motion type="2" className="week-widget">
+            <div className="week-widget-section">
+              <div className="week-widget-header">
                 <h3 className="bg-gradient-to-b from-gray-800 via-gray-700 to-gray-600 bg-clip-text text-transparent">
                   This week
                 </h3>
                 <span className="text-sm items-center flex text-gray-500 font-normal">18 May - 24 May</span>
               </div>
-              <div className="flex flex-row pt-6 text-md">
-                <div className="text-sm border-r border-gray-300 py-4 px-8 pl-0 text-gray-600">
+              <div className="week-widget-dates">
+                <div className="item">
                   Mon <p className="text-center">18</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
+                <div className="item">
                   Tue <p className="text-gray-600 text-center">19</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-teal-500 font-semibold">
+                <div className="item current">
                   Wed <p className="text-center">20</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
+                <div className="item">
                   Thu <p className="text-center">21</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
+                <div className="item">
                   Fri <p className="text-center">22</p>
                 </div>
-                <div className="text-sm border-r border-gray-300 py-4 px-8 text-gray-600">
+                <div className="item">
                   Sat <p className="text-center">23</p>
                 </div>
-                <div className="text-sm py-4 px-8 text-gray-600">
+                <div className="item">
                   Sun <p className="text-center">24</p>
                 </div>
               </div>
@@ -221,7 +223,7 @@ const MainDashboard = () => {
         <Motion type="3" className="section-bg w-1/3 font-sans border border-gray-200 rounded-lg text-gray-700 ml-6">
           <div className="p-8">
             <div className="font-semibold text-left">Due Today</div>
-            <div className="text-sm ml-4 mt-5 text-gray-600">
+            <div className="text-sm ml-3 mt-5 text-gray-600">
               <ul>
                 <li className="py-2">
                   <CheckBox label="Make the design responsive"/>
@@ -243,7 +245,7 @@ const MainDashboard = () => {
             <div className="font-semibold text-left mt-5 text-red-500">
               Overdue
             </div>
-            <div className="text-sm ml-4 mt-5 text-gray-600">
+            <div className="text-sm ml-3 mt-5 text-gray-600">
               <ul>
                 <li className="py-2">
                   <CheckBox label="Throw out the smelly trash"/>

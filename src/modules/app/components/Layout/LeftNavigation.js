@@ -13,7 +13,7 @@ const LeftNavigation = () => {
       <Link
         to={route.path}
         key={index}
-        className={`left-nav-item ${location.pathname === route.path ? 'left-nav-active' : ''}`}
+        className={`nav-left-item ${location.pathname === route.path ? 'nav-left-active' : ''}`}
         title={route.menu.title}
       >
         <div className="flex flex-col">
@@ -29,7 +29,7 @@ const LeftNavigation = () => {
     ));
 
   return (
-    <nav className="left-nav-detached">
+    <nav className="nav-left">
       <div className="flex justify-center mt-6">
         <div className="nav-avatar">
           <Link to="/profile">
@@ -37,7 +37,7 @@ const LeftNavigation = () => {
           </Link>
         </div>
       </div>
-      <Motion type="4" className="left-nav-menu">
+      <Motion type="4" className="nav-left-menu">
         {leftNavigationLinks}
       </Motion>
     </nav>

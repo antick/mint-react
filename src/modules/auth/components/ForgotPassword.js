@@ -50,7 +50,7 @@ const ForgotPassword = () => {
 
               {alert}
 
-              <Form data-testid="forgot-password-form" className="guest-form">
+              <Form data-testid="forgot-password-form" className="auth-form">
                 <div className="mb-8">
                   <label className="input-label-top" htmlFor="email">Email</label>
                   <Field
