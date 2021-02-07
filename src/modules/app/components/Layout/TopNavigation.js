@@ -13,100 +13,14 @@ const TopNavigation = ({ history }) => {
     <nav className="top">
       <div className="menu">
         <div className="item">
-          <div className="group">
-            <button className="link flex items-center">
-              Crazy Stuff
-              <SvgIcon
-                name="arrow"
-                classes="w-4 h-4 mt-1 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
-              />
-            </button>
-            <ul className="multi-menu scale-0 group-hover:scale-100 transform transition duration-150 ease-in-out">
-              <li className="multi-menu-item">
-                <div className="multi-menu-icon">
-                  <SvgIcon name="cog" classes="w-6 h-6" />
-                </div>
-                <div className="multi-menu-text">
-                  <p className="font-semibold">Appearance</p>
-                  <p className="text-sm">Easy customization</p>
-                </div>
-              </li>
-              <li className="multi-menu-item">
-                <div className="multi-menu-icon">
-                  <SvgIcon name="cog" classes="w-6 h-6" />
-                </div>
-                <div className="multi-menu-text">
-                  <p className="font-semibold">Comments</p>
-                  <p className="text-sm">Check your latest comments</p>
-                </div>
-              </li>
-              <li className="multi-menu-item">
-                <div className="multi-menu-icon">
-                  <SvgIcon name="cog" classes="w-6 h-6" />
-                </div>
-                <div className="multi-menu-text">
-                  <p className="font-semibold">Analytics</p>
-                  <p className="text-sm">Take a look at your statistics</p>
-                </div>
-              </li>
-              <li className="multi-menu-item">
-                <div className="multi-menu-icon">
-                  <SvgIcon name="cog" classes="w-6 h-6" />
-                </div>
-                <div className="multi-menu-text">
-                  <p className="font-semibold">Analytics</p>
-                  <p className="text-sm">Take a look at your statistics</p>
-                </div>
-              </li>
-              <li className="multi-sub-menu">
-                <button className="w-full text-left flex items-center outline-none focus:outline-none">
-                  <span className="pr-1 flex-1">Too many stuff</span>
-                  <span className="mr-auto">
-                    <SvgIcon name="arrow" classes="w-4 h-4 transition duration-150 ease-in-out" />
-                  </span>
-                </button>
-                <ul className="sub-menu">
-                  <li className="px-3 py-1 hover:bg-gray-100">
-                    <button className="sub-menu-button">Funny Stuff</button>
-                  </li>
-                  <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
-                    <button className="w-full text-left flex items-center outline-none focus:outline-none">
-                      <span className="pr-1 flex-1">
-                        <span className="sub-menu-button">Garden</span>
-                      </span>
-                      <span className="mr-auto">
-                        <SvgIcon name="arrow" classes="w-4 h-4 transition duration-150 ease-in-out" />
-                      </span>
-                    </button>
-                    <ul className="sub-menu">
-                      <li className="px-3 py-1 hover:bg-gray-100">
-                        <button className="sub-menu-button">Static Data</button>
-                      </li>
-                      <li className="px-3 py-1 hover:bg-gray-100">
-                        <button className="sub-menu-button">Expenses</button>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="px-3 py-1 hover:bg-gray-100">
-                    <button className="sub-menu-button">Creativity</button>
-                  </li>
-                  <li className="px-3 py-1 hover:bg-gray-100">
-                    <button className="sub-menu-button">Submenu Link #4</button>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="item">
           <button className="link">
-            Entertainment
+            Documents
           </button>
         </div>
         <div className="item">
           <div className="group">
             <button className="link flex items-center">
-              Photos
+              Multi Menu
               <SvgIcon
                 name="arrow"
                 classes="w-4 h-4 mt-1 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
@@ -127,8 +41,8 @@ const TopNavigation = ({ history }) => {
                   <SvgIcon name="cog" classes="w-6 h-6" />
                 </div>
                 <div className="multi-menu-text">
-                  <p className="font-semibold">Comments</p>
-                  <p className="text-sm">Check your latest comments</p>
+                  <p className="font-semibold">Settings</p>
+                  <p className="text-sm">Update your settings</p>
                 </div>
               </li>
               <li className="multi-menu-item">
@@ -136,8 +50,8 @@ const TopNavigation = ({ history }) => {
                   <SvgIcon name="cog" classes="w-6 h-6" />
                 </div>
                 <div className="multi-menu-text">
-                  <p className="font-semibold">Analytics</p>
-                  <p className="text-sm">Take a look at your statistics</p>
+                  <p className="font-semibold">Item 1</p>
+                  <p className="text-sm">This is your item 1</p>
                 </div>
               </li>
 
@@ -146,14 +60,14 @@ const TopNavigation = ({ history }) => {
                   <SvgIcon name="cog" classes="w-6 h-6" />
                 </div>
                 <div className="multi-menu-text">
-                  <p className="font-semibold">Analytics</p>
-                  <p className="text-sm">Take a look at your statistics</p>
+                  <p className="font-semibold">Item 2</p>
+                  <p className="text-sm">Take a look at your item</p>
                 </div>
               </li>
 
               <li className="multi-sub-menu">
                 <button className="w-full text-left flex items-center outline-none focus:outline-none">
-                  <span className="pr-1 flex-1">Too many stuff</span>
+                  <span className="pr-1 flex-1">Sub menu</span>
                   <span className="mr-auto">
                     <SvgIcon name="arrow" classes="w-4 h-4 transition duration-150 ease-in-out" />
                   </span>
@@ -193,12 +107,12 @@ const TopNavigation = ({ history }) => {
         </div>
         <div className="item">
           <button className="link">
-            Productivity
+            My Profile
           </button>
         </div>
         <div className="item">
           <button className="link">
-            Daily Journal
+            Settings
           </button>
         </div>
       </div>

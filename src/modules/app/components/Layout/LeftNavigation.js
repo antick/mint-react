@@ -4,24 +4,26 @@ import { Link, useLocation } from 'react-router-dom';
 import Motion from '../../../shared/components/Motion';
 import routes from '../../../../config/routes';
 
+const onlyPrivateLeftMenu = route => get(route, 'menu.visible.left', false) && !get(route, 'public', false);
+
 const LeftNavigation = () => {
   const location = useLocation();
 
-  const leftNavigationLinks = routes
-    .filter(route => get(route, 'menu.visible.left', false) && !get(route, 'public', false))
+  const navLinks = routes
+    .filter(onlyPrivateLeftMenu)
     .map((route, index) => (
       <Link
         to={route.path}
         key={index}
-        className={`nav-left-item ${location.pathname === route.path ? 'nav-left-active' : ''}`}
+        className={`item${location.pathname === route.path ? ' active' : ''}`}
         title={route.menu.title}
       >
-        <div className="flex flex-col">
-          <div className="flex justify-center">
+        <div className="links">
+          <div className="icon">
             {route.menu.icon}
           </div>
 
-          <span className="text-gray-600 font-medium mt-2 font-noto text-sm tracking-wide">
+          <span className="title">
             {route.menu.title}
           </span>
         </div>
@@ -29,16 +31,16 @@ const LeftNavigation = () => {
     ));
 
   return (
-    <nav className="nav-left">
-      <div className="flex justify-center mt-6">
-        <div className="nav-avatar">
-          <Link to="/profile">
-            <img className="w-full h-auto absolute" src={'./images/avatar.jpg'} alt="avatar" />
+    <nav className="left">
+      <div className="profile">
+        <div className="avatar">
+          <Link to="/profile" title="Update Profile">
+            <img className="picture" src={'./images/avatar.jpg'} alt="avatar" />
           </Link>
         </div>
       </div>
-      <Motion type="4" className="nav-left-menu">
-        {leftNavigationLinks}
+      <Motion type="4" className="menu">
+        {navLinks}
       </Motion>
     </nav>
   );
