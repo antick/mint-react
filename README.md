@@ -27,7 +27,7 @@ A beautifully crafted boilerplate for starting a React JS and Tailwind css proje
 
 Clone the repo:
 
-`git clone https://github.com/pankajsanam/mint-react.git`.
+`git clone https://github.com/antick/mint-react.git`.
 
 Run `npm install` to install all the dependencies.
 

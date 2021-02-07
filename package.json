@@ -17,7 +17,7 @@
   ],
   "description": "A react + tailwind css boilerplate",
   "license": "MIT License",
-  "repository": "https://github.com/pankajsanam/mint-react.git",
+  "repository": "https://github.com/antick/mint-react.git",
   "scripts": {
     "watch:css": "postcss src/assets/index.css -o public/style.css --watch --max_old_space_size=8192",
     "start": "cross-env PORT=3001 react-scripts start",
