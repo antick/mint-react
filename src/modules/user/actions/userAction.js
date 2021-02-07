@@ -1,31 +1,17 @@
 import axios from 'axios';
 import { CLEAR } from '../../shared/actions/types/alertType';
 import {
-  LOGOUT,
-  SUBMITTING,
-  RESET_PASSWORD,
-  RESET_PASSWORD_FAILURE,
-  FORGOT_PASSWORD_REQUEST,
-  GET_REQUEST,
-  GET_SUCCESS,
-  GET_FAILURE,
-  GET_ALL_REQUEST,
-  GET_ALL_SUCCESS,
-  GET_ALL_FAILURE,
-  UPDATE_REQUEST,
-  UPDATE_SUCCESS,
-  UPDATE_FAILURE,
-  DELETE_REQUEST,
-  DELETE_SUCCESS,
-  DELETE_FAILURE,
-  REGISTER_REQUEST,
-  REGISTER_SUCCESS,
-  REGISTER_FAILURE,
-  TOKEN_REFRESHED,
-  TOKEN_REMOVED,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE, LOGIN_REQUEST
+  LOGOUT, SUBMITTING, UPDATE_PROFILE_REQUEST,
+  RESET_PASSWORD, RESET_PASSWORD_FAILURE, FORGOT_PASSWORD_REQUEST,
+  GET_REQUEST, GET_SUCCESS, GET_FAILURE,
+  GET_ALL_REQUEST, GET_ALL_SUCCESS, GET_ALL_FAILURE,
+  UPDATE_REQUEST, UPDATE_SUCCESS, UPDATE_FAILURE,
+  DELETE_REQUEST, DELETE_SUCCESS, DELETE_FAILURE,
+  REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE,
+  TOKEN_REFRESHED, TOKEN_REMOVED,
+  LOGIN_SUCCESS, LOGIN_FAILURE, LOGIN_REQUEST, UPDATE_PROFILE_SUCCESS, UPDATE_PROFILE_FAILURE
 } from './types/userType';
+import { SET_AVATAR } from './types/avatarType';
 import alertAction from '../../shared/actions/alertAction';
 import auth from '../../auth/utilities/authUtility';
 import { action } from '../../shared/utilities/actionUtility';
@@ -140,8 +126,19 @@ const resetPasswordByToken = (history, token, password) => dispatch => {
 const getById = id => dispatch => {
   dispatch(action(GET_REQUEST));
 
-  axios.get(`users/${id}`)
+  axios.get(`user/${id}`)
     .then(users => dispatch(action(GET_SUCCESS, users.data)))
+    .catch(error => dispatch(action(GET_FAILURE, null, error.response.data.message)));
+};
+
+const getProfile = () => dispatch => {
+  dispatch(action(GET_REQUEST));
+
+  axios.get('user/profile')
+    .then(user => {
+      dispatch(action(GET_SUCCESS, user.data));
+      dispatch(action(SET_AVATAR, user.data.avatar && `http://localhost:3002/uploads/${user.data.avatar}`));
+    })
     .catch(error => dispatch(action(GET_FAILURE, null, error.response.data.message)));
 };
 
@@ -156,15 +153,24 @@ const getAll = () => dispatch => {
 const update = user => dispatch => {
   dispatch(action(UPDATE_REQUEST));
 
-  axios.put(`users/${user.id}`, { body: JSON.stringify(user) })
+  axios.put(`user/${user.id}`, { body: JSON.stringify(user) })
     .then(users => dispatch(action(UPDATE_SUCCESS, users.data)))
     .catch(error => dispatch(action(UPDATE_FAILURE, null, error.response.data.message)));
+};
+
+const updateProfile = formData => dispatch => {
+  dispatch(action(SUBMITTING));
+  dispatch(action(UPDATE_PROFILE_REQUEST));
+
+  axios.put('user/profile', formData)
+    .then(users => dispatch(action(UPDATE_PROFILE_SUCCESS, users.data)))
+    .catch(error => dispatch(action(UPDATE_PROFILE_FAILURE, null, error.response.data.message)));
 };
 
 const deleteUser = id => dispatch => {
   dispatch(action(DELETE_REQUEST, id));
 
-  axios.delete(`users/${id}`)
+  axios.delete(`user/${id}`)
     .then(() => dispatch(action(DELETE_SUCCESS, id)))
     .catch(error => dispatch(action(DELETE_FAILURE, id, error.response.data.message)));
 };
@@ -173,7 +179,9 @@ export default {
   resetPasswordByToken,
   delete: deleteUser,
   forgotPassword,
+  updateProfile,
   refreshTokens,
+  getProfile,
   register,
   getById,
   logout,
