@@ -33,7 +33,7 @@ const ResetPassword = ({ history }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const alert = useAlert();
-  const passwordSelector = useSelector(state => state.password);
+  const passwordSelector = useSelector(state => state.passwordReducer);
 
   const handleChangePassword = values => {
     const { password, confirmPassword } = values;

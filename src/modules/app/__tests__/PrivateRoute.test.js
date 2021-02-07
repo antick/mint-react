@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from '../../../store';
 import PrivateRoute from '../components/PrivateRoute';
-import MainContainer from '../components/Layout/MainContainer';
+import Container from '../components/Layout/Container';
 import auth from '../../auth/utilities/authUtility';
 
 describe('the PrivateRoute component', () => {
@@ -19,13 +19,13 @@ describe('the PrivateRoute component', () => {
           <PrivateRoute
             exact
             path='/'
-            component={MainContainer}
+            component={Container}
           />
         </Router>
       </Provider>
     );
 
-    expect(wrapper.find(MainContainer)).toHaveLength(1);
+    expect(wrapper.find(Container)).toHaveLength(1);
   });
 
   it('should not render the protected component', () => {
@@ -37,12 +37,12 @@ describe('the PrivateRoute component', () => {
           <PrivateRoute
             exact
             path='/'
-            component={MainContainer}
+            component={Container}
           />
         </Router>
       </Provider>
     );
 
-    expect(wrapper.find(MainContainer)).toHaveLength(0);
+    expect(wrapper.find(Container)).toHaveLength(0);
   });
 });

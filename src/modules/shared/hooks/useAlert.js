@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
  * @returns {JSX.Element}
  */
 const useAlert = () => {
-  const alert = useSelector(state => state.alert);
+  const alert = useSelector(state => state.alertReducer);
 
   return (
     <>

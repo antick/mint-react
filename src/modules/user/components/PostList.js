@@ -11,7 +11,7 @@ const PostList = () => {
     dispatch(postsAction.fetchPosts());
   }, [dispatch]);
 
-  const { loading, hasErrors, posts } = useSelector(state => state.posts);
+  const { loading, hasErrors, posts } = useSelector(state => state.postReducer);
 
   const renderPosts = () => {
     if (loading) {

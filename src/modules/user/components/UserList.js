@@ -16,7 +16,7 @@ const UserList = () => {
     dispatch(userActions.delete(id));
   }
 
-  const users = useSelector(state => state.users);
+  const users = useSelector(state => state.userReducer);
 
   return (
     <main className="main-content">

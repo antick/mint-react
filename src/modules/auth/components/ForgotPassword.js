@@ -24,7 +24,7 @@ const validationSchema = Yup.object().shape({
 const ForgotPassword = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
-  const password = useSelector(state => state.password);
+  const password = useSelector(state => state.passwordReducer);
 
   const handlePasswordRequestSubmission = inputs => {
     const { email } = inputs;

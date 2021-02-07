@@ -1,10 +1,10 @@
 import React from 'react';
-import MainDashboard from './components/MainDashboard';
+import Dashboard from './components/Dashboard';
 import SvgIcon from '../shared/components/SvgIcon';
 
 export default [
   {
-    component: MainDashboard,
+    component: Dashboard,
     path: '/',
     exact: true,
     menu: {
