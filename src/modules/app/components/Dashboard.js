@@ -11,7 +11,7 @@ import Motion from '../../shared/components/Motion';
 import CheckBox from '../../shared/components/Form/CheckBox';
 import SvgIcon from '../../shared/components/SvgIcon';
 
-const MainDashboard = () => {
+const Dashboard = () => {
   const data = faker.chartData();
   const today = new Date().toDateString();
 
@@ -257,7 +257,7 @@ const MainDashboard = () => {
                   <CheckBox label="Buy a new headphone"/>
                 </li>
                 <li className="py-2">
-                  <CheckBox label="Drink immortality elixir"/>
+                  <CheckBox label="Brew immortality elixir"/>
                 </li>
               </ul>
             </div>
@@ -268,4 +268,4 @@ const MainDashboard = () => {
   );
 };
 
-export default MainDashboard;
+export default Dashboard;

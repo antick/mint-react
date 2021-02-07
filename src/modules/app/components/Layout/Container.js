@@ -6,7 +6,7 @@ import TopNavigation from './TopNavigation';
 import LeftNavigation from './LeftNavigation';
 import routes from '../../../../config/routes';
 
-const MainContainer = ({ history }) => {
+const Container = ({ history }) => {
   const Header = (
     <header className="flex w-full">
       <TopNavigation history={history} />
@@ -44,8 +44,8 @@ const MainContainer = ({ history }) => {
   );
 };
 
-MainContainer.propTypes = {
+Container.propTypes = {
   history: PropTypes.object
 };
 
-export default MainContainer;
+export default Container;

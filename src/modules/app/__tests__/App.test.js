@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import App from '../components/App';
 import LeftNavigation from '../components/Layout/LeftNavigation';
-import MainContainer from '../components/Layout/MainContainer';
+import Container from '../components/Layout/Container';
 import store, { history } from '../../../store';
 
 const configuredStore = store();
@@ -33,8 +33,8 @@ describe('the LeftNavigation component', () => {
   });
 });
 
-describe('the MainContainer component', () => {
+describe('the Container component', () => {
   it('should render without crashing', () => {
-    shallow(<MainContainer />);
+    shallow(<Container />);
   });
 });
