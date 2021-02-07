@@ -30,6 +30,7 @@ const validationSchema = Yup.object().shape({
 
 const Profile = () => {
   const title = 'Profile';
+
   const initialValues = useRef({
     name: '',
     email: '',
