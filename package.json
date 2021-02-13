@@ -24,40 +24,18 @@
     "lint": "eslint ./src/ --ignore-path .gitignore",
     "test": "npm run lint && jest -i --coverage",
     "test:e2e": "cypress open",
+    "test:watch": "jest --watchAll",
+    "test:default": "react-scripts test",
     "lint:fix": "npm run lint --fix",
     "lint:watch": "npm run lint --watch",
     "build:css": "tailwind build src/assets/index.css -o public/style.css",
-    "test:watch": "jest --watchAll",
-    "test:default": "react-scripts test",
     "build": "react-scripts build",
     "build:prod": "cross-env npm run build",
     "coverage": "jest -i --coverage",
     "coverage:coveralls": "jest -i --coverage --coverageReporters=text-lcov | coveralls",
     "docker": "docker-compose -f docker-compose.yml up",
     "docker:test": "docker-compose -f docker-compose.yml -f docker-compose.test.yml up",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run lint && npm run test"
-    }
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "*.js"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "statements": 67.71,
-        "branches": 63.95,
-        "functions": 53.54,
-        "lines": 69.43
-      }
-    }
+    "install:clean": "rm -rf node_modules/ && rm -f package-lock.json && npm install"
   },
   "browserslist": {
     "production": [
@@ -75,7 +53,7 @@
     "@tailwindcss/forms": "^0.2.1",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.6.3",
+    "@testing-library/user-event": "^12.7.0",
     "@vx/group": "0.0.199",
     "@vx/mock-data": "0.0.199",
     "@vx/scale": "0.0.199",
@@ -85,7 +63,7 @@
     "connected-react-router": "^6.8.0",
     "cross-env": "^7.0.3",
     "formik": "^2.2.6",
-    "framer": "^1.2.20",
+    "framer": "^1.2.22",
     "framer-motion": "^3.3.0",
     "history": "4.10.1",
     "js-cookie": "^2.2.1",
@@ -106,13 +84,13 @@
     "redux": "^4.0.5",
     "redux-logger": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "victory": "^35.4.8",
+    "victory": "^35.4.9",
     "viser-react": "^2.4.8",
     "yup": "^0.32.8"
   },
   "devDependencies": {
     "@babel/plugin-transform-modules-commonjs": "^7.12.13",
-    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-env": "^7.12.16",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
     "autoprefixer": "^10.2.4",
     "babel-cli": "^6.26.0",
@@ -123,7 +101,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.6.1",
-    "eslint": "^7.19.0",
+    "eslint": "^7.20.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-import": "^2.22.1",
@@ -131,13 +109,13 @@
     "eslint-plugin-jest-dom": "^3.6.5",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-testing-library": "^3.10.1",
-    "husky": "^4.3.8",
+    "husky": "^5.0.9",
     "jest": "^26.6.3",
     "jest-css-modules-transform": "^4.2.0",
     "jest-svg-transformer": "^1.0.0",
     "js-base64": "^2.6.4",
     "path": "^0.12.7",
-    "postcss": "^8.2.5",
+    "postcss": "^8.2.6",
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.0",
     "prettier": "^2.2.1",
@@ -145,6 +123,6 @@
     "react-test-renderer": "^17.0.1",
     "redux-devtools": "^3.7.0",
     "redux-devtools-extension": "^2.13.8",
-    "tailwindcss": "^2.0.2"
+    "tailwindcss": "^2.0.3"
   }
 }

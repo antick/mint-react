@@ -2,8 +2,14 @@
 
 All notable changes to this project will be documented in this file. 
 
-## 1.0.0 (Not Released Yet)
+### 0.1.0 (April 8, 2021)
 
-###### Oct 8, 2020
+###### New features
 
-- First stable release
+- First stable release.
+- 
+
+###### Removed features
+###### Added dependencies
+###### Removed dependencies
+###### Bug fixes

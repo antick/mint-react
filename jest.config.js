@@ -1,4 +1,16 @@
 module.exports = {
+  coveragePathIgnorePatterns: ['node_modules', 'src/assets', '__tests__'],
+  coverageReporters: ['text', 'lcov', 'clover', 'html'],
+  coverageThreshold: {
+    global: {
+      statements: 57.51,
+      branches: 49.36,
+      functions: 44.37,
+      lines: 58.07
+    }
+  },
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  testPathIgnorePatterns: ['cypress'],
   transform: {
     '^.+\\.(js|jsx)$': 'babel-jest',
     '^.+\\.svg$': 'jest-svg-transformer',
@@ -6,9 +18,5 @@ module.exports = {
   },
   transformIgnorePatterns: [
     '/node_modules/(?!react-images-upload).+\\.js$'
-  ],
-  coveragePathIgnorePatterns: ['node_modules', 'src/assets', '__tests__'],
-  testPathIgnorePatterns: ['cypress'],
-  coverageReporters: ['text', 'lcov', 'clover', 'html'],
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js']
+  ]
 };
